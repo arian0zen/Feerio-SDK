@@ -34,7 +34,7 @@ const ChangelogWidget = ({
       try {
         setFetching(true);
         const { data: fetchedData } = await axios.post(
-          `${BASE_URL}/fetch-changelogs`,
+          `${BASE_URL}/sdk/fetch-changelogs`,
           {
             workspaceId: workspaceId || "665ae023-277e-4b15-bf0d-55351c7cbf96",
             skip: 0,

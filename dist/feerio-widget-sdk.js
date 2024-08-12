@@ -50,12 +50,17 @@
 		return react_production_min;
 	}
 
-	{
-	  react.exports = requireReact_production_min();
-	}
+	var hasRequiredReact;
 
-	var reactExports = react.exports;
-	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
+	function requireReact () {
+		if (hasRequiredReact) return react.exports;
+		hasRequiredReact = 1;
+
+		{
+		  react.exports = requireReact_production_min();
+		}
+		return react.exports;
+	}
 
 	/**
 	 * @license React
@@ -72,7 +77,7 @@
 	function requireReactJsxRuntime_production_min () {
 		if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 		hasRequiredReactJsxRuntime_production_min = 1;
-	var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+	var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 		function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 		return reactJsxRuntime_production_min;
 	}
@@ -148,7 +153,7 @@
 	function requireReactDom_production_min () {
 		if (hasRequiredReactDom_production_min) return reactDom_production_min;
 		hasRequiredReactDom_production_min = 1;
-	var aa=reactExports,ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
+	var aa=requireReact(),ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
 		function ha(a,b){ea[a]=b;for(a=0;a<b.length;a++)da.add(b[a]);}
 		var ia=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ja=Object.prototype.hasOwnProperty,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,la=
 		{},ma={};function oa(a){if(ja.call(ma,a))return !0;if(ja.call(la,a))return !1;if(ka.test(a))return ma[a]=!0;la[a]=!0;return !1}function pa(a,b,c,d){if(null!==c&&0===c.type)return !1;switch(typeof b){case "function":case "symbol":return !0;case "boolean":if(d)return !1;if(null!==c)return !c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return "data-"!==a&&"aria-"!==a;default:return !1}}
@@ -517,6 +522,9 @@
 	    var e = new Error(message);
 	    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 	};
+
+	var reactExports = requireReact();
+	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 	// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
 	// export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
@@ -4346,8 +4354,8 @@
 	  }
 	}
 
-	var css_248z$1 = "@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap\");\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em {\r\n  --bg-color: #191919;\r\n  --text-color: #ffffff;\r\n  --border-color: #333;\r\n  --description-color: #a0a0a0;\r\n  --meta-color: #666;\r\n  --link-color: #108f62;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #888;\r\n  --hover-bg: rgba(192, 192, 192, 0.068);\r\n\r\n  position: absolute;\r\n  width: 350px;\r\n  max-height: 420px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  background-color: var(--bg-color);\r\n  color: var(--text-color);\r\n  animation: ChangelogWidget-module_fadeUp__DY6mJ 0.5s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n  overflow: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em.ChangelogWidget-module_light__nyxBe {\r\n  --bg-color: #ffffff;\r\n  --text-color: #333333;\r\n  --border-color: #e0e0e0;\r\n  --description-color: #666666;\r\n  --meta-color: #888888;\r\n  --link-color: #0077b6;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #c1c1c1;\r\n  --hover-bg: rgba(27, 24, 24, 0.068);\r\n}\r\n\r\n.ChangelogWidget-module_title__G2GEB {\r\n  font-size: 15px;\r\n  font-weight: 500;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  left: 18px;\r\n  margin-top: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI:hover {\r\n  color: var(--link-color);\r\n}\r\n\r\n.ChangelogWidget-module_detailsContainer__5A3py {\r\n  max-height: 337px;\r\n  position: relative;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  gap: 8px;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  max-height: 124px;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: rgba(212, 203, 203, 0.726);\r\n}\r\n/* // for dark mode */\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: var(--hover-bg);\r\n}\r\n\r\n.ChangelogWidget-module_changelogLabels__4Wd3i {\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n  display: flex;\r\n  flex-direction: row;\r\n  gap: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_label__OtlCM {\r\n  padding: 2px 4px;\r\n  border-radius: 4px;\r\n  color: #ffffff;\r\n}\r\n\r\n.ChangelogWidget-module_changelogContent__tnOXH {\r\n  flex-grow: 1;\r\n}\r\n\r\n.ChangelogWidget-module_changelogTitle__Do01T {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin-bottom: 4px;\r\n  display: flex;\r\n  gap: 4px;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.ChangelogWidget-module_changelogDescription__oBiG- {\r\n  font-size: 13px;\r\n  color: var(--description-color);\r\n  line-height: 1.3;\r\n}\r\n\r\n.ChangelogWidget-module_changelogMeta__aSNB9 {\r\n  font-size: 10px;\r\n  color: var(--meta-color);\r\n  display: flex;\r\n  gap: 8px;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_footer__CxPIL {\r\n  font-size: 12px;\r\n  color: var(--meta-color);\r\n  padding: 8px 16px;\r\n  border-top: 1px solid var(--border-color);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: sticky;\r\n}\r\n\r\n.ChangelogWidget-module_poweredBy__2jAss {\r\n  font-style: italic;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4 {\r\n  color: var(--link-color);\r\n  text-decoration: none;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.ChangelogWidget-module_no-scrollbar__CGyym::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar {\r\n  width: 5px;\r\n  height: 5px;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-track {\r\n  background-color: var(--scrollbar-bg);\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-thumb {\r\n  background-color: var(--scrollbar-thumb);\r\n}\r\n\r\n/* -----change log details----- */\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  overflow-y: auto;\r\n  border-radius: 8px;\r\n  animation: ChangelogWidget-module_slideLeft__7sULw 0.5s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n}\r\n\r\n/* ------ slide animations ------ */\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ,\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  transition: transform 0.3s ease-in-out;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  transform: translateX(0);\r\n}\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  position: absolute;\r\n  left: 100%;\r\n  top: 0;\r\n  transform: translateX(100%);\r\n}\r\n\r\n/* Sliding animations */\r\n.ChangelogWidget-module_slideOut__-h1DS {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n.ChangelogWidget-module_slideIn__9A2ri {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n/* Fade animation for the back button */\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  opacity: 0;\r\n  transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI.ChangelogWidget-module_visible__nPxtF {\r\n  opacity: 1;\r\n}\r\n\r\n/* ---- animation.css ---- */\r\n\r\n@keyframes ChangelogWidget-module_fadeUp__DY6mJ {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* animation for slide :left */\r\n@keyframes ChangelogWidget-module_slideLeft__7sULw {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateX(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateX(0);\r\n  }\r\n}\r\n";
-	var styles$1 = {"changelogWidget":"ChangelogWidget-module_changelogWidget__gj8Em","fadeUp":"ChangelogWidget-module_fadeUp__DY6mJ","light":"ChangelogWidget-module_light__nyxBe","title":"ChangelogWidget-module_title__G2GEB","backButton":"ChangelogWidget-module_backButton__VASBI","detailsContainer":"ChangelogWidget-module_detailsContainer__5A3py","changelogList":"ChangelogWidget-module_changelogList__T8cTJ","changelogItem":"ChangelogWidget-module_changelogItem__dS8zY","changelogLabels":"ChangelogWidget-module_changelogLabels__4Wd3i","label":"ChangelogWidget-module_label__OtlCM","changelogContent":"ChangelogWidget-module_changelogContent__tnOXH","changelogTitle":"ChangelogWidget-module_changelogTitle__Do01T","changelogDescription":"ChangelogWidget-module_changelogDescription__oBiG-","changelogMeta":"ChangelogWidget-module_changelogMeta__aSNB9","footer":"ChangelogWidget-module_footer__CxPIL","poweredBy":"ChangelogWidget-module_poweredBy__2jAss","link":"ChangelogWidget-module_link__jgXj4","no-scrollbar":"ChangelogWidget-module_no-scrollbar__CGyym","thinScrollbar":"ChangelogWidget-module_thinScrollbar__Kh3Ry","changelogDetails":"ChangelogWidget-module_changelogDetails__KUe3z","slideLeft":"ChangelogWidget-module_slideLeft__7sULw","slideOut":"ChangelogWidget-module_slideOut__-h1DS","slideIn":"ChangelogWidget-module_slideIn__9A2ri","visible":"ChangelogWidget-module_visible__nPxtF"};
+	var css_248z$1 = "@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap\");\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em {\r\n  --bg-color: #191919;\r\n  --text-color: #ffffff;\r\n  --border-color: #333;\r\n  --description-color: #a0a0a0;\r\n  --meta-color: #666;\r\n  --link-color: #108f62;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #888;\r\n  --hover-bg: rgba(192, 192, 192, 0.068);\r\n\r\n  position: absolute;\r\n  width: 350px;\r\n  max-height: 420px;\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  background-color: var(--bg-color);\r\n  color: var(--text-color);\r\n  animation: ChangelogWidget-module_fadeUp__DY6mJ 0.3s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n  overflow: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em.ChangelogWidget-module_light__nyxBe {\r\n  --bg-color: #ffffff;\r\n  --text-color: #333333;\r\n  --border-color: #e0e0e0;\r\n  --description-color: #666666;\r\n  --meta-color: #888888;\r\n  --link-color: #0077b6;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #c1c1c1;\r\n  --hover-bg: rgba(27, 24, 24, 0.068);\r\n}\r\n\r\n.ChangelogWidget-module_title__G2GEB {\r\n  font-size: 15px;\r\n  font-weight: 500;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  left: 18px;\r\n  margin-top: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI:hover {\r\n  color: var(--link-color);\r\n}\r\n\r\n.ChangelogWidget-module_detailsContainer__5A3py {\r\n  max-height: 337px;\r\n  position: relative;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  gap: 8px;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  max-height: 124px;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: rgba(212, 203, 203, 0.726);\r\n}\r\n/* // for dark mode */\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: var(--hover-bg);\r\n}\r\n\r\n.ChangelogWidget-module_changelogLabels__4Wd3i {\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n  display: flex;\r\n  flex-direction: row;\r\n  gap: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_label__OtlCM {\r\n  padding: 2px 4px;\r\n  border-radius: 4px;\r\n  color: #ffffff;\r\n}\r\n\r\n.ChangelogWidget-module_changelogContent__tnOXH {\r\n  flex-grow: 1;\r\n}\r\n\r\n.ChangelogWidget-module_changelogTitle__Do01T {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin-bottom: 4px;\r\n  display: flex;\r\n  gap: 4px;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.ChangelogWidget-module_changelogDescription__oBiG- {\r\n  font-size: 13px;\r\n  color: var(--description-color);\r\n  line-height: 1.3;\r\n}\r\n\r\n.ChangelogWidget-module_changelogMeta__aSNB9 {\r\n  font-size: 10px;\r\n  color: var(--meta-color);\r\n  display: flex;\r\n  gap: 8px;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_footer__CxPIL {\r\n  font-size: 12px;\r\n  color: var(--meta-color);\r\n  padding: 8px 16px;\r\n  border-top: 1px solid var(--border-color);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: sticky;\r\n}\r\n\r\n.ChangelogWidget-module_poweredBy__2jAss {\r\n  font-style: italic;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4 {\r\n  color: var(--link-color);\r\n  text-decoration: none;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.ChangelogWidget-module_noData__d-Fov {\r\n  padding: 4px;\r\n  text-align: center;\r\n  font-size: 12px;\r\n}\r\n\r\n.ChangelogWidget-module_no-scrollbar__CGyym::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar {\r\n  width: 5px;\r\n  height: 5px;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-track {\r\n  background-color: var(--scrollbar-bg);\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-thumb {\r\n  background-color: var(--scrollbar-thumb);\r\n}\r\n\r\n/* -----change log details----- */\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  overflow-y: auto;\r\n  border-radius: 8px;\r\n  animation: ChangelogWidget-module_slideLeft__7sULw 0.5s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n}\r\n\r\n/* ------ slide animations ------ */\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ,\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  transition: transform 0.3s ease-in-out;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  transform: translateX(0);\r\n}\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  position: absolute;\r\n  left: 100%;\r\n  top: 0;\r\n  transform: translateX(100%);\r\n}\r\n\r\n/* Sliding animations */\r\n.ChangelogWidget-module_slideOut__-h1DS {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n.ChangelogWidget-module_slideIn__9A2ri {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n/* Fade animation for the back button */\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  opacity: 0;\r\n  transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI.ChangelogWidget-module_visible__nPxtF {\r\n  opacity: 1;\r\n}\r\n\r\n/* ---- animation.css ---- */\r\n\r\n@keyframes ChangelogWidget-module_fadeUp__DY6mJ {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* animation for slide :left */\r\n@keyframes ChangelogWidget-module_slideLeft__7sULw {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateX(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateX(0);\r\n  }\r\n}\r\n";
+	var styles$1 = {"changelogWidget":"ChangelogWidget-module_changelogWidget__gj8Em","fadeUp":"ChangelogWidget-module_fadeUp__DY6mJ","light":"ChangelogWidget-module_light__nyxBe","title":"ChangelogWidget-module_title__G2GEB","backButton":"ChangelogWidget-module_backButton__VASBI","detailsContainer":"ChangelogWidget-module_detailsContainer__5A3py","changelogList":"ChangelogWidget-module_changelogList__T8cTJ","changelogItem":"ChangelogWidget-module_changelogItem__dS8zY","changelogLabels":"ChangelogWidget-module_changelogLabels__4Wd3i","label":"ChangelogWidget-module_label__OtlCM","changelogContent":"ChangelogWidget-module_changelogContent__tnOXH","changelogTitle":"ChangelogWidget-module_changelogTitle__Do01T","changelogDescription":"ChangelogWidget-module_changelogDescription__oBiG-","changelogMeta":"ChangelogWidget-module_changelogMeta__aSNB9","footer":"ChangelogWidget-module_footer__CxPIL","poweredBy":"ChangelogWidget-module_poweredBy__2jAss","link":"ChangelogWidget-module_link__jgXj4","noData":"ChangelogWidget-module_noData__d-Fov","no-scrollbar":"ChangelogWidget-module_no-scrollbar__CGyym","thinScrollbar":"ChangelogWidget-module_thinScrollbar__Kh3Ry","changelogDetails":"ChangelogWidget-module_changelogDetails__KUe3z","slideLeft":"ChangelogWidget-module_slideLeft__7sULw","slideOut":"ChangelogWidget-module_slideOut__-h1DS","slideIn":"ChangelogWidget-module_slideIn__9A2ri","visible":"ChangelogWidget-module_visible__nPxtF"};
 	styleInject(css_248z$1);
 
 	/*!
@@ -16691,7 +16699,7 @@
 	        const fetchChangelogsHandler = () => __awaiter(void 0, void 0, void 0, function* () {
 	            try {
 	                setFetching(true);
-	                const { data: fetchedData } = yield axios$2.post(`${BASE_URL}/fetch-changelogs`, {
+	                const { data: fetchedData } = yield axios$2.post(`${BASE_URL}/sdk/fetch-changelogs`, {
 	                    workspaceId: workspaceId || "665ae023-277e-4b15-bf0d-55351c7cbf96",
 	                    skip: 0,
 	                    limit: 3,
@@ -16831,12 +16839,59 @@
 	    }
 	};
 
-	var _a, _b, _c;
+	const generateIframeComponent = (options) => {
+	    let { workspaceSubdomain, boardUrls = [] } = options;
+	    // if boardUrls element is empty string remove that element
+	    boardUrls = boardUrls.filter((url) => url !== "");
+	    let boardUrlParam = boardUrls.length > 0 ? `?b=${boardUrls[0]}` : "";
+	    let iframeSrc = `${"http:" }//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
+	    /* <iframe src="${iframeSrc}" style="width: 100%; height: 100%; border: none;"></iframe> */
+	    let iframe = document.createElement("iframe");
+	    iframe.src = iframeSrc;
+	    iframe.style.width = "100%";
+	    iframe.style.height = "1000px";
+	    iframe.style.overflow = "scroll";
+	    iframe.style.border = "none";
+	    return iframe;
+	};
+	const renderPublicBoard = (options) => {
+	    //   ReactDOM.render(<PublicBoardWidget />, container);
+	    // instead of rendering the component render a iframe div with this url https://feedback.feerio.io/dashboard/board?b=integrations
+	    let { workspaceId, workspaceSubdomain, theme, boardUrls = [] } = options;
+	    boardUrls = boardUrls.filter((url) => url !== "");
+	    boardUrls.forEach((url) => {
+	        let dataAttributeStringForTheBoard = `data-feerio-board-${url}`;
+	        let element = document.querySelector(`[${dataAttributeStringForTheBoard}]`);
+	        if (!element) {
+	            console.error("Element not found for the board url", url);
+	            return;
+	        }
+	        let iframeComponent = generateIframeComponent({
+	            workspaceSubdomain,
+	            boardUrls: [url],
+	        });
+	        element.appendChild(iframeComponent);
+	    });
+	    let htmlElementForAllBoards = document.querySelector("[data-feerio-public-board]");
+	    if (htmlElementForAllBoards) {
+	        let iframeComponent = generateIframeComponent({
+	            workspaceSubdomain,
+	            boardUrls,
+	        });
+	        htmlElementForAllBoards.appendChild(iframeComponent);
+	    }
+	};
+
+	var _a;
 	const initializeChangelog = (options) => {
 	    console.log("====INITIALIZE CHANGELOG====");
 	    document.querySelectorAll("[data-feerio-changelog]").forEach((button) => {
 	        button.addEventListener("click", (event) => handleButtonClickForChangelogTrigger(event, options));
 	    });
+	};
+	const initializePublicBoard = (options) => {
+	    console.log("====INITIALIZE PUBLIC BOARD====");
+	    renderPublicBoard(options);
 	};
 	// window.Feerio = { initializeChangelog };
 	/*
@@ -16863,11 +16918,11 @@
 
 
 	*/
-	console.log("Methods called ", (_b = (_a = window.Feerio) === null || _a === void 0 ? void 0 : _a.fq) === null || _b === void 0 ? void 0 : _b.length);
 	// for now we are approaching the 1st way
 	window.Feerio = {
 	    initializeChangelog,
-	    fq: ((_c = window.Feerio) === null || _c === void 0 ? void 0 : _c.fq) || [],
+	    initializePublicBoard,
+	    fq: ((_a = window.Feerio) === null || _a === void 0 ? void 0 : _a.fq) || [],
 	};
 
 })();

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
@@ -23,7 +24,10 @@
 </style>
 
 <head>
-    <title>My Widget</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <!-- Feerio's SDK Loader -->
     <script>
         !function (w, d, i, s) {
@@ -75,6 +79,7 @@
         Feerio('initializeChangelog', {
             workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
             workspaceSubdomain: 'crisp',
+            position: 'bottom-left',
             theme: 'dark',
         });
 
@@ -82,14 +87,16 @@
     </script>
 
 
+
+
+
+
+
+
 </head>
-
-
 
 <body>
 
-
-    <!-- <h1>Welcome to My Widget!</h1>
 
     <button class="changelog-btn" data-feerio-changelog>
         View Changelog 1
@@ -102,21 +109,14 @@
     </button>
     <button class="changelog-btn" data-feerio-changelog>
         View Changelog 4
-    </button> -->
+    </button>
 
 
-    <!-- <div data-feerio-board-bug-reports class="feerio-boards">
 
-    </div>
-    <div data-feerio-board-feature-requests2 class="feerio-boards">
-
-    </div> -->
-    <!-- <div data-feerio-public-board class="feerio-boards">
-       Bug reports
-    </div>
     <div data-feerio-public-board class="feerio-boards">
-        MY BOARD
-    </div> -->
+        Bug reports
+    </div>
+
 
     <script>
         Feerio('initializePublicBoard', {
@@ -124,25 +124,6 @@
             boardUrls: ['bug-reports', 'feature-requests2'],
         });
     </script>
-
-
-
-    <h1 class="full">
-        Welcome to My Widget!
-    </h1>
-    <h1 class="full">
-        Welcome to My Widget!
-    </h1>
-    <h1 class="full">
-        Welcome to My Widget!
-    </h1>
-    <h1 class="full">
-        Welcome to My Widget!
-    </h1>
-    <h1 class="full">
-        Welcome to My Widget!
-    </h1>
-
 
 
 </body>

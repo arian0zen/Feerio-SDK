@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ChangelogWidget from "./changelog-widget/ChangelogWidget";
 import { handleButtonClickForChangelogTrigger } from "./ChangelogWidgetUtility";
+import { renderPublicBoard } from "./PublicBoardUtility";
 
 declare global {
   interface Window {
@@ -19,6 +20,12 @@ declare global {
           | "right"
           | "top-center"
           | "bottom-center";
+      }) => void;
+      initializePublicBoard: (options: {
+        workspaceId: string;
+        workspaceSubdomain: string;
+        boardUrls: string[];
+        theme?: "light" | "dark";
       }) => void;
       // fq is the queue of functions that will be called when the script is loaded
       fq: any[];
@@ -49,6 +56,16 @@ const initializeChangelog = (options: {
   });
 };
 
+const initializePublicBoard = (options: {
+  workspaceId: string;
+  workspaceSubdomain: string;
+  boardUrls: string[];
+  theme?: "light" | "dark";
+}) => {
+  console.log("====INITIALIZE PUBLIC BOARD====");
+  renderPublicBoard(options);
+};
+
 // window.Feerio = { initializeChangelog };
 
 /*
@@ -76,11 +93,10 @@ if (w.Feerio.q) {
 
 */
 
-console.log("Methods called ", window.Feerio?.fq?.length);
-
 // for now we are approaching the 1st way
 
 window.Feerio = {
   initializeChangelog,
+  initializePublicBoard,
   fq: window.Feerio?.fq || [],
 };

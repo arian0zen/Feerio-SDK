@@ -14,11 +14,11 @@
   position: absolute;
   width: 350px;
   max-height: 420px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: var(--bg-color);
   color: var(--text-color);
-  animation: fadeUp 0.5s ease;
+  animation: fadeUp 0.3s ease;
   font-family: "Poppins", sans-serif;
   transition: all 0.1s ease;
   overflow: hidden;
@@ -159,6 +159,12 @@
 
 .link:hover {
   text-decoration: underline;
+}
+
+.noData {
+  padding: 4px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .no-scrollbar::-webkit-scrollbar {

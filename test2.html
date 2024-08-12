@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+    body {
+        font-family: 'Oswald', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .changelog-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 10px;
+    }
+
+    .changelog-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<head>
+    <title>My Widget</title>
+    <script>
+        !function (w, d, i, s) {
+            function l() {
+                if (!d.getElementById(i)) {
+                    var f = d.getElementsByTagName(s)[0],
+                        e = d.createElement(s);
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "./dist/feerio-widget-sdk.js";
+                    e.onload = function () {
+                        console.log("Feerio SDK loaded successfully");
+                    };
+                    f.parentNode.insertBefore(e, f);
+                }
+            }
+            if (typeof w.Feerio !== "function") {
+                var c = function () {
+                    c.q.push(arguments);
+                };
+                c.q = [];
+                w.Feerio = c;
+                if (d.readyState === "complete") {
+                    l();
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", l);
+                } else {
+                    w.addEventListener("load", l, false);
+                }
+            }
+        }(window, document, "feerio-widget-sdk", "script");
+    </script>
+</head>
+
+
+
+<body>
+
+    <script>
+        // setTimeout(() => {
+        console.log("==== initChangelog called ====")
+        Feerio.initChangelog({
+            appID: '665ae023-277e-4b15-bf0d-55351c7cbf96',
+            position: 'bottom', // position of the widget relative to the button
+            align: 'left', // alignment of the widget relative to the button
+            theme: 'dark', // light or dark theme
+        });
+        // }, 1000);
+
+    </script>
+
+
+    <div id="changelog-root"></div>
+
+
+    <h1>Welcome to My Widget!</h1>
+
+    <button class="changelog-btn" data-feerio-changelog>
+        View Changelog 1
+    </button>
+    <button class="changelog-btn" data-feerio-changelog>
+        View Changelog 2
+    </button>
+    <button class="changelog-btn" data-feerio-changelog>
+        View Changelog 3
+    </button>
+    <button class="changelog-btn" data-feerio-changelog>
+        View Changelog 4
+    </button>
+</body>
+
+</html>

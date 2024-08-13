@@ -4191,49 +4191,49 @@
 	}
 
 	// Create the default instance to be exported
-	const axios$1 = createInstance(defaults$1);
+	const axios = createInstance(defaults$1);
 
 	// Expose Axios class to allow class inheritance
-	axios$1.Axios = Axios$1;
+	axios.Axios = Axios$1;
 
 	// Expose Cancel & CancelToken
-	axios$1.CanceledError = CanceledError;
-	axios$1.CancelToken = CancelToken$1;
-	axios$1.isCancel = isCancel;
-	axios$1.VERSION = VERSION;
-	axios$1.toFormData = toFormData;
+	axios.CanceledError = CanceledError;
+	axios.CancelToken = CancelToken$1;
+	axios.isCancel = isCancel;
+	axios.VERSION = VERSION;
+	axios.toFormData = toFormData;
 
 	// Expose AxiosError class
-	axios$1.AxiosError = AxiosError;
+	axios.AxiosError = AxiosError;
 
 	// alias for CanceledError for backward compatibility
-	axios$1.Cancel = axios$1.CanceledError;
+	axios.Cancel = axios.CanceledError;
 
 	// Expose all/spread
-	axios$1.all = function all(promises) {
+	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
 
-	axios$1.spread = spread;
+	axios.spread = spread;
 
 	// Expose isAxiosError
-	axios$1.isAxiosError = isAxiosError;
+	axios.isAxiosError = isAxiosError;
 
 	// Expose mergeConfig
-	axios$1.mergeConfig = mergeConfig;
+	axios.mergeConfig = mergeConfig;
 
-	axios$1.AxiosHeaders = AxiosHeaders$1;
+	axios.AxiosHeaders = AxiosHeaders$1;
 
-	axios$1.formToJSON = thing => formDataToJSON(utils$1.isHTMLForm(thing) ? new FormData(thing) : thing);
+	axios.formToJSON = thing => formDataToJSON(utils$1.isHTMLForm(thing) ? new FormData(thing) : thing);
 
-	axios$1.getAdapter = adapters.getAdapter;
+	axios.getAdapter = adapters.getAdapter;
 
-	axios$1.HttpStatusCode = HttpStatusCode$1;
+	axios.HttpStatusCode = HttpStatusCode$1;
 
-	axios$1.default = axios$1;
+	axios.default = axios;
 
 	// this module should only have a default export
-	var axios$2 = axios$1;
+	var axios$1 = axios;
 
 	var reactExports = requireReact();
 	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
@@ -4326,55 +4326,6 @@
 	};
 	const BASE_URL = URLS[ENV].BASE;
 	const PLAIN_DOMAIN_URL = PLAIN_DOMAIN[ENV];
-
-	/* eslint-disable no-unused-vars */
-	const axios = axios$2.create({
-	    baseURL: BASE_URL,
-	    withCredentials: true,
-	    headers: {
-	        "Content-Type": "application/json",
-	    },
-	});
-	// Function to get cookie value by name
-	// const getCookie = (name: string) => {
-	//   const cookieString = document.cookie;
-	//   const cookies = cookieString.split('; ');
-	//   for (let i = 0; i < cookies.length; i++) {
-	//     const cookie = cookies[i].split('=');
-	//     if (cookie[0] === name) {
-	//       return cookie[1];
-	//     }
-	//   }
-	//   return null;
-	// };
-	// Manually attach the cookie to the request headers before sending
-	// Manually attach the cookie to the request headers before sending
-	// axios.interceptors.request.use(config => {
-	//   const cookieValue = getCookie('x-auth-token');
-	//   if (cookieValue) {
-	//     config.headers['Cookie'] = `x-auth-token=${cookieValue}`;
-	//   }
-	//   return config;
-	// });
-	axios.interceptors.response.use((response) => response, (error) => {
-	    var _a;
-	    // whatever you want to do with the error
-	    // console.log("axios.interceptors.response.use", error);
-	    if (((_a = error === null || error === void 0 ? void 0 : error.response) === null || _a === void 0 ? void 0 : _a.status) === 401) {
-	        console.log("Cookies ", document.cookie);
-	        console.log("Origin ", window.location.origin);
-	        console.log("error?.response?.status === 401", error.config.url);
-	        localStorage.removeItem("user");
-	        localStorage.removeItem("currentUserEmail");
-	        localStorage.removeItem("accountType");
-	        localStorage.removeItem("owner");
-	        localStorage.removeItem("x-auth-token");
-	        localStorage.removeItem("currentWorkspace");
-	        document.cookie = `x-auth-token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${PLAIN_DOMAIN_URL}; SameSite=None; Secure`;
-	        document.cookie = `ownerEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${PLAIN_DOMAIN_URL}; SameSite=None; Secure`;
-	        window.location.href = "/login";
-	    }
-	});
 
 	const formatDate = (dateInput) => {
 	    // Convert string to Date object if necessary
@@ -16704,7 +16655,7 @@
 	        const fetchChangelogsHandler = () => __awaiter(void 0, void 0, void 0, function* () {
 	            try {
 	                setFetching(true);
-	                const { data: fetchedData } = yield axios$2.post(`${BASE_URL}/sdk/fetch-changelogs`, {
+	                const { data: fetchedData } = yield axios$1.post(`${BASE_URL}/sdk/fetch-changelogs`, {
 	                    workspaceId: workspaceId || "",
 	                    skip: 0,
 	                    limit: 3,

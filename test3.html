@@ -36,6 +36,7 @@
                     var f = d.getElementsByTagName(s)[0],
                         e = d.createElement(s);
                     e.type = "text/javascript", e.async = !0,
+                        // e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@beta/dist/feerio-widget-sdk.js", // Your SDK script path
                         e.src = "./dist/feerio-widget-sdk.js", // Your SDK script path
                         e.onload = function () {
                             console.log("=== Feerio SDK loaded successfully ===");
@@ -77,10 +78,10 @@
 
     <script>
         Feerio('initializeChangelog', {
-            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
-            workspaceSubdomain: 'crisp',
-            position: 'bottom-left',
-            theme: 'dark',
+            workspaceId: '12d00451-c71c-4df3-bcff-8c53a22e25af',
+            workspaceSubdomain: 'wizard',
+            position: 'bottom-right',
+            theme: 'light',
         });
 
 

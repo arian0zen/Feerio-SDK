@@ -1,5 +1,4 @@
 import { BASE_URL } from "../constants";
-import { ActivityTrend } from "../types";
 import axios from "./axios";
 
 import axios_ from "./axios";

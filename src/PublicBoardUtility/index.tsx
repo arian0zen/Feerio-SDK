@@ -29,15 +29,13 @@ const generateIframeComponent = (options: {
 };
 
 const renderPublicBoard = (options: {
-  workspaceId: string;
   workspaceSubdomain: string;
   boardUrls: string[];
-  theme?: "light" | "dark";
 }) => {
   //   ReactDOM.render(<PublicBoardWidget />, container);
   // instead of rendering the component render a iframe div with this url https://feedback.feerio.io/dashboard/board?b=integrations
 
-  let { workspaceId, workspaceSubdomain, theme, boardUrls = [] } = options;
+  let { workspaceSubdomain, boardUrls = [] } = options;
 
   boardUrls = boardUrls.filter((url) => url !== "");
 

@@ -523,31 +523,6 @@
 	    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 	};
 
-	var reactExports = requireReact();
-	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
-
-	// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
-	// export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
-	const ENV = "DEV";
-	const URLS = {
-	    DEV: {
-	        BASE: "http://feerio.localhost:5000/api/v1/feerio",
-	    },
-	    STAGE: {
-	        BASE: "https://app.backend.feerio.live/api/v1/feerio",
-	    },
-	    PROD: {
-	        BASE: "https://app.backend.feerio.io/api/v1/feerio",
-	    },
-	};
-	const PLAIN_DOMAIN = {
-	    DEV: ".feerio.localhost:3000",
-	    STAGE: ".feerio.live",
-	    PROD: ".feerio.io",
-	};
-	const BASE_URL = URLS[ENV].BASE;
-	const PLAIN_DOMAIN_URL = PLAIN_DOMAIN[ENV];
-
 	function bind(fn, thisArg) {
 	  return function wrap() {
 	    return fn.apply(thisArg, arguments);
@@ -4260,6 +4235,98 @@
 	// this module should only have a default export
 	var axios$2 = axios$1;
 
+	var reactExports = requireReact();
+	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
+
+	var DefaultContext = {
+	  color: undefined,
+	  size: undefined,
+	  className: undefined,
+	  style: undefined,
+	  attr: undefined
+	};
+	var IconContext = React.createContext && /*#__PURE__*/React.createContext(DefaultContext);
+
+	var _excluded$6 = ["attr", "size", "title"];
+	function _objectWithoutProperties$2(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose$2(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+	function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } } return target; }
+	function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+	function ownKeys$g(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+	function _objectSpread$g(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$g(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$g(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _defineProperty$2(obj, key, value) { key = _toPropertyKey$2(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	function _toPropertyKey$2(t) { var i = _toPrimitive$2(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+	function _toPrimitive$2(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+	function Tree2Element(tree) {
+	  return tree && tree.map((node, i) => /*#__PURE__*/React.createElement(node.tag, _objectSpread$g({
+	    key: i
+	  }, node.attr), Tree2Element(node.child)));
+	}
+	function GenIcon(data) {
+	  return props => /*#__PURE__*/React.createElement(IconBase, _extends({
+	    attr: _objectSpread$g({}, data.attr)
+	  }, props), Tree2Element(data.child));
+	}
+	function IconBase(props) {
+	  var elem = conf => {
+	    var {
+	        attr,
+	        size,
+	        title
+	      } = props,
+	      svgProps = _objectWithoutProperties$2(props, _excluded$6);
+	    var computedSize = size || conf.size || "1em";
+	    var className;
+	    if (conf.className) className = conf.className;
+	    if (props.className) className = (className ? className + " " : "") + props.className;
+	    return /*#__PURE__*/React.createElement("svg", _extends({
+	      stroke: "currentColor",
+	      fill: "currentColor",
+	      strokeWidth: "0"
+	    }, conf.attr, attr, svgProps, {
+	      className: className,
+	      style: _objectSpread$g(_objectSpread$g({
+	        color: props.color || conf.color
+	      }, conf.style), props.style),
+	      height: computedSize,
+	      width: computedSize,
+	      xmlns: "http://www.w3.org/2000/svg"
+	    }), title && /*#__PURE__*/React.createElement("title", null, title), props.children);
+	  };
+	  return IconContext !== undefined ? /*#__PURE__*/React.createElement(IconContext.Consumer, null, conf => elem(conf)) : elem(DefaultContext);
+	}
+
+	// THIS FILE IS AUTO GENERATED
+	function HiOutlineArrowNarrowLeft (props) {
+	  return GenIcon({"tag":"svg","attr":{"fill":"none","viewBox":"0 0 24 24","strokeWidth":"2","stroke":"currentColor","aria-hidden":"true"},"child":[{"tag":"path","attr":{"strokeLinecap":"round","strokeLinejoin":"round","d":"M7 16l-4-4m0 0l4-4m-4 4h18"},"child":[]}]})(props);
+	}
+
+	// THIS FILE IS AUTO GENERATED
+	function RxCross2 (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 15 15","fill":"none"},"child":[{"tag":"path","attr":{"fillRule":"evenodd","clipRule":"evenodd","d":"M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z","fill":"currentColor"},"child":[]}]})(props);
+	}
+
+	// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
+	// export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
+	const ENV = "DEV";
+	const URLS = {
+	    DEV: {
+	        BASE: "http://feerio.localhost:5000/api/v1/feerio",
+	    },
+	    STAGE: {
+	        BASE: "https://app.backend.feerio.live/api/v1/feerio",
+	    },
+	    PROD: {
+	        BASE: "https://app.backend.feerio.io/api/v1/feerio",
+	    },
+	};
+	const PLAIN_DOMAIN = {
+	    DEV: ".feerio.localhost:3000",
+	    STAGE: ".feerio.live",
+	    PROD: ".feerio.io",
+	};
+	const BASE_URL = URLS[ENV].BASE;
+	const PLAIN_DOMAIN_URL = PLAIN_DOMAIN[ENV];
+
 	/* eslint-disable no-unused-vars */
 	const axios = axios$2.create({
 	    baseURL: BASE_URL,
@@ -5392,7 +5459,7 @@
 	  }, _typeof$1(o);
 	}
 
-	function _toPrimitive$2(input, hint) {
+	function _toPrimitive$1(input, hint) {
 	  if (_typeof$1(input) !== "object" || input === null) return input;
 	  var prim = input[Symbol.toPrimitive];
 	  if (prim !== undefined) {
@@ -5403,13 +5470,13 @@
 	  return (hint === "string" ? String : Number)(input);
 	}
 
-	function _toPropertyKey$2(arg) {
-	  var key = _toPrimitive$2(arg, "string");
+	function _toPropertyKey$1(arg) {
+	  var key = _toPrimitive$1(arg, "string");
 	  return _typeof$1(key) === "symbol" ? key : String(key);
 	}
 
-	function _defineProperty$2(obj, key, value) {
-	  key = _toPropertyKey$2(key);
+	function _defineProperty$1(obj, key, value) {
+	  key = _toPropertyKey$1(key);
 	  if (key in obj) {
 	    Object.defineProperty(obj, key, {
 	      value: value,
@@ -5424,7 +5491,7 @@
 	}
 
 	function ownKeys$e(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$e(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$e(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$e(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$e(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$e(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$e(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var applyToDraft = (editor, selection, op) => {
 	  switch (op.type) {
 	    case 'insert_node':
@@ -5797,7 +5864,7 @@
 	  return true;
 	};
 
-	function _objectWithoutPropertiesLoose$2(source, excluded) {
+	function _objectWithoutPropertiesLoose$1(source, excluded) {
 	  if (source == null) return {};
 	  var target = {};
 	  var sourceKeys = Object.keys(source);
@@ -5810,9 +5877,9 @@
 	  return target;
 	}
 
-	function _objectWithoutProperties$2(source, excluded) {
+	function _objectWithoutProperties$1(source, excluded) {
 	  if (source == null) return {};
-	  var target = _objectWithoutPropertiesLoose$2(source, excluded);
+	  var target = _objectWithoutPropertiesLoose$1(source, excluded);
 	  var key, i;
 	  if (Object.getOwnPropertySymbols) {
 	    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
@@ -5826,9 +5893,9 @@
 	  return target;
 	}
 
-	var _excluded$4$1 = ["anchor", "focus"];
+	var _excluded$4 = ["anchor", "focus"];
 	function ownKeys$d(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$d(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$d(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$d(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$d(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$d(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$d(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// eslint-disable-next-line no-redeclare
 	var Range = {
 	  edges(range) {
@@ -5871,7 +5938,7 @@
 	    return isAfterStart && isBeforeEnd;
 	  },
 	  intersection(range, another) {
-	    var rest = _objectWithoutProperties$2(range, _excluded$4$1);
+	    var rest = _objectWithoutProperties$1(range, _excluded$4);
 	    var [s1, e1] = Range.edges(range);
 	    var [s2, e2] = Range.edges(another);
 	    var start = Point.isBefore(s1, s2) ? s2 : s1;
@@ -6088,10 +6155,10 @@
 	  },
 	  extractProps(node) {
 	    if (Element$3.isAncestor(node)) {
-	      var properties = _objectWithoutProperties$2(node, _excluded$3$1);
+	      var properties = _objectWithoutProperties$1(node, _excluded$3$1);
 	      return properties;
 	    } else {
-	      var properties = _objectWithoutProperties$2(node, _excluded2$3);
+	      var properties = _objectWithoutProperties$1(node, _excluded2$3);
 	      return properties;
 	    }
 	  },
@@ -6301,7 +6368,7 @@
 	};
 
 	function ownKeys$c(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$c(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$c(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$c(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$c(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$c(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$c(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// eslint-disable-next-line no-redeclare
 	var Operation = {
 	  isNodeOperation(value) {
@@ -6666,7 +6733,7 @@
 	};
 
 	function ownKeys$b(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$b(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$b(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$b(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$b(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$b(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$b(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// eslint-disable-next-line no-redeclare
 	var Point = {
 	  compare(point, another) {
@@ -6791,7 +6858,7 @@
 	var _excluded$2$1 = ["text"],
 	  _excluded2$2 = ["anchor", "focus"];
 	function ownKeys$a(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$a(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$a(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$a(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$a(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$a(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$a(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// eslint-disable-next-line no-redeclare
 	var Text$1 = {
 	  equals(text, another) {
@@ -6800,7 +6867,7 @@
 	      loose = false
 	    } = options;
 	    function omitText(obj) {
-	      var rest = _objectWithoutProperties$2(obj, _excluded$2$1);
+	      var rest = _objectWithoutProperties$1(obj, _excluded$2$1);
 	      return rest;
 	    }
 	    return isDeepEqual(loose ? omitText(text) : text, loose ? omitText(another) : another);
@@ -6828,7 +6895,7 @@
 	  decorations(node, decorations) {
 	    var leaves = [_objectSpread$a({}, node)];
 	    for (var dec of decorations) {
-	      var rest = _objectWithoutProperties$2(dec, _excluded2$2);
+	      var rest = _objectWithoutProperties$1(dec, _excluded2$2);
 	      var [start, end] = Range.edges(dec);
 	      var next = [];
 	      var leafEnd = 0;
@@ -7227,7 +7294,7 @@
 	};
 
 	function ownKeys$9(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$9(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$9(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$9(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$9(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$9(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$9(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var Transforms = _objectSpread$9(_objectSpread$9(_objectSpread$9(_objectSpread$9({}, GeneralTransforms), NodeTransforms), SelectionTransforms), TextTransforms);
 
 	// perf
@@ -7562,7 +7629,7 @@
 	};
 
 	function ownKeys$8(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$8(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$8(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$8(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$8(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$8(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$8(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var addMark = (editor, key, value) => {
 	  var {
 	    selection
@@ -7605,8 +7672,8 @@
 	  }
 	};
 
-	function ownKeys$7$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$7$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$7$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$7$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function ownKeys$7(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+	function _objectSpread$7(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$7(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$7(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var after = function after(editor, at) {
 	  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	  var anchor = Editor.point(editor, at, {
@@ -7622,7 +7689,7 @@
 	  } = options;
 	  var d = 0;
 	  var target;
-	  for (var p of Editor.positions(editor, _objectSpread$7$1(_objectSpread$7$1({}, options), {}, {
+	  for (var p of Editor.positions(editor, _objectSpread$7(_objectSpread$7({}, options), {}, {
 	    at: range
 	  }))) {
 	    if (d > distance) {
@@ -7637,7 +7704,7 @@
 	};
 
 	function ownKeys$6$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$6$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$6$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$6$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$6$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$6$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$6$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var before = function before(editor, at) {
 	  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	  var anchor = Editor.start(editor, []);
@@ -7710,7 +7777,7 @@
 	};
 
 	function ownKeys$5$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$5$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$5$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$5$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$5$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$5$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$5$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var elementReadOnly = function elementReadOnly(editor) {
 	  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	  return Editor.above(editor, _objectSpread$5$1(_objectSpread$5$1({}, options), {}, {
@@ -7737,7 +7804,7 @@
 	};
 
 	function ownKeys$4$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$4$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$4$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var getVoid = function getVoid(editor) {
 	  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	  return Editor.above(editor, _objectSpread$4$1(_objectSpread$4$1({}, options), {}, {
@@ -7778,7 +7845,7 @@
 	};
 
 	function ownKeys$3$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$3$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$3$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$3$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$3$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$3$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$3$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var insertText = function insertText(editor, text) {
 	  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	  var {
@@ -7923,7 +7990,7 @@
 	    });
 	    if (match) {
 	      var [_node] = match;
-	      var _rest = _objectWithoutProperties$2(_node, _excluded$1$1);
+	      var _rest = _objectWithoutProperties$1(_node, _excluded$1$1);
 	      return _rest;
 	    } else {
 	      return {};
@@ -7954,7 +8021,7 @@
 	      }
 	    }
 	  }
-	  var rest = _objectWithoutProperties$2(node, _excluded2$1$1);
+	  var rest = _objectWithoutProperties$1(node, _excluded2$1$1);
 	  return rest;
 	};
 
@@ -8575,7 +8642,7 @@
 	};
 
 	function ownKeys$2$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$2$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$2$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$2$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$2$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$2$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$2$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var removeMark = (editor, key) => {
 	  var {
 	    selection
@@ -9197,7 +9264,7 @@
 	};
 
 	function ownKeys$1$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$1$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$1$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var setPoint = function setPoint(editor, props) {
 	  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	  var {
@@ -9582,11 +9649,11 @@
 	    // Ensure that the nodes are equivalent, and figure out what the position
 	    // and extra properties of the merge will be.
 	    if (Text$1.isText(node) && Text$1.isText(prevNode)) {
-	      var rest = _objectWithoutProperties$2(node, _excluded$5);
+	      var rest = _objectWithoutProperties$1(node, _excluded$5);
 	      position = prevNode.text.length;
 	      properties = rest;
 	    } else if (Element$3.isElement(node) && Element$3.isElement(prevNode)) {
-	      var rest = _objectWithoutProperties$2(node, _excluded2$4);
+	      var rest = _objectWithoutProperties$1(node, _excluded2$4);
 	      position = prevNode.children.length;
 	      properties = rest;
 	    } else {
@@ -10027,7 +10094,7 @@
 	};
 
 	function ownKeys$f(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$f(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$f(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$f(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$f(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$f(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$f(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var wrapNodes = function wrapNodes(editor, element) {
 	  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	  Editor.withoutNormalizing(editor, () => {
@@ -12004,7 +12071,7 @@
 	lib.toKeyCode = toKeyCode;
 	lib.toKeyName = toKeyName;
 
-	function _objectWithoutPropertiesLoose$1(source, excluded) {
+	function _objectWithoutPropertiesLoose(source, excluded) {
 	  if (source == null) return {};
 	  var target = {};
 	  var sourceKeys = Object.keys(source);
@@ -12017,9 +12084,9 @@
 	  return target;
 	}
 
-	function _objectWithoutProperties$1(source, excluded) {
+	function _objectWithoutProperties(source, excluded) {
 	  if (source == null) return {};
-	  var target = _objectWithoutPropertiesLoose$1(source, excluded);
+	  var target = _objectWithoutPropertiesLoose(source, excluded);
 	  var key, i;
 	  if (Object.getOwnPropertySymbols) {
 	    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
@@ -12043,7 +12110,7 @@
 	  }, _typeof(o);
 	}
 
-	function _toPrimitive$1(input, hint) {
+	function _toPrimitive(input, hint) {
 	  if (_typeof(input) !== "object" || input === null) return input;
 	  var prim = input[Symbol.toPrimitive];
 	  if (prim !== undefined) {
@@ -12054,13 +12121,13 @@
 	  return (hint === "string" ? String : Number)(input);
 	}
 
-	function _toPropertyKey$1(arg) {
-	  var key = _toPrimitive$1(arg, "string");
+	function _toPropertyKey(arg) {
+	  var key = _toPrimitive(arg, "string");
 	  return _typeof(key) === "symbol" ? key : String(key);
 	}
 
-	function _defineProperty$1(obj, key, value) {
-	  key = _toPropertyKey$1(key);
+	function _defineProperty(obj, key, value) {
+	  key = _toPropertyKey(key);
 	  if (key in obj) {
 	    Object.defineProperty(obj, key, {
 	      value: value,
@@ -12404,7 +12471,7 @@
 	 */
 	class Key {
 	  constructor() {
-	    _defineProperty$1(this, "id", void 0);
+	    _defineProperty(this, "id", void 0);
 	    this.id = "".concat(n++);
 	  }
 	}
@@ -13375,7 +13442,7 @@
 	}
 
 	function ownKeys$6(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$6(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$6(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$6(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$6(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$6(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$6(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// https://github.com/facebook/draft-js/blob/main/src/component/handlers/composition/DraftEditorCompositionHandler.js#L41
 	// When using keyboard English association function, conpositionEnd triggered too fast, resulting in after `insertText` still maintain association state.
 	var RESOLVE_DELAY = 25;
@@ -14023,7 +14090,7 @@
 
 	var _excluded$3 = ["node"];
 	function ownKeys$5(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$5(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$5(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$5(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$5(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$5(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$5(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var MUTATION_OBSERVER_CONFIG$1 = {
 	  subtree: true,
 	  childList: true,
@@ -14033,7 +14100,7 @@
 	  var {
 	      node
 	    } = _ref,
-	    options = _objectWithoutProperties$1(_ref, _excluded$3);
+	    options = _objectWithoutProperties(_ref, _excluded$3);
 	  if (!IS_ANDROID) {
 	    return null;
 	  }
@@ -14054,8 +14121,8 @@
 	  _excluded2$1 = ["anchor", "focus"];
 	var shallowCompare = (obj1, obj2) => Object.keys(obj1).length === Object.keys(obj2).length && Object.keys(obj1).every(key => obj2.hasOwnProperty(key) && obj1[key] === obj2[key]);
 	var isDecorationFlagsEqual = (range, other) => {
-	  var rangeOwnProps = _objectWithoutProperties$1(range, _excluded$2);
-	  var otherOwnProps = _objectWithoutProperties$1(other, _excluded2$1);
+	  var rangeOwnProps = _objectWithoutProperties(range, _excluded$2);
+	  var otherOwnProps = _objectWithoutProperties(other, _excluded2$1);
 	  return range[PLACEHOLDER_SYMBOL] === other[PLACEHOLDER_SYMBOL] && shallowCompare(rangeOwnProps, otherOwnProps);
 	};
 	/**
@@ -14101,7 +14168,7 @@
 	};
 
 	function ownKeys$4(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$4(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$4(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	/**
 	 * Leaf content strings.
 	 */
@@ -14214,7 +14281,7 @@
 	};
 
 	function ownKeys$3(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$3(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$3(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$3(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$3(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$3(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$3(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	// Delay the placeholder on Android to prevent the keyboard from closing.
 	// (https://github.com/ianstormtaylor/slate/pull/5368)
 	var PLACEHOLDER_DELAY = IS_ANDROID ? 300 : 0;
@@ -14394,7 +14461,7 @@
 	});
 
 	function ownKeys$2(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$2(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$2(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$2(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$2(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$2(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$2(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	/**
 	 * Element.
 	 */
@@ -14764,9 +14831,9 @@
 	class RestoreDOMComponent extends reactExports.Component {
 	  constructor() {
 	    super(...arguments);
-	    _defineProperty$1(this, "context", null);
-	    _defineProperty$1(this, "manager", null);
-	    _defineProperty$1(this, "mutationObserver", null);
+	    _defineProperty(this, "context", null);
+	    _defineProperty(this, "manager", null);
+	    _defineProperty(this, "mutationObserver", null);
 	  }
 	  observe() {
 	    var _this$mutationObserve;
@@ -14811,7 +14878,7 @@
 	    return this.props.children;
 	  }
 	}
-	_defineProperty$1(RestoreDOMComponent, "contextType", EditorContext);
+	_defineProperty(RestoreDOMComponent, "contextType", EditorContext);
 	var RestoreDOM = IS_ANDROID ? RestoreDOMComponent : _ref => {
 	  var {
 	    children
@@ -14822,7 +14889,7 @@
 	var _excluded$1 = ["autoFocus", "decorate", "onDOMBeforeInput", "placeholder", "readOnly", "renderElement", "renderLeaf", "renderPlaceholder", "scrollSelectionIntoView", "style", "as", "disableDefaultStyles"],
 	  _excluded2 = ["text"];
 	function ownKeys$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	var Children = props => /*#__PURE__*/React.createElement(React.Fragment, null, useChildren(props));
 	/**
 	 * Editable.
@@ -14843,7 +14910,7 @@
 	      as: Component = 'div',
 	      disableDefaultStyles = false
 	    } = props,
-	    attributes = _objectWithoutProperties$1(props, _excluded$1);
+	    attributes = _objectWithoutProperties(props, _excluded$1);
 	  var editor = useSlate();
 	  // Rerender editor when composition status changed
 	  var [isComposing, setIsComposing] = reactExports.useState(false);
@@ -15414,7 +15481,7 @@
 	      anchor
 	    } = editor.selection;
 	    var leaf = Node.leaf(editor, anchor.path);
-	    var rest = _objectWithoutProperties$1(leaf, _excluded2);
+	    var rest = _objectWithoutProperties(leaf, _excluded2);
 	    // While marks isn't a 'complete' text, we can still use loose Text.equals
 	    // here which only compares marks anyway.
 	    if (!Text$1.equals(leaf, marks, {
@@ -16149,7 +16216,7 @@
 	  };
 	}
 
-	var _excluded$4 = ["editor", "children", "onChange", "onSelectionChange", "onValueChange", "initialValue"];
+	var _excluded = ["editor", "children", "onChange", "onSelectionChange", "onValueChange", "initialValue"];
 	/**
 	 * A wrapper around the provider to handle `onChange` events, because the editor
 	 * is a mutable singleton so it won't ever register as "changed" otherwise.
@@ -16163,7 +16230,7 @@
 	      onValueChange,
 	      initialValue
 	    } = props,
-	    rest = _objectWithoutProperties$1(props, _excluded$4);
+	    rest = _objectWithoutProperties(props, _excluded);
 	  var [context, setContext] = React.useState(() => {
 	    if (!Node.isNodeList(initialValue)) {
 	      throw new Error("[Slate] initialValue is invalid! Expected a list of elements but got: ".concat(Scrubber.stringify(initialValue)));
@@ -16287,8 +16354,8 @@
 	  return Editor.range(editor, positions[right], parentRangeBoundary);
 	};
 
-	function ownKeys$7(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread$7(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$7(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$7(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	/**
 	 * `withReact` adds React and DOM specific behaviors to the editor.
 	 *
@@ -16369,7 +16436,7 @@
 	    var pendingAction = EDITOR_TO_PENDING_ACTION.get(e);
 	    if (pendingAction !== null && pendingAction !== void 0 && pendingAction.at) {
 	      var at = Point.isPoint(pendingAction === null || pendingAction === void 0 ? void 0 : pendingAction.at) ? transformPendingPoint(e, pendingAction.at, op) : transformPendingRange(e, pendingAction.at, op);
-	      EDITOR_TO_PENDING_ACTION.set(e, at ? _objectSpread$7(_objectSpread$7({}, pendingAction), {}, {
+	      EDITOR_TO_PENDING_ACTION.set(e, at ? _objectSpread(_objectSpread({}, pendingAction), {}, {
 	        at
 	      }) : null);
 	    }
@@ -16628,73 +16695,6 @@
 	    return jsxRuntimeExports.jsx("span", Object.assign({}, attributes, { children: children }));
 	};
 
-	var DefaultContext = {
-	  color: undefined,
-	  size: undefined,
-	  className: undefined,
-	  style: undefined,
-	  attr: undefined
-	};
-	var IconContext = React.createContext && /*#__PURE__*/React.createContext(DefaultContext);
-
-	var _excluded = ["attr", "size", "title"];
-	function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-	function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } } return target; }
-	function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-	function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-	function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-	function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-	function Tree2Element(tree) {
-	  return tree && tree.map((node, i) => /*#__PURE__*/React.createElement(node.tag, _objectSpread({
-	    key: i
-	  }, node.attr), Tree2Element(node.child)));
-	}
-	function GenIcon(data) {
-	  return props => /*#__PURE__*/React.createElement(IconBase, _extends({
-	    attr: _objectSpread({}, data.attr)
-	  }, props), Tree2Element(data.child));
-	}
-	function IconBase(props) {
-	  var elem = conf => {
-	    var {
-	        attr,
-	        size,
-	        title
-	      } = props,
-	      svgProps = _objectWithoutProperties(props, _excluded);
-	    var computedSize = size || conf.size || "1em";
-	    var className;
-	    if (conf.className) className = conf.className;
-	    if (props.className) className = (className ? className + " " : "") + props.className;
-	    return /*#__PURE__*/React.createElement("svg", _extends({
-	      stroke: "currentColor",
-	      fill: "currentColor",
-	      strokeWidth: "0"
-	    }, conf.attr, attr, svgProps, {
-	      className: className,
-	      style: _objectSpread(_objectSpread({
-	        color: props.color || conf.color
-	      }, conf.style), props.style),
-	      height: computedSize,
-	      width: computedSize,
-	      xmlns: "http://www.w3.org/2000/svg"
-	    }), title && /*#__PURE__*/React.createElement("title", null, title), props.children);
-	  };
-	  return IconContext !== undefined ? /*#__PURE__*/React.createElement(IconContext.Consumer, null, conf => elem(conf)) : elem(DefaultContext);
-	}
-
-	// THIS FILE IS AUTO GENERATED
-	function RxCross2 (props) {
-	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 15 15","fill":"none"},"child":[{"tag":"path","attr":{"fillRule":"evenodd","clipRule":"evenodd","d":"M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z","fill":"currentColor"},"child":[]}]})(props);
-	}
-
-	// THIS FILE IS AUTO GENERATED
-	function HiOutlineArrowNarrowLeft (props) {
-	  return GenIcon({"tag":"svg","attr":{"fill":"none","viewBox":"0 0 24 24","strokeWidth":"2","stroke":"currentColor","aria-hidden":"true"},"child":[{"tag":"path","attr":{"strokeLinecap":"round","strokeLinejoin":"round","d":"M7 16l-4-4m0 0l4-4m-4 4h18"},"child":[]}]})(props);
-	}
-
 	const ChangelogWidget = ({ title, workspaceId, workspaceSubdomain, theme = "light", }) => {
 	    const [changelogLists, setChangelogLists] = reactExports.useState([]);
 	    const [fetching, setFetching] = reactExports.useState(false);
@@ -16705,7 +16705,7 @@
 	            try {
 	                setFetching(true);
 	                const { data: fetchedData } = yield axios$2.post(`${BASE_URL}/sdk/fetch-changelogs`, {
-	                    workspaceId: workspaceId || "665ae023-277e-4b15-bf0d-55351c7cbf96",
+	                    workspaceId: workspaceId || "",
 	                    skip: 0,
 	                    limit: 3,
 	                    tags: [],
@@ -16846,10 +16846,10 @@
 	        }
 	        document.body.appendChild(container);
 	        renderChangelogWidget(container, {
-	            title: options.title || "Changelog",
-	            theme: options.theme || "light",
-	            workspaceId: options.workspaceId,
-	            workspaceSubdomain: options.workspaceSubdomain,
+	            title: (options === null || options === void 0 ? void 0 : options.title) || "Changelog",
+	            theme: (options === null || options === void 0 ? void 0 : options.theme) || "light",
+	            workspaceId: options === null || options === void 0 ? void 0 : options.workspaceId,
+	            workspaceSubdomain: options === null || options === void 0 ? void 0 : options.workspaceSubdomain,
 	        });
 	        // Add a slight delay before adding the click listener to prevent immediate closing
 	        setTimeout(() => {
@@ -16876,7 +16876,7 @@
 	const renderPublicBoard = (options) => {
 	    //   ReactDOM.render(<PublicBoardWidget />, container);
 	    // instead of rendering the component render a iframe div with this url https://feedback.feerio.io/dashboard/board?b=integrations
-	    let { workspaceId, workspaceSubdomain, theme, boardUrls = [] } = options;
+	    let { workspaceSubdomain, boardUrls = [] } = options;
 	    boardUrls = boardUrls.filter((url) => url !== "");
 	    boardUrls.forEach((url) => {
 	        let dataAttributeStringForTheBoard = `data-feerio-board-${url}`;

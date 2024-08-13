@@ -1,6 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import ChangelogWidget from "./changelog-widget/ChangelogWidget";
 import { handleButtonClickForChangelogTrigger } from "./ChangelogWidgetUtility";
 import { renderPublicBoard } from "./PublicBoardUtility";
 
@@ -22,10 +19,9 @@ declare global {
           | "bottom-center";
       }) => void;
       initializePublicBoard: (options: {
-        workspaceId: string;
         workspaceSubdomain: string;
         boardUrls: string[];
-        theme?: "light" | "dark";
+        // theme?: "light" | "dark";
       }) => void;
       // fq is the queue of functions that will be called when the script is loaded
       fq: any[];
@@ -57,10 +53,8 @@ const initializeChangelog = (options: {
 };
 
 const initializePublicBoard = (options: {
-  workspaceId: string;
   workspaceSubdomain: string;
   boardUrls: string[];
-  theme?: "light" | "dark";
 }) => {
   console.log("====INITIALIZE PUBLIC BOARD====");
   renderPublicBoard(options);

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { ChangelogType } from "../types";
-import { formatDate, waitFor } from "../utils";
 import axios from "axios";
-import { BASE_URL, FRONTEND_BASE_URL, PLAIN_DOMAIN_URL } from "../constants";
+import { useEffect, useState } from "react";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
+import { BASE_URL, PLAIN_DOMAIN_URL } from "../constants";
+import { ChangelogType } from "../types";
+import { formatDate } from "../utils";
 import styles from "./ChangelogWidget.module.css";
 import ChangelogDetailsCard from "./ChangelogWidgetDetails";
-import { RxCross2 } from "react-icons/rx";
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import ReactDOM from "react-dom";
 
 type ChangelogWidgetProps = {
   title: string;
@@ -37,7 +36,7 @@ const ChangelogWidget = ({
         const { data: fetchedData } = await axios.post(
           `${BASE_URL}/sdk/fetch-changelogs`,
           {
-            workspaceId: workspaceId || "665ae023-277e-4b15-bf0d-55351c7cbf96",
+            workspaceId: workspaceId || "",
             skip: 0,
             limit: 3,
             tags: [],

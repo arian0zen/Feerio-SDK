@@ -141,10 +141,10 @@ const handleButtonClickForChangelogTrigger = (
     document.body.appendChild(container);
 
     renderChangelogWidget(container, {
-      title: options.title || "Changelog",
-      theme: options.theme || "light",
-      workspaceId: options.workspaceId,
-      workspaceSubdomain: options.workspaceSubdomain,
+      title: options?.title || "Changelog",
+      theme: options?.theme || "light",
+      workspaceId: options?.workspaceId,
+      workspaceSubdomain: options?.workspaceSubdomain,
     });
 
     // Add a slight delay before adding the click listener to prevent immediate closing

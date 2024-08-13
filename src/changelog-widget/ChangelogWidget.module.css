@@ -13,7 +13,7 @@
 
   position: absolute;
   width: 330px;
-  max-height: 420px;
+  height: 420px;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: var(--bg-color);
@@ -37,7 +37,7 @@
 }
 
 .title {
-  height: 36px;
+  height: 24px;
   font-size: 15px;
   font-weight: 500;
   padding: 12px;
@@ -57,7 +57,7 @@
   left: 18px;
   margin-top: 4px;
 }
-.closeButton{
+.closeButton {
   color: var(--text-color);
   border: none;
   cursor: pointer;
@@ -66,12 +66,13 @@
   right: 18px;
   margin-top: 4px;
 }
-.closeButton:hover, .backButton:hover {
+.closeButton:hover,
+.backButton:hover {
   color: var(--link-color);
 }
 
 .detailsContainer {
-  max-height: 337px;
+  height: 337px;
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
@@ -155,13 +156,15 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
+  bottom: 0;
 }
 
 .poweredBy {
   font-style: italic;
 }
 
-a, .link  {
+a,
+.link {
   color: var(--link-color);
   text-decoration: none;
 }
@@ -267,15 +270,13 @@ a, .link  {
 }
 
 @media (max-width: 480px) {
-  .changelogWidget{
+  .changelogWidget {
     min-height: 100vh !important;
     width: 100vw !important;
     border-radius: 0px !important;
   }
   .detailsContainer {
     /*min height should be 100vh - 83px (title + footer height)  */
-    min-height: calc(100vh - 83px) !important;
-
-
+    height: calc(100vh - 84px) !important;
   }
 }

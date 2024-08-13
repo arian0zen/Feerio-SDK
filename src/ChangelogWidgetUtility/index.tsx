@@ -14,7 +14,11 @@ const renderChangelogWidget = (
 };
 
 const handleOutsideClick = (event: MouseEvent, container: HTMLElement) => {
-  if (!container.contains(event.target as Node)) {
+  let closeButton = document.getElementById("fcb-sdk");
+  if (
+    !container.contains(event.target as Node) ||
+    closeButton?.contains(event.target as Node)
+  ) {
     ReactDOM.unmountComponentAtNode(container);
     container.remove();
     document.removeEventListener(
@@ -124,6 +128,14 @@ const handleButtonClickForChangelogTrigger = (
         container.style.top = `${rect.bottom + 10}px`;
         container.style.left = `${rect.left}px`;
         break;
+    }
+    //When in mobile screen make sure no top and left is set
+    if (window.innerWidth < 768) {
+      container.style.top = "0";
+      container.style.left = "0";
+      container.style.width = "100vw";
+      container.style.height = "100vh";
+      document.body.style.overflow = "hidden";
     }
 
     document.body.appendChild(container);

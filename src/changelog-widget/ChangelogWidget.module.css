@@ -12,7 +12,7 @@
   --hover-bg: rgba(192, 192, 192, 0.068);
 
   position: absolute;
-  width: 350px;
+  width: 330px;
   max-height: 420px;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -37,6 +37,7 @@
 }
 
 .title {
+  height: 36px;
   font-size: 15px;
   font-weight: 500;
   padding: 12px;
@@ -56,8 +57,16 @@
   left: 18px;
   margin-top: 4px;
 }
-
-.backButton:hover {
+.closeButton{
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  right: 18px;
+  margin-top: 4px;
+}
+.closeButton:hover, .backButton:hover {
   color: var(--link-color);
 }
 
@@ -152,7 +161,7 @@
   font-style: italic;
 }
 
-.link {
+a, .link  {
   color: var(--link-color);
   text-decoration: none;
 }
@@ -254,5 +263,19 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .changelogWidget{
+    min-height: 100vh !important;
+    width: 100vw !important;
+    border-radius: 0px !important;
+  }
+  .detailsContainer {
+    /*min height should be 100vh - 83px (title + footer height)  */
+    min-height: calc(100vh - 83px) !important;
+
+
   }
 }

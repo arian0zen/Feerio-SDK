@@ -5,8 +5,9 @@ import axios from "axios";
 import { BASE_URL, FRONTEND_BASE_URL, PLAIN_DOMAIN_URL } from "../constants";
 import styles from "./ChangelogWidget.module.css";
 import ChangelogDetailsCard from "./ChangelogWidgetDetails";
-
+import { RxCross2 } from "react-icons/rx";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import ReactDOM from "react-dom";
 
 type ChangelogWidgetProps = {
   title: string;
@@ -76,7 +77,29 @@ const ChangelogWidget = ({
         >
           <HiOutlineArrowNarrowLeft size={18} />
         </div>
-        {!showingDetails ? `${title} Latest updates` : selectedChangeLog?.title}
+        {!showingDetails
+          ? `${title.length > 28 ? `${title.slice(0, 28)}...` : title} `
+          : selectedChangeLog && selectedChangeLog?.title.length > 28
+          ? `${selectedChangeLog?.title.slice(0, 28)}...`
+          : selectedChangeLog?.title}
+        <div
+          className={`${styles.closeButton}`}
+          id="fcb-sdk"
+          // onClick={(e) => {
+          //   const elementId = "changelog-root";
+          //   let container = document.getElementById(elementId);
+          //   if (container) {
+          //     ReactDOM.unmountComponentAtNode(container);
+          //     container.remove();
+          //     // document.removeEventListener(
+          //     //   "click",
+          //     //   (e) => container && handleOutsideClick(e, container)
+          //     // );
+          //   }
+          // }}
+        >
+          <RxCross2 size={22} />
+        </div>
       </div>
 
       <div className={`${styles.detailsContainer} ${styles.thinScrollbar}`}>
@@ -164,9 +187,15 @@ const ChangelogWidget = ({
       </div>
 
       <div className={styles.footer}>
-        <span className={styles.poweredBy}>Powered by Feerio</span>
+        <span className={styles.poweredBy}>
+          <a href="https://feerio.io" target="_blank" rel="noreferrer">
+            Powered by Feerio
+          </a>
+        </span>
         <a
           href="https://feedback.feerio.io/dashboard/changelog"
+          target="_blank"
+          rel="noreferrer"
           className={styles.link}
         >
           Help

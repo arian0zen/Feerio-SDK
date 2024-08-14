@@ -3,7 +3,7 @@ name: Release and CDN Update
 on:
   push:
     branches:
-      - tuhin-changelog-sdk # or your default branch
+      - main # or your default branch
 
 jobs:
   build-and-release:

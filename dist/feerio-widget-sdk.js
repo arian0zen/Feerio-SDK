@@ -50,17 +50,12 @@
 		return react_production_min;
 	}
 
-	var hasRequiredReact;
-
-	function requireReact () {
-		if (hasRequiredReact) return react.exports;
-		hasRequiredReact = 1;
-
-		{
-		  react.exports = requireReact_production_min();
-		}
-		return react.exports;
+	{
+	  react.exports = requireReact_production_min();
 	}
+
+	var reactExports = react.exports;
+	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 	/**
 	 * @license React
@@ -77,7 +72,7 @@
 	function requireReactJsxRuntime_production_min () {
 		if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 		hasRequiredReactJsxRuntime_production_min = 1;
-	var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+	var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 		function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 		return reactJsxRuntime_production_min;
 	}
@@ -153,7 +148,7 @@
 	function requireReactDom_production_min () {
 		if (hasRequiredReactDom_production_min) return reactDom_production_min;
 		hasRequiredReactDom_production_min = 1;
-	var aa=requireReact(),ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
+	var aa=reactExports,ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
 		function ha(a,b){ea[a]=b;for(a=0;a<b.length;a++)da.add(b[a]);}
 		var ia=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ja=Object.prototype.hasOwnProperty,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,la=
 		{},ma={};function oa(a){if(ja.call(ma,a))return !0;if(ja.call(la,a))return !1;if(ka.test(a))return ma[a]=!0;la[a]=!0;return !1}function pa(a,b,c,d){if(null!==c&&0===c.type)return !1;switch(typeof b){case "function":case "symbol":return !0;case "boolean":if(d)return !1;if(null!==c)return !c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return "data-"!==a&&"aria-"!==a;default:return !1}}
@@ -4234,9 +4229,6 @@
 
 	// this module should only have a default export
 	var axios$1 = axios;
-
-	var reactExports = requireReact();
-	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 	var DefaultContext = {
 	  color: undefined,
@@ -16853,10 +16845,23 @@
 	};
 
 	var _a;
+	// Wrap the handler in a closure to pass the options
+	function createClickHandler(options) {
+	    return function (event) {
+	        handleButtonClickForChangelogTrigger(event, options);
+	    };
+	}
 	const initializeChangelog = (options) => {
 	    console.log("====INITIALIZE CHANGELOG====");
 	    document.querySelectorAll("[data-feerio-changelog]").forEach((button) => {
-	        button.addEventListener("click", (event) => handleButtonClickForChangelogTrigger(event, options));
+	        // button.addEventListener("click", (event) =>
+	        //   handleButtonClickForChangelogTrigger(event as MouseEvent, options)
+	        // );
+	        // we need to remove the previous event listener if it exists and add the new event listener with the updated options
+	        // Remove the previous event listener if it exists
+	        button.removeEventListener("click", createClickHandler(options));
+	        // Add the new event listener
+	        button.addEventListener("click", createClickHandler(options));
 	    });
 	};
 	const initializePublicBoard = (options) => {

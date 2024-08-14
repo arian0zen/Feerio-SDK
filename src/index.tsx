@@ -29,6 +29,13 @@ declare global {
   }
 }
 
+// Wrap the handler in a closure to pass the options
+function createClickHandler(options: any) {
+  return function (event: MouseEvent) {
+    handleButtonClickForChangelogTrigger(event, options);
+  };
+}
+
 const initializeChangelog = (options: {
   workspaceId: string;
   workspaceSubdomain: string;
@@ -46,8 +53,22 @@ const initializeChangelog = (options: {
   console.log("====INITIALIZE CHANGELOG====");
 
   document.querySelectorAll("[data-feerio-changelog]").forEach((button) => {
-    button.addEventListener("click", (event) =>
-      handleButtonClickForChangelogTrigger(event as MouseEvent, options)
+    // button.addEventListener("click", (event) =>
+    //   handleButtonClickForChangelogTrigger(event as MouseEvent, options)
+    // );
+
+    // we need to remove the previous event listener if it exists and add the new event listener with the updated options
+
+    // Remove the previous event listener if it exists
+    button.removeEventListener(
+      "click",
+      createClickHandler(options) as EventListener
+    );
+
+    // Add the new event listener
+    button.addEventListener(
+      "click",
+      createClickHandler(options) as EventListener
     );
   });
 };

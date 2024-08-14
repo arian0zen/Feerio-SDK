@@ -36,26 +36,26 @@
                     var f = d.getElementsByTagName(s)[0],
                         e = d.createElement(s);
                     e.type = "text/javascript", e.async = !0,
-                        // e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@v1.0.0.2/dist/feerio-widget-sdk.js",
-                        e.src = './dist/feerio-widget-sdk.js'
-                    e.onload = function () {
-                        console.log("=== Feerio SDK loaded successfully ===");
+                        e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@latest/dist/feerio-widget-sdk.js",
+                        // e.src = './dist/feerio-widget-sdk.js'
+                        e.onload = function () {
+                            console.log("=== Feerio SDK loaded successfully ===");
 
-                        if (w.Feerio.fq) {
-                            while (w.Feerio.fq.length) {
-                                var args = w.Feerio.fq.shift();
-                                var method = args[0];
-                                var params = args[1];
+                            if (w.Feerio.fq) {
+                                while (w.Feerio.fq.length) {
+                                    var args = w.Feerio.fq.shift();
+                                    var method = args[0];
+                                    var params = args[1];
 
-                                if (w.Feerio[method]) {
-                                    w.Feerio[method](params);
-                                } else {
-                                    console.warn("Feerio method does not exist.");
+                                    if (w.Feerio[method]) {
+                                        w.Feerio[method](params);
+                                    } else {
+                                        console.warn("Feerio method does not exist.");
+                                    }
                                 }
                             }
-                        }
 
-                    };
+                        };
                     f.parentNode.insertBefore(e, f);
                 }
             }
@@ -81,8 +81,8 @@
 
     <script>
         Feerio('initializeChangelog', {
-            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
-            workspaceSubdomain: 'crisp',
+            workspaceId: 'fc7cea4c-f3cd-478a-9ab2-518111683c4d',
+            workspaceSubdomain: 'feedback',
             position: 'bottom-right',
             theme: 'dark',
         });
@@ -124,7 +124,7 @@
 
     <script>
         Feerio('initializePublicBoard', {
-            workspaceSubdomain: 'crisp',
+            workspaceSubdomain: 'feedback',
             boardUrls: [],
         });
     </script>

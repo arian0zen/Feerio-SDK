@@ -37,26 +37,26 @@
                     var f = d.getElementsByTagName(s)[0],
                         e = d.createElement(s);
                     e.type = "text/javascript", e.async = !0,
-                        e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@latest/dist/feerio-widget-sdk.js",
-                        // e.src = './dist/feerio-widget-sdk.js'
-                        e.onload = function () {
-                            console.log("=== Feerio SDK loaded successfully ===");
+                        // e.src = "https://raw.githubusercontent.com/arian0zen/feerio-sdk/main/dist/feerio-widget-sdk.js",
+                        e.src = './dist/feerio-widget-sdk.js'
+                    e.onload = function () {
+                        console.log("=== Feerio SDK loaded successfully ===");
 
-                            if (w.Feerio.fq) {
-                                while (w.Feerio.fq.length) {
-                                    var args = w.Feerio.fq.shift();
-                                    var method = args[0];
-                                    var params = args[1];
+                        if (w.Feerio.fq) {
+                            while (w.Feerio.fq.length) {
+                                var args = w.Feerio.fq.shift();
+                                var method = args[0];
+                                var params = args[1];
 
-                                    if (w.Feerio[method]) {
-                                        w.Feerio[method](params);
-                                    } else {
-                                        console.warn("Feerio method does not exist.");
-                                    }
+                                if (w.Feerio[method]) {
+                                    w.Feerio[method](params);
+                                } else {
+                                    console.warn("Feerio method does not exist.");
                                 }
                             }
+                        }
 
-                        };
+                    };
                     f.parentNode.insertBefore(e, f);
                 }
             }

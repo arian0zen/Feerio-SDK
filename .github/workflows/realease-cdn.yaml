@@ -46,9 +46,9 @@ jobs:
 
       - name: Update README with jsDelivr link
         run: |
-          sed -i 's|cdn_url:.*|cdn_url: https://cdn.jsdelivr.net/gh/${{ github.repository }}@latest/dist/feerio-widget-sdk.js|' README.md
+          sed -i 's|cdn_url:.*|cdn_url: https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@latest/dist/feerio-widget-sdk.js|' README.md
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add README.md
-          git commit -m "Update jsDelivr CDN link"
+          git add .
+          git commit -m "Update jsDelivr CDN link and other changes"
           git push

@@ -102,7 +102,7 @@ const ChangelogWidget = ({
       </div>
 
       <div className={`${styles.detailsContainer} ${styles.thinScrollbar}`}>
-        {fetching && <div>Loading...</div>}
+        {fetching && <div className={styles.noData}>Loading...</div>}
         {changelogLists.length === 0 && !fetching && (
           <div className={styles.noData}>
             No data found. Please check back later.

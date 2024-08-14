@@ -58,7 +58,7 @@ const renderPublicBoard = (options: {
   });
 
   let htmlElementForAllBoards = document.querySelector(
-    "[data-feerio-public-board]"
+    "[data-feerio-all-boards]"
   );
 
   if (htmlElementForAllBoards) {

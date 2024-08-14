@@ -50,12 +50,17 @@
 		return react_production_min;
 	}
 
-	{
-	  react.exports = requireReact_production_min();
-	}
+	var hasRequiredReact;
 
-	var reactExports = react.exports;
-	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
+	function requireReact () {
+		if (hasRequiredReact) return react.exports;
+		hasRequiredReact = 1;
+
+		{
+		  react.exports = requireReact_production_min();
+		}
+		return react.exports;
+	}
 
 	/**
 	 * @license React
@@ -72,7 +77,7 @@
 	function requireReactJsxRuntime_production_min () {
 		if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 		hasRequiredReactJsxRuntime_production_min = 1;
-	var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+	var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 		function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 		return reactJsxRuntime_production_min;
 	}
@@ -148,7 +153,7 @@
 	function requireReactDom_production_min () {
 		if (hasRequiredReactDom_production_min) return reactDom_production_min;
 		hasRequiredReactDom_production_min = 1;
-	var aa=reactExports,ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
+	var aa=requireReact(),ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
 		function ha(a,b){ea[a]=b;for(a=0;a<b.length;a++)da.add(b[a]);}
 		var ia=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ja=Object.prototype.hasOwnProperty,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,la=
 		{},ma={};function oa(a){if(ja.call(ma,a))return !0;if(ja.call(la,a))return !1;if(ka.test(a))return ma[a]=!0;la[a]=!0;return !1}function pa(a,b,c,d){if(null!==c&&0===c.type)return !1;switch(typeof b){case "function":case "symbol":return !0;case "boolean":if(d)return !1;if(null!==c)return !c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return "data-"!==a&&"aria-"!==a;default:return !1}}
@@ -4230,6 +4235,9 @@
 	// this module should only have a default export
 	var axios$1 = axios;
 
+	var reactExports = requireReact();
+	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
+
 	var DefaultContext = {
 	  color: undefined,
 	  size: undefined,
@@ -4297,9 +4305,9 @@
 	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 15 15","fill":"none"},"child":[{"tag":"path","attr":{"fillRule":"evenodd","clipRule":"evenodd","d":"M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z","fill":"currentColor"},"child":[]}]})(props);
 	}
 
-	const ENV = "PROD";
+	// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
 	// export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
-	// export const ENV = "DEV" as "PROD" | "DEV" | "STAGE";
+	const ENV = "DEV";
 	const URLS = {
 	    DEV: {
 	        BASE: "http://feerio.localhost:5000/api/v1/feerio",
@@ -16676,7 +16684,7 @@
 	                        ? `${title.length > 28 ? `${title.slice(0, 28)}...` : title} `
 	                        : selectedChangeLog && (selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title.length) > 28
 	                            ? `${selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title.slice(0, 28)}...`
-	                            : selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title, jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.closeButton}`, id: "fcb-sdk" }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1.detailsContainer} ${styles$1.thinScrollbar}` }, { children: [fetching && jsxRuntimeExports.jsx("div", { children: "Loading..." }), changelogLists.length === 0 && !fetching && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.noData }, { children: "No data found. Please check back later." }))), (changelogLists === null || changelogLists === void 0 ? void 0 : changelogLists.length) > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.changelogList} ${showingDetails ? styles$1.slideOut : ""}` }, { children: jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogList }, { children: changelogLists &&
+	                            : selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title, jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.closeButton}`, id: "fcb-sdk" }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1.detailsContainer} ${styles$1.thinScrollbar}` }, { children: [fetching && jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.noData }, { children: "Loading..." })), changelogLists.length === 0 && !fetching && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.noData }, { children: "No data found. Please check back later." }))), (changelogLists === null || changelogLists === void 0 ? void 0 : changelogLists.length) > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.changelogList} ${showingDetails ? styles$1.slideOut : ""}` }, { children: jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogList }, { children: changelogLists &&
 	                                changelogLists.map((changelog, index) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogItem, onClick: (e) => {
 	                                        e.preventDefault();
 	                                        e.stopPropagation();
@@ -16806,7 +16814,7 @@
 	    // if boardUrls element is empty string remove that element
 	    boardUrls = boardUrls.filter((url) => url !== "");
 	    let boardUrlParam = boardUrls.length > 0 ? `?b=${boardUrls[0]}` : "";
-	    let iframeSrc = `${"https:"}//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
+	    let iframeSrc = `${"http:" }//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
 	    /* <iframe src="${iframeSrc}" style="width: 100%; height: 100%; border: none;"></iframe> */
 	    let iframe = document.createElement("iframe");
 	    iframe.src = iframeSrc;
@@ -16834,7 +16842,7 @@
 	        });
 	        element.appendChild(iframeComponent);
 	    });
-	    let htmlElementForAllBoards = document.querySelector("[data-feerio-public-board]");
+	    let htmlElementForAllBoards = document.querySelector("[data-feerio-all-boards]");
 	    if (htmlElementForAllBoards) {
 	        let iframeComponent = generateIframeComponent({
 	            workspaceSubdomain,

@@ -36,8 +36,8 @@
                     var f = d.getElementsByTagName(s)[0],
                         e = d.createElement(s);
                     e.type = "text/javascript", e.async = !0,
-                        // e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@beta/dist/feerio-widget-sdk.js", // Your SDK script path
-                        e.src = "./dist/feerio-widget-sdk.js", // Your SDK script path
+                        e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@v1.0.0.2/dist/feerio-widget-sdk.js",
+                        // e.src = './dist/feerio-widget-sdk.js'
                         e.onload = function () {
                             console.log("=== Feerio SDK loaded successfully ===");
 
@@ -50,7 +50,7 @@
                                     if (w.Feerio[method]) {
                                         w.Feerio[method](params);
                                     } else {
-                                        console.warn(`Feerio method ${method} does not exist.`);
+                                        console.warn("Feerio method does not exist.");
                                     }
                                 }
                             }
@@ -75,6 +75,9 @@
             }
         }(window, document, "feerio-widget-sdk", "script");
     </script>
+
+    <!-- <script>!function(w,d,i,s){functionl(){if(!d.getElementById(i)){varf=d.getElementsByTagName(s)[0],e=d.createElement(s);e.type="text/javascript",e.async=!0,e.src="https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@beta/dist/feerio-widget-sdk.js",e.onload=function(){console.log("===FeerioSDKloadedsuccessfully===");if(w.Feerio.fq){while(w.Feerio.fq.length){varargs=w.Feerio.fq.shift();varmethod=args[0];varparams=args[1];if(w.Feerio[method]){w.Feerio[method](params);}else{console.warn("Feeriomethoddoesnotexist.");}}}};f.parentNode.insertBefore(e,f);}}if("function"!=typeofw.Feerio){console.log("===loadingFeerioSDK===");varc=function(){c.fq.push(arguments);};c.fq=[];w.Feerio=c;"complete"===d.readyState?l():w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1);}}(window,document,"feerio-widget-sdk","script");</script> -->
+
 
     <script>
         Feerio('initializeChangelog', {
@@ -114,7 +117,7 @@
 
 
 
-    <div data-feerio-public-board class="feerio-boards">
+    <div data-feerio-all-boards class="feerio-boards">
         Bug reports
     </div>
 
@@ -122,7 +125,7 @@
     <script>
         Feerio('initializePublicBoard', {
             workspaceSubdomain: 'crisp',
-            boardUrls: ['bug-reports', 'feature-requests2'],
+            boardUrls: [],
         });
     </script>
 

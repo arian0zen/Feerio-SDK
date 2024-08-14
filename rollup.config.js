@@ -32,7 +32,6 @@ let config = {
     typescript({ tsconfig: "./tsconfig.json" }),
     postcss({
       extensions: [".css"],
-      extract: false, // If you want to inline the CSS in the JS
     }),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),

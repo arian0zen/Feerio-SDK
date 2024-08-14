@@ -88,11 +88,11 @@ const handleButtonClickForChangelogTrigger = (
 
     switch (options.position) {
       case "top-right": //  done
-        container.style.top = `${rect.top - mainContainerHeight + 20}px`;
+        container.style.top = `${rect.top - mainContainerHeight - 10}px`;
         container.style.left = `${rect.left}px`;
         break;
       case "top-left": // done
-        container.style.top = `${rect.top - mainContainerHeight + 20}px`;
+        container.style.top = `${rect.top - mainContainerHeight - 10}px`;
         container.style.left = `${rect.right - mainContainerWidth}px`;
         break;
       case "bottom-right": // done
@@ -112,7 +112,7 @@ const handleButtonClickForChangelogTrigger = (
         container.style.left = `${rect.right + 10}px`;
         break;
       case "top-center": // done
-        container.style.top = `${rect.top - mainContainerHeight + 20}px`;
+        container.style.top = `${rect.top - mainContainerHeight - 10}px`;
         container.style.left = `${
           rect.left + (rect.width - mainContainerWidth) / 2
         }px`;

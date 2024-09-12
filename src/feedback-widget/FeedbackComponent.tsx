@@ -233,7 +233,7 @@ const FeedbackComponent = ({
         {message.content && message.type && (
           <div className={`${styles.message} ${styles[message.type]}`}>
             {message.type === "success" ? (
-              <FaCheck className={styles.messageIcon} />
+              <FaCheck size={18} className={styles.messageIcon} />
             ) : (
               <IoWarningOutline className={styles.messageIcon} />
             )}
@@ -288,12 +288,24 @@ const FeedbackComponent = ({
         <h3
           style={{
             textAlign: "center",
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: 400,
           }}
         >
           No feedback boards found!
         </h3>
+      )}
+
+      {loading && (
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "12px",
+            fontWeight: 400,
+          }}
+        >
+          Loading...
+        </p>
       )}
     </div>
   );

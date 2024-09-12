@@ -7,6 +7,7 @@
   --button-hover-bg-light: #f3f4f6;
   --success-bg-light: #d1fae5;
   --success-color-light: #065f46;
+  --success-color-icon: #1c9472;
   --error-bg-light: #fee2e2;
   --error-color-light: #991b1b;
   --info-bg-light: #e0f2fe;
@@ -236,7 +237,7 @@
 }
 
 .success .messageIcon {
-  color: var(--success-color-light);
+  color: var(--success-color-icon);
 }
 
 .error {
@@ -271,4 +272,8 @@
 .dark .info {
   background-color: var(--info-bg-dark);
   color: var(--info-color-dark);
+}
+
+.viewPost {
+  text-decoration: underline;
 }

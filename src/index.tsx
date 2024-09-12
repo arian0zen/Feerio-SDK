@@ -1,4 +1,7 @@
-import { handleButtonClickForChangelogTrigger } from "./ChangelogWidgetUtility";
+import {
+  handleButtonClickForChangelogTrigger,
+  renderChangelogWidgetPopup,
+} from "./ChangelogWidgetUtility";
 import { renderPublicBoard } from "./PublicBoardUtility";
 
 declare global {
@@ -23,6 +26,13 @@ declare global {
         boardUrls: string[];
         // theme?: "light" | "dark";
       }) => void;
+      // always show the changelog popup
+      initializeChangelogPopup: (options: {
+        workspaceId: string;
+        workspaceSubdomain: string;
+        theme: "light" | "dark";
+      }) => void;
+
       // fq is the queue of functions that will be called when the script is loaded
       fq: any[];
     };
@@ -72,6 +82,15 @@ const initializeChangelog = (options: {
     );
   });
 };
+const initializeChangelogPopup = (options: {
+  workspaceId: string;
+  workspaceSubdomain: string;
+  theme: "light" | "dark";
+}) => {
+  console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
+
+  renderChangelogWidgetPopup(options);
+};
 
 const initializePublicBoard = (options: {
   workspaceSubdomain: string;
@@ -110,10 +129,12 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.0.3 ************
+// VERSION ************ 2.0.4 ************
 
 window.Feerio = {
   initializeChangelog,
+  initializeChangelogPopup,
   initializePublicBoard,
+
   fq: window.Feerio?.fq || [],
 };

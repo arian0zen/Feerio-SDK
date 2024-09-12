@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import ChangelogWidget from "../changelog-widget/ChangelogWidget";
+import ChangelogWidgetPopUp from "../changelog-widget/ChangelogWidgetPopUp";
 
 const renderChangelogWidget = (
   container: HTMLElement,
@@ -157,4 +158,27 @@ const handleButtonClickForChangelogTrigger = (
   }
 };
 
-export { handleButtonClickForChangelogTrigger, renderChangelogWidget };
+const renderChangelogWidgetPopup = ({
+  theme,
+  workspaceId,
+  workspaceSubdomain,
+}: {
+  theme: "light" | "dark";
+  workspaceId: string;
+  workspaceSubdomain: string;
+}) => {
+  ReactDOM.render(
+    <ChangelogWidgetPopUp
+      workspaceId={workspaceId}
+      workspaceSubdomain={workspaceSubdomain}
+      theme={theme}
+    />,
+    document.body
+  );
+};
+
+export {
+  handleButtonClickForChangelogTrigger,
+  renderChangelogWidget,
+  renderChangelogWidgetPopup,
+};

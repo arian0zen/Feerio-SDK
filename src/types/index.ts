@@ -19,3 +19,18 @@ export type ChangelogType = {
   createdAt: string;
   updatedAt: string;
 };
+
+// Type for Board
+export type Board = {
+  boardId: string;
+  name: string;
+  description?: string;
+  url: string;
+  createdBy: string; // ObjectId as string
+  haveAccess: string[]; // Array of ObjectIds as strings
+  isDeleted: boolean;
+  boardVisibility: "private" | "public";
+  isStarred: boolean;
+  showOnHomePage: boolean;
+  postCount: number;
+};

@@ -1,0 +1,79 @@
+.container {
+  position: fixed !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
+  z-index: 9999 !important;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  opacity: 0.8;
+}
+
+.icon {
+  color: white;
+}
+
+.widgetContainer {
+  position: absolute;
+  bottom: 4.5rem;
+  right: 0;
+  min-width: 300px;
+  width: 330px;
+  /* this is 420 - 48px for the title div of the changelog widget */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.3s ease;
+  transition: all 0.1s ease;
+}
+
+.contentContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 372px;
+  /* this is 420 - 48px for the title div of the changelog widget */
+}
+
+.feedbackPlaceholder {
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+/* ----animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* add media query for mobile to take the full width  and height of the screen */
+
+@media (max-width: 480px) {
+  .widgetContainer {
+    width: 100vw;
+    height: 80vh;
+    border-radius: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.feedbackButton {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feedbackButton:hover {
+  background-color: #f3f4f6;
+  scale: 1.04;
+}
+
+.buttonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.boardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.boardDescription {
+  font-size: 12px;
+  color: #808388;
+  margin: 0;
+  font-weight: 400;
+}
+
+.footer {
+  margin-top: 16px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Skeleton styles */
+.skeleton {
+  height: 64px;
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}

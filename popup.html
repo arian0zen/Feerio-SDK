@@ -77,16 +77,12 @@
         }(window, document, "feerio-widget-sdk", "script");
     </script>
 
-    <!-- <script>!function(w,d,i,s){functionl(){if(!d.getElementById(i)){varf=d.getElementsByTagName(s)[0],e=d.createElement(s);e.type="text/javascript",e.async=!0,e.src="https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@beta/dist/feerio-widget-sdk.js",e.onload=function(){console.log("===FeerioSDKloadedsuccessfully===");if(w.Feerio.fq){while(w.Feerio.fq.length){varargs=w.Feerio.fq.shift();varmethod=args[0];varparams=args[1];if(w.Feerio[method]){w.Feerio[method](params);}else{console.warn("Feeriomethoddoesnotexist.");}}}};f.parentNode.insertBefore(e,f);}}if("function"!=typeofw.Feerio){console.log("===loadingFeerioSDK===");varc=function(){c.fq.push(arguments);};c.fq=[];w.Feerio=c;"complete"===d.readyState?l():w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1);}}(window,document,"feerio-widget-sdk","script");</script> -->
-
 
     <script>
-        Feerio('initializeChangelog', {
-            workspaceId: 'fc7cea4c-f3cd-478a-9ab2-518111683c4d',
-            workspaceSubdomain: 'feedback',
-            position: 'bottom-right',
-            theme: 'dark',
-            title: 'very very very very Changelog',
+        Feerio('initializeChangelogPopup', {
+            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
+            workspaceSubdomain: 'crisp',
+            theme: 'light',
         });
 
 
@@ -104,32 +100,7 @@
 <body>
 
 
-    <button class="changelog-btn" data-feerio-changelog>
-        View Changelog 1
-    </button>
-    <button class="changelog-btn" data-feerio-changelog>
-        View Changelog 2
-    </button>
-    <button class="changelog-btn" data-feerio-changelog>
-        View Changelog 3
-    </button>
-    <button class="changelog-btn" data-feerio-changelog>
-        View Changelog 4
-    </button>
-
-
-
-    <div data-feerio-all-boards class="feerio-boards">
-        Bug reports
-    </div>
-
-
-    <script>
-        Feerio('initializePublicBoard', {
-            workspaceSubdomain: 'crisp',
-            boardUrls: [],
-        });
-    </script>
+    Arian is a good boy!
 
 
 </body>

@@ -1,12 +1,17 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Editor, createEditor } from "slate";
 import { Editable, Slate, withReact } from "slate-react";
 import { BaseEditor, Descendant } from "slate";
 import { ReactEditor } from "slate-react";
 import styles from "./ChangelogWidgetDetails.module.css";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import { ChangelogType } from "../types";
 
 type ChangelogCardProps = {
   initialValue_: string;
+  showBackButton?: boolean;
+  setShowingDetails?: (showingDetails: boolean) => void;
+  setSelectedChangeLog?: (selectedChangeLog: ChangelogType | null) => void;
 };
 
 type CustomElement = {
@@ -31,22 +36,42 @@ declare module "slate" {
   }
 }
 
-const ChangelogDetailsCard = ({ initialValue_ }: ChangelogCardProps) => {
+const ChangelogDetailsCard = ({
+  initialValue_,
+  showBackButton = false,
+  setShowingDetails = () => {},
+  setSelectedChangeLog = () => {},
+}: ChangelogCardProps) => {
   const [initialValue] = useState<Descendant[]>(JSON.parse(initialValue_));
   const renderElement = useCallback((props: any) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: any) => <Leaf {...props} />, []);
   const editor = useMemo(() => withImages(withReact(createEditor())), []);
 
   return (
-    <Slate editor={editor} initialValue={initialValue}>
-      <Editable
-        className={styles.editor}
-        disableDefaultStyles={true}
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
-        readOnly={true}
-      />
-    </Slate>
+    <>
+      {showBackButton && (
+        <div
+          className={styles.backButton}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowingDetails(false);
+            setTimeout(() => setSelectedChangeLog(null), 300); // Wait for animation to finish
+          }}
+        >
+          <HiOutlineArrowNarrowLeft size={18} />
+        </div>
+      )}
+      <Slate editor={editor} initialValue={initialValue}>
+        <Editable
+          className={styles.editor}
+          disableDefaultStyles={true}
+          renderElement={renderElement}
+          renderLeaf={renderLeaf}
+          readOnly={true}
+        />
+      </Slate>
+    </>
   );
 };
 

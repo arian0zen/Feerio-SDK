@@ -4297,9 +4297,9 @@
 	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 15 15","fill":"none"},"child":[{"tag":"path","attr":{"fillRule":"evenodd","clipRule":"evenodd","d":"M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z","fill":"currentColor"},"child":[]}]})(props);
 	}
 
-	const ENV = "PROD";
+	// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
 	// export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
-	// export const ENV = "DEV" as "PROD" | "DEV" | "STAGE";
+	const ENV = "DEV";
 	const URLS = {
 	    DEV: {
 	        BASE: "http://feerio.localhost:5000/api/v1/feerio",
@@ -4364,9 +4364,9 @@
 	  }
 	}
 
-	var css_248z$1 = "@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap\");\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em {\r\n  --bg-color: #191919;\r\n  --text-color: #ffffff;\r\n  --border-color: #333;\r\n  --description-color: #a0a0a0;\r\n  --meta-color: #666;\r\n  --link-color: #108f62;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #888;\r\n  --hover-bg: rgba(192, 192, 192, 0.068);\r\n\r\n  position: absolute;\r\n  width: 330px;\r\n  height: 420px;\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  background-color: var(--bg-color);\r\n  color: var(--text-color);\r\n  animation: ChangelogWidget-module_fadeUp__DY6mJ 0.3s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n  overflow: hidden;\r\n  border: 1px solid var(--border-color);\r\n}\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em.ChangelogWidget-module_light__nyxBe {\r\n  --bg-color: #ffffff;\r\n  --text-color: #333333;\r\n  --border-color: #e0e0e0;\r\n  --description-color: #666666;\r\n  --meta-color: #888888;\r\n  --link-color: #0077b6;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #c1c1c1;\r\n  --hover-bg: rgba(27, 24, 24, 0.068);\r\n}\r\n\r\n.ChangelogWidget-module_title__G2GEB {\r\n  /* height: 24px; */\r\n  font-size: 15px;\r\n  font-weight: 500;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  left: 18px;\r\n  margin-top: 4px;\r\n}\r\n.ChangelogWidget-module_closeButton__LZX7q {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  right: 18px;\r\n  margin-top: 4px;\r\n}\r\n.ChangelogWidget-module_closeButton__LZX7q:hover,\r\n.ChangelogWidget-module_backButton__VASBI:hover {\r\n  color: var(--link-color);\r\n}\r\n\r\n.ChangelogWidget-module_detailsContainer__5A3py {\r\n  height: 337px;\r\n  position: relative;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  gap: 8px;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  /* max-height: 124px; */\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: rgba(212, 203, 203, 0.726);\r\n}\r\n/* // for dark mode */\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: var(--hover-bg);\r\n}\r\n\r\n.ChangelogWidget-module_changelogLabels__4Wd3i {\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n  display: flex;\r\n  flex-direction: row;\r\n  gap: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_label__OtlCM {\r\n  padding: 2px 4px;\r\n  border-radius: 4px;\r\n  color: #ffffff;\r\n}\r\n\r\n.ChangelogWidget-module_changelogContent__tnOXH {\r\n  flex-grow: 1;\r\n}\r\n\r\n.ChangelogWidget-module_changelogTitle__Do01T {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin-bottom: 4px;\r\n  display: flex;\r\n  gap: 4px;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.ChangelogWidget-module_changelogDescription__oBiG- {\r\n  font-size: 13px;\r\n  color: var(--description-color);\r\n  line-height: 1.3;\r\n}\r\n\r\n.ChangelogWidget-module_changelogMeta__aSNB9 {\r\n  font-size: 10px;\r\n  color: var(--meta-color);\r\n  display: flex;\r\n  gap: 8px;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_footer__CxPIL {\r\n  font-size: 12px;\r\n  color: var(--meta-color);\r\n  padding: 8px 16px;\r\n  border-top: 1px solid var(--border-color);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: sticky;\r\n  bottom: 0;\r\n}\r\n\r\n.ChangelogWidget-module_poweredBy__2jAss {\r\n  font-style: italic;\r\n}\r\n\r\na,\r\n.ChangelogWidget-module_link__jgXj4 {\r\n  color: var(--link-color);\r\n  text-decoration: none;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.ChangelogWidget-module_noData__d-Fov {\r\n  padding: 4px;\r\n  text-align: center;\r\n  font-size: 12px;\r\n}\r\n\r\n.ChangelogWidget-module_no-scrollbar__CGyym::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar {\r\n  width: 5px;\r\n  height: 5px;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-track {\r\n  background-color: var(--scrollbar-bg);\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-thumb {\r\n  background-color: var(--scrollbar-thumb);\r\n}\r\n\r\n/* -----change log details----- */\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  overflow-y: auto;\r\n  border-radius: 8px;\r\n  animation: ChangelogWidget-module_slideLeft__7sULw 0.5s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n}\r\n\r\n/* ------ slide animations ------ */\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ,\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  transition: transform 0.3s ease-in-out;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  transform: translateX(0);\r\n}\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  position: absolute;\r\n  left: 100%;\r\n  top: 0;\r\n  transform: translateX(100%);\r\n}\r\n\r\n/* Sliding animations */\r\n.ChangelogWidget-module_slideOut__-h1DS {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n.ChangelogWidget-module_slideIn__9A2ri {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n/* Fade animation for the back button */\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  opacity: 0;\r\n  transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI.ChangelogWidget-module_visible__nPxtF {\r\n  opacity: 1;\r\n}\r\n\r\n/* ---- animation.css ---- */\r\n\r\n@keyframes ChangelogWidget-module_fadeUp__DY6mJ {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* animation for slide :left */\r\n@keyframes ChangelogWidget-module_slideLeft__7sULw {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateX(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateX(0);\r\n  }\r\n}\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidget-module_changelogWidget__gj8Em {\r\n    min-height: 100vh !important;\r\n    width: 100vw !important;\r\n    border-radius: 0px !important;\r\n  }\r\n  .ChangelogWidget-module_detailsContainer__5A3py {\r\n    /*min height should be 100vh - 83px (title + footer height)  */\r\n    height: calc(100vh - 84px) !important;\r\n  }\r\n}\r\n";
-	var styles$1 = {"changelogWidget":"ChangelogWidget-module_changelogWidget__gj8Em","fadeUp":"ChangelogWidget-module_fadeUp__DY6mJ","light":"ChangelogWidget-module_light__nyxBe","title":"ChangelogWidget-module_title__G2GEB","backButton":"ChangelogWidget-module_backButton__VASBI","closeButton":"ChangelogWidget-module_closeButton__LZX7q","detailsContainer":"ChangelogWidget-module_detailsContainer__5A3py","changelogList":"ChangelogWidget-module_changelogList__T8cTJ","changelogItem":"ChangelogWidget-module_changelogItem__dS8zY","changelogLabels":"ChangelogWidget-module_changelogLabels__4Wd3i","label":"ChangelogWidget-module_label__OtlCM","changelogContent":"ChangelogWidget-module_changelogContent__tnOXH","changelogTitle":"ChangelogWidget-module_changelogTitle__Do01T","changelogDescription":"ChangelogWidget-module_changelogDescription__oBiG-","changelogMeta":"ChangelogWidget-module_changelogMeta__aSNB9","footer":"ChangelogWidget-module_footer__CxPIL","poweredBy":"ChangelogWidget-module_poweredBy__2jAss","link":"ChangelogWidget-module_link__jgXj4","noData":"ChangelogWidget-module_noData__d-Fov","no-scrollbar":"ChangelogWidget-module_no-scrollbar__CGyym","thinScrollbar":"ChangelogWidget-module_thinScrollbar__Kh3Ry","changelogDetails":"ChangelogWidget-module_changelogDetails__KUe3z","slideLeft":"ChangelogWidget-module_slideLeft__7sULw","slideOut":"ChangelogWidget-module_slideOut__-h1DS","slideIn":"ChangelogWidget-module_slideIn__9A2ri","visible":"ChangelogWidget-module_visible__nPxtF"};
-	styleInject(css_248z$1);
+	var css_248z$5 = "@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap\");\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em {\r\n  --bg-color: #191919;\r\n  --text-color: #ffffff;\r\n  --border-color: #333;\r\n  --description-color: #a0a0a0;\r\n  --meta-color: #666;\r\n  --link-color: #108f62;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #888;\r\n  --hover-bg: rgba(192, 192, 192, 0.068);\r\n\r\n  position: absolute;\r\n  width: 330px;\r\n  height: 420px;\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  background-color: var(--bg-color);\r\n  color: var(--text-color);\r\n  animation: ChangelogWidget-module_fadeUp__DY6mJ 0.3s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n  overflow: hidden;\r\n  /* border: 1px solid var(--border-color); */\r\n}\r\n\r\n.ChangelogWidget-module_changelogWidget__gj8Em.ChangelogWidget-module_light__nyxBe {\r\n  --bg-color: #ffffff;\r\n  --text-color: #333333;\r\n  --border-color: #e0e0e0;\r\n  --description-color: #666666;\r\n  --meta-color: #888888;\r\n  --link-color: #0077b6;\r\n  --scrollbar-bg: #f1f1f1;\r\n  --scrollbar-thumb: #c1c1c1;\r\n  --hover-bg: rgba(27, 24, 24, 0.068);\r\n}\r\n\r\n.ChangelogWidget-module_title__G2GEB {\r\n  /* height: 24px; */\r\n  font-size: 15px;\r\n  font-weight: 500;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  left: 18px;\r\n  margin-top: 4px;\r\n}\r\n.ChangelogWidget-module_closeButton__LZX7q {\r\n  color: var(--text-color);\r\n  border: none;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  right: 18px;\r\n  margin-top: 4px;\r\n}\r\n.ChangelogWidget-module_closeButton__LZX7q:hover,\r\n.ChangelogWidget-module_backButton__VASBI:hover {\r\n  color: var(--link-color);\r\n}\r\n\r\n.ChangelogWidget-module_detailsContainer__5A3py {\r\n  /* height: 337px; */\r\n  position: relative;\r\n  overflow-y: hidden;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  display: flex;\r\n  flex-direction: column;\r\n  max-height: 337px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  gap: 8px;\r\n  padding: 12px;\r\n  border-bottom: 1px solid var(--border-color);\r\n  /* max-height: 124px; */\r\n  /* overflow: hidden; */\r\n  text-overflow: ellipsis;\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: rgba(212, 203, 203, 0.726);\r\n}\r\n/* // for dark mode */\r\n.ChangelogWidget-module_changelogItem__dS8zY:hover {\r\n  background-color: var(--hover-bg);\r\n}\r\n\r\n.ChangelogWidget-module_changelogLabels__4Wd3i {\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  text-transform: uppercase;\r\n  display: flex;\r\n  flex-direction: row;\r\n  gap: 4px;\r\n}\r\n\r\n.ChangelogWidget-module_label__OtlCM {\r\n  padding: 2px 4px;\r\n  border-radius: 4px;\r\n  color: #ffffff;\r\n}\r\n\r\n.ChangelogWidget-module_changelogContent__tnOXH {\r\n  flex-grow: 1;\r\n}\r\n\r\n.ChangelogWidget-module_changelogTitle__Do01T {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin-bottom: 4px;\r\n  display: flex;\r\n  gap: 4px;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.ChangelogWidget-module_changelogDescription__oBiG- {\r\n  font-size: 13px;\r\n  color: var(--description-color);\r\n  line-height: 1.3;\r\n}\r\n\r\n.ChangelogWidget-module_changelogMeta__aSNB9 {\r\n  font-size: 10px;\r\n  color: var(--meta-color);\r\n  display: flex;\r\n  gap: 8px;\r\n  align-items: center;\r\n}\r\n\r\n.ChangelogWidget-module_footer__CxPIL {\r\n  font-size: 12px;\r\n  color: var(--meta-color);\r\n  padding: 8px 16px;\r\n  border-top: 1px solid var(--border-color);\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: sticky;\r\n  bottom: 0;\r\n}\r\n\r\n.ChangelogWidget-module_poweredBy__2jAss {\r\n  font-style: italic;\r\n}\r\n\r\na,\r\n.ChangelogWidget-module_link__jgXj4 {\r\n  color: var(--link-color);\r\n  text-decoration: none;\r\n}\r\n\r\n.ChangelogWidget-module_link__jgXj4:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.ChangelogWidget-module_noData__d-Fov {\r\n  padding: 4px;\r\n  text-align: center;\r\n  font-size: 12px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  gap: 4px;\r\n  flex-direction: column;\r\n}\r\n\r\n.ChangelogWidget-module_no-scrollbar__CGyym::-webkit-scrollbar {\r\n  display: none;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar {\r\n  width: 5px;\r\n  height: 5px;\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-track {\r\n  background-color: var(--scrollbar-bg);\r\n}\r\n\r\n.ChangelogWidget-module_thinScrollbar__Kh3Ry::-webkit-scrollbar-thumb {\r\n  background-color: var(--scrollbar-thumb);\r\n}\r\n\r\n/* -----change log details----- */\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  border-radius: 8px;\r\n  animation: ChangelogWidget-module_slideLeft__7sULw 0.5s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n  transition: all 0.1s ease;\r\n  height: 337px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n/* ------ slide animations ------ */\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ,\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  transition: transform 0.3s ease-in-out;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidget-module_changelogList__T8cTJ {\r\n  transform: translateX(0);\r\n}\r\n\r\n.ChangelogWidget-module_changelogDetails__KUe3z {\r\n  position: absolute;\r\n  left: 100%;\r\n  top: 0;\r\n  transform: translateX(100%);\r\n}\r\n\r\n/* Sliding animations */\r\n.ChangelogWidget-module_slideOut__-h1DS {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n.ChangelogWidget-module_slideIn__9A2ri {\r\n  transform: translateX(-100%);\r\n}\r\n\r\n/* Fade animation for the back button */\r\n.ChangelogWidget-module_backButton__VASBI {\r\n  opacity: 0;\r\n  transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.ChangelogWidget-module_backButton__VASBI.ChangelogWidget-module_visible__nPxtF {\r\n  opacity: 1;\r\n}\r\n\r\n/* ---- animation.css ---- */\r\n\r\n@keyframes ChangelogWidget-module_fadeUp__DY6mJ {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* animation for slide :left */\r\n@keyframes ChangelogWidget-module_slideLeft__7sULw {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateX(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateX(0);\r\n  }\r\n}\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidget-module_changelogWidget__gj8Em {\r\n    min-height: 100vh !important;\r\n    width: 100vw !important;\r\n    border-radius: 0px !important;\r\n  }\r\n  .ChangelogWidget-module_detailsContainer__5A3py {\r\n    /*min height should be 100vh - 83px (title + footer height)  */\r\n    height: calc(100vh - 84px) !important;\r\n  }\r\n}\r\n";
+	var styles$4 = {"changelogWidget":"ChangelogWidget-module_changelogWidget__gj8Em","fadeUp":"ChangelogWidget-module_fadeUp__DY6mJ","light":"ChangelogWidget-module_light__nyxBe","title":"ChangelogWidget-module_title__G2GEB","backButton":"ChangelogWidget-module_backButton__VASBI","closeButton":"ChangelogWidget-module_closeButton__LZX7q","detailsContainer":"ChangelogWidget-module_detailsContainer__5A3py","changelogList":"ChangelogWidget-module_changelogList__T8cTJ","changelogItem":"ChangelogWidget-module_changelogItem__dS8zY","changelogLabels":"ChangelogWidget-module_changelogLabels__4Wd3i","label":"ChangelogWidget-module_label__OtlCM","changelogContent":"ChangelogWidget-module_changelogContent__tnOXH","changelogTitle":"ChangelogWidget-module_changelogTitle__Do01T","changelogDescription":"ChangelogWidget-module_changelogDescription__oBiG-","changelogMeta":"ChangelogWidget-module_changelogMeta__aSNB9","footer":"ChangelogWidget-module_footer__CxPIL","poweredBy":"ChangelogWidget-module_poweredBy__2jAss","link":"ChangelogWidget-module_link__jgXj4","noData":"ChangelogWidget-module_noData__d-Fov","no-scrollbar":"ChangelogWidget-module_no-scrollbar__CGyym","thinScrollbar":"ChangelogWidget-module_thinScrollbar__Kh3Ry","changelogDetails":"ChangelogWidget-module_changelogDetails__KUe3z","slideLeft":"ChangelogWidget-module_slideLeft__7sULw","slideOut":"ChangelogWidget-module_slideOut__-h1DS","slideIn":"ChangelogWidget-module_slideIn__9A2ri","visible":"ChangelogWidget-module_visible__nPxtF"};
+	styleInject(css_248z$5);
 
 	/*!
 	 * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
@@ -16585,16 +16585,21 @@
 	  return matches;
 	};
 
-	var css_248z = ".ChangelogWidgetDetails-module_editor__AGUF4 {\r\n  position: relative;\r\n  height: fit-content;\r\n  font-size: 14px;\r\n  border-radius: 4px;\r\n  overflow-y: auto;\r\n  outline: none;\r\n  white-space: pre-wrap;\r\n  padding: 12px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar {\r\n  width: 6px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-track {\r\n  background: #f1f1f1;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-thumb {\r\n  background: #888;\r\n  border-radius: 3px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-thumb:hover {\r\n  background: #555;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_blockquote__Jtykq {\r\n  border-left: 2px solid #ccc;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  padding-left: 10px;\r\n  color: #666;\r\n  font-style: italic;\r\n  padding: 12px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_heading__lh-zJ {\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  margin: 10px 0;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_orderedList__m-yxm {\r\n  list-style-type: decimal;\r\n  margin-left: 20px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_unorderedList__H-kCW {\r\n  list-style-type: disc;\r\n  margin-left: 20px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_imageContainer__XgrW0 {\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_image__v1mzF {\r\n  display: block;\r\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n  border-radius: 4px;\r\n  object-fit: cover;\r\n  width: 100%;\r\n}\r\n";
-	var styles = {"editor":"ChangelogWidgetDetails-module_editor__AGUF4","blockquote":"ChangelogWidgetDetails-module_blockquote__Jtykq","heading":"ChangelogWidgetDetails-module_heading__lh-zJ","orderedList":"ChangelogWidgetDetails-module_orderedList__m-yxm","unorderedList":"ChangelogWidgetDetails-module_unorderedList__H-kCW","imageContainer":"ChangelogWidgetDetails-module_imageContainer__XgrW0","image":"ChangelogWidgetDetails-module_image__v1mzF"};
-	styleInject(css_248z);
+	var css_248z$4 = ".ChangelogWidgetDetails-module_editor__AGUF4 {\r\n  position: relative;\r\n  font-size: 14px;\r\n  border-radius: 4px;\r\n  overflow-y: auto;\r\n  outline: none;\r\n  white-space: pre-wrap;\r\n  padding: 12px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar {\r\n  width: 6px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-track {\r\n  background: #f1f1f1;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-thumb {\r\n  background: #888;\r\n  border-radius: 3px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_editor__AGUF4::-webkit-scrollbar-thumb:hover {\r\n  background: #555;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_blockquote__Jtykq {\r\n  border-left: 2px solid #ccc;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  padding-left: 10px;\r\n  color: #666;\r\n  font-style: italic;\r\n  padding: 12px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_heading__lh-zJ {\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  margin: 10px 0;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_orderedList__m-yxm {\r\n  list-style-type: decimal;\r\n  margin-left: 20px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_unorderedList__H-kCW {\r\n  list-style-type: disc;\r\n  margin-left: 20px;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_imageContainer__XgrW0 {\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_image__v1mzF {\r\n  display: block;\r\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n  border-radius: 4px;\r\n  object-fit: cover;\r\n  width: 100%;\r\n}\r\n\r\n.ChangelogWidgetDetails-module_backButton__uCVTI {\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  margin-left: 8px;\r\n  margin-top: 8px;\r\n}\r\n";
+	var styles$3 = {"editor":"ChangelogWidgetDetails-module_editor__AGUF4","blockquote":"ChangelogWidgetDetails-module_blockquote__Jtykq","heading":"ChangelogWidgetDetails-module_heading__lh-zJ","orderedList":"ChangelogWidgetDetails-module_orderedList__m-yxm","unorderedList":"ChangelogWidgetDetails-module_unorderedList__H-kCW","imageContainer":"ChangelogWidgetDetails-module_imageContainer__XgrW0","image":"ChangelogWidgetDetails-module_image__v1mzF","backButton":"ChangelogWidgetDetails-module_backButton__uCVTI"};
+	styleInject(css_248z$4);
 
-	const ChangelogDetailsCard = ({ initialValue_ }) => {
+	const ChangelogDetailsCard = ({ initialValue_, showBackButton = false, setShowingDetails = () => { }, setSelectedChangeLog = () => { }, }) => {
 	    const [initialValue] = reactExports.useState(JSON.parse(initialValue_));
 	    const renderElement = reactExports.useCallback((props) => jsxRuntimeExports.jsx(Element$1, Object.assign({}, props)), []);
 	    const renderLeaf = reactExports.useCallback((props) => jsxRuntimeExports.jsx(Leaf, Object.assign({}, props)), []);
 	    const editor = reactExports.useMemo(() => withImages(withReact(createEditor())), []);
-	    return (jsxRuntimeExports.jsx(Slate, Object.assign({ editor: editor, initialValue: initialValue }, { children: jsxRuntimeExports.jsx(Editable, { className: styles.editor, disableDefaultStyles: true, renderElement: renderElement, renderLeaf: renderLeaf, readOnly: true }) })));
+	    return (jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [showBackButton && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$3.backButton, onClick: (e) => {
+	                    e.preventDefault();
+	                    e.stopPropagation();
+	                    setShowingDetails(false);
+	                    setTimeout(() => setSelectedChangeLog(null), 300); // Wait for animation to finish
+	                } }, { children: jsxRuntimeExports.jsx(HiOutlineArrowNarrowLeft, { size: 18 }) }))), jsxRuntimeExports.jsx(Slate, Object.assign({ editor: editor, initialValue: initialValue }, { children: jsxRuntimeExports.jsx(Editable, { className: styles$3.editor, disableDefaultStyles: true, renderElement: renderElement, renderLeaf: renderLeaf, readOnly: true }) }))] }));
 	};
 	const withImages = (editor) => {
 	    const { isVoid } = editor;
@@ -16604,21 +16609,21 @@
 	    return editor;
 	};
 	const Image = React.forwardRef(({ attributes, children, element, }, ref) => {
-	    return (jsxRuntimeExports.jsxs("div", Object.assign({}, attributes, { children: [children, jsxRuntimeExports.jsx("div", Object.assign({ className: styles.imageContainer, contentEditable: false }, { children: jsxRuntimeExports.jsx("img", { src: element.url, alt: "changelog", className: styles.image }) }))] })));
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({}, attributes, { children: [children, jsxRuntimeExports.jsx("div", Object.assign({ className: styles$3.imageContainer, contentEditable: false }, { children: jsxRuntimeExports.jsx("img", { src: element.url, alt: "changelog", className: styles$3.image }) }))] })));
 	});
 	const Element$1 = ({ attributes, children, element, }) => {
 	    const style = { textAlign: element.align };
 	    switch (element.type) {
 	        case "block-quote":
-	            return (jsxRuntimeExports.jsx("blockquote", Object.assign({ className: styles.blockquote, style: style }, attributes, { children: children })));
+	            return (jsxRuntimeExports.jsx("blockquote", Object.assign({ className: styles$3.blockquote, style: style }, attributes, { children: children })));
 	        case "heading-one":
-	            return (jsxRuntimeExports.jsx("h1", Object.assign({ className: styles.heading, style: style }, attributes, { children: children })));
+	            return (jsxRuntimeExports.jsx("h1", Object.assign({ className: styles$3.heading, style: style }, attributes, { children: children })));
 	        case "list-item":
 	            return (jsxRuntimeExports.jsx("li", Object.assign({ style: style }, attributes, { children: children })));
 	        case "numbered-list":
-	            return (jsxRuntimeExports.jsx("ol", Object.assign({ className: styles.orderedList, style: style }, attributes, { children: children })));
+	            return (jsxRuntimeExports.jsx("ol", Object.assign({ className: styles$3.orderedList, style: style }, attributes, { children: children })));
 	        case "bulleted-list":
-	            return (jsxRuntimeExports.jsx("ul", Object.assign({ className: styles.unorderedList, style: style }, attributes, { children: children })));
+	            return (jsxRuntimeExports.jsx("ul", Object.assign({ className: styles$3.unorderedList, style: style }, attributes, { children: children })));
 	        case "image":
 	            return (jsxRuntimeExports.jsx(Image, Object.assign({ element: element }, attributes, { children: children })));
 	        default:
@@ -16638,10 +16643,28 @@
 	    return jsxRuntimeExports.jsx("span", Object.assign({}, attributes, { children: children }));
 	};
 
-	const ChangelogWidget = ({ title, workspaceId, workspaceSubdomain, theme = "light", }) => {
+	// THIS FILE IS AUTO GENERATED
+	function RiMapLine (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24","fill":"currentColor"},"child":[{"tag":"path","attr":{"d":"M2 5L9 2L15 5L21.303 2.2987C21.5569 2.18992 21.8508 2.30749 21.9596 2.56131C21.9862 2.62355 22 2.69056 22 2.75827V19L15 22L9 19L2.69696 21.7013C2.44314 21.8101 2.14921 21.6925 2.04043 21.4387C2.01375 21.3765 2 21.3094 2 21.2417V5ZM14.9352 7.20369L8.93524 4.20369L4 6.31879V18.9669L9.06476 16.7963L15.0648 19.7963L20 17.6812V5.03308L14.9352 7.20369Z"},"child":[]}]})(props);
+	}
+
+	var css_248z$3 = "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap\");\n\n.changelog-widget {\n  /* font-family: \"Poppins\", sans-serif; */\n}\n\n.changelog-container {\n  position: absolute;\n  z-index: 1000;\n}\n\n.bg-red {\n  background-color: red;\n}\n\n.no-scrollbar::-webkit-scrollbar {\n  display: none;\n}\n\n/* make a thin scroll bar with a light color */\n.thin-scrollbar::-webkit-scrollbar {\n  width: 5px;\n  height: 5px;\n}\n\n.thin-scrollbar::-webkit-scrollbar-track {\n  background-color: #f1f1f1;\n}\n\n.thin-scrollbar::-webkit-scrollbar-thumb {\n  background-color: #888;\n}\n\n.animateFadeUp {\n  animation: fadeUp 0.3s ease;\n  transition: all 0.1s ease;\n}\n\n.animateFadeIn {\n  animation: fadeIn 1s ease;\n  transition: all 1s ease;\n}\n\n/* ---- animation.css ---- */\n\n@keyframes fadeUp {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n/* add a fade in effect to the widget */\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n";
+	styleInject(css_248z$3);
+
+	const ChangelogWidget = ({ title, workspaceId, workspaceSubdomain, theme = "light", isPopUp = false, }) => {
 	    const [changelogLists, setChangelogLists] = reactExports.useState([]);
 	    const [fetching, setFetching] = reactExports.useState(false);
 	    const [showingDetails, setShowingDetails] = reactExports.useState(false);
+	    const detailsRef = reactExports.useRef(null);
+	    // use effect to scroll to top of the card when the card is opened
+	    // useEffect(() => {
+	    //   if (detailsRef.current && showingDetails) {
+	    //     const element = detailsRef.current;
+	    //     element.scrollIntoView({
+	    //       behavior: "smooth",
+	    //     });
+	    //   }
+	    // }, [showingDetails]);
 	    const [selectedChangeLog, setSelectedChangeLog] = reactExports.useState(null);
 	    reactExports.useEffect(() => {
 	        const fetchChangelogsHandler = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -16667,7 +16690,13 @@
 	        });
 	        fetchChangelogsHandler();
 	    }, [workspaceId]);
-	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1.changelogWidget} ${theme === "light" ? styles$1.light : ""}` }, { children: [jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.title }, { children: [jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.backButton} ${showingDetails ? styles$1.visible : ""}`, onClick: (e) => {
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$4.changelogWidget} ${theme === "light" ? styles$4.light : ""}`, style: {
+	            border: isPopUp
+	                ? "none"
+	                : theme === "light"
+	                    ? "1px solid #e0e0e0"
+	                    : "1px solid #333",
+	        } }, { children: [!isPopUp && (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$4.title }, { children: [jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$4.backButton} ${showingDetails ? styles$4.visible : ""}`, onClick: (e) => {
 	                            e.preventDefault();
 	                            e.stopPropagation();
 	                            setShowingDetails(false);
@@ -16676,13 +16705,15 @@
 	                        ? `${title.length > 28 ? `${title.slice(0, 28)}...` : title} `
 	                        : selectedChangeLog && (selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title.length) > 28
 	                            ? `${selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title.slice(0, 28)}...`
-	                            : selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title, jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.closeButton}`, id: "fcb-sdk" }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1.detailsContainer} ${styles$1.thinScrollbar}` }, { children: [fetching && jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.noData }, { children: "Loading..." })), changelogLists.length === 0 && !fetching && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.noData }, { children: "No data found. Please check back later." }))), (changelogLists === null || changelogLists === void 0 ? void 0 : changelogLists.length) > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.changelogList} ${showingDetails ? styles$1.slideOut : ""}` }, { children: jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogList }, { children: changelogLists &&
-	                                changelogLists.map((changelog, index) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogItem, onClick: (e) => {
+	                            : selectedChangeLog === null || selectedChangeLog === void 0 ? void 0 : selectedChangeLog.title, jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$4.closeButton}`, id: "fcb-sdk" }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] }))), jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$4.detailsContainer} thin-scrollbar` }, { children: [fetching && jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.noData }, { children: "Loading..." })), changelogLists.length === 0 && !fetching && (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$4.noData, style: {
+	                            paddingTop: "20px",
+	                        } }, { children: [jsxRuntimeExports.jsx(RiMapLine, { size: 18, className: "" }), "No data found. Please check back later."] }))), (changelogLists === null || changelogLists === void 0 ? void 0 : changelogLists.length) > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$4.changelogList} ${showingDetails ? styles$4.slideOut : ""} thin-scrollbar` }, { children: jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$4.changelogList} thin-scrollbar` }, { children: changelogLists &&
+	                                changelogLists.map((changelog, index) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.changelogItem, onClick: (e) => {
 	                                        e.preventDefault();
 	                                        e.stopPropagation();
 	                                        setSelectedChangeLog(changelog);
 	                                        setShowingDetails(true);
-	                                    } }, { children: jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.changelogContent }, { children: [jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.changelogTitle }, { children: [changelog.tags.length > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogLabels }, { children: changelog.tags.map((tag, index) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.label, style: {
+	                                    } }, { children: jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$4.changelogContent }, { children: [jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$4.changelogTitle }, { children: [changelog.tags.length > 0 && (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.changelogLabels }, { children: changelog.tags.map((tag, index) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.label, style: {
 	                                                                backgroundColor: tag === "Fixed"
 	                                                                    ? "#ef4444" // red-500
 	                                                                    : tag === "Feature"
@@ -16692,9 +16723,89 @@
 	                                                                            : tag === "Documentation"
 	                                                                                ? "#f59e0b" // amber-500
 	                                                                                : "#44403c", // stone-600
-	                                                            } }, { children: tag }), index))) }))), changelog.title] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogDescription }, { children: changelog.plainTextContent.length > 100
+	                                                            } }, { children: tag }), index))) }))), changelog.title] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.changelogDescription }, { children: changelog.plainTextContent.length > 100
 	                                                    ? changelog.plainTextContent.slice(0, 100) + "..."
-	                                                    : changelog.plainTextContent })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$1.changelogMeta }, { children: formatDate(changelog.createdAt) }))] })) }), index))) })) }))), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.changelogDetails}  ${showingDetails ? styles$1.slideIn : ""}` }, { children: selectedChangeLog && (jsxRuntimeExports.jsx(ChangelogDetailsCard, { initialValue_: selectedChangeLog.slateJsDescendantContent })) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.footer }, { children: [jsxRuntimeExports.jsx("span", Object.assign({ className: styles$1.poweredBy }, { children: jsxRuntimeExports.jsx("a", Object.assign({ href: "https://feerio.io", target: "_blank", rel: "noreferrer" }, { children: "Powered by Feerio" })) })), jsxRuntimeExports.jsx("a", Object.assign({ href: "https://feedback.feerio.io/dashboard/changelog", target: "_blank", rel: "noreferrer", className: styles$1.link }, { children: "Help" })), jsxRuntimeExports.jsx("a", Object.assign({ href: `https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelogs`, target: "_blank", rel: "noreferrer", className: styles$1.link }, { children: "See all changes" }))] }))] })));
+	                                                    : changelog.plainTextContent })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$4.changelogMeta }, { children: formatDate(changelog.createdAt) }))] })) }), index))) })) }))), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$4.changelogDetails}  ${showingDetails ? styles$4.slideIn : ""} thin-scrollbar`, ref: detailsRef }, { children: selectedChangeLog && (jsxRuntimeExports.jsx(ChangelogDetailsCard, { initialValue_: selectedChangeLog.slateJsDescendantContent, showBackButton: isPopUp, setShowingDetails: setShowingDetails, setSelectedChangeLog: setSelectedChangeLog })) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$4.footer }, { children: [jsxRuntimeExports.jsx("span", Object.assign({ className: styles$4.poweredBy }, { children: jsxRuntimeExports.jsx("a", Object.assign({ href: "https://feerio.io", target: "_blank", rel: "noreferrer" }, { children: "Powered by Feerio" })) })), jsxRuntimeExports.jsx("a", Object.assign({ href: `https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelogs`, target: "_blank", rel: "noreferrer", className: styles$4.link }, { children: "See all changes" }))] }))] })));
+	};
+
+	// THIS FILE IS AUTO GENERATED
+	function FaRegLightbulb (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 352 512"},"child":[{"tag":"path","attr":{"d":"M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16 16-16c0-35.3 28.72-64 64-64 8.84 0 16-7.16 16-16s-7.16-16-16-16zM96.06 459.17c0 3.15.93 6.22 2.68 8.84l24.51 36.84c2.97 4.46 7.97 7.14 13.32 7.14h78.85c5.36 0 10.36-2.68 13.32-7.14l24.51-36.84c1.74-2.62 2.67-5.7 2.68-8.84l.05-43.18H96.02l.04 43.18zM176 0C73.72 0 0 82.97 0 176c0 44.37 16.45 84.85 43.56 115.78 16.64 18.99 42.74 58.8 52.42 92.16v.06h48v-.12c-.01-4.77-.72-9.51-2.15-14.07-5.59-17.81-22.82-64.77-62.17-109.67-20.54-23.43-31.52-53.15-31.61-84.14-.2-73.64 59.67-128 127.95-128 70.58 0 128 57.42 128 128 0 30.97-11.24 60.85-31.65 84.14-39.11 44.61-56.42 91.47-62.1 109.46a47.507 47.507 0 0 0-2.22 14.3v.1h48v-.05c9.68-33.37 35.78-73.18 52.42-92.16C335.55 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z"},"child":[]}]})(props);
+	}
+
+	var css_248z$2 = ".TabComponent-module_tabContainer__D3X1X {\r\n  display: flex;\r\n  border-bottom: 1px solid #e5e5e5;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\n.TabComponent-module_tabButton__Mouzr {\r\n  flex: 1;\r\n  padding: 0.75rem;\r\n  background-color: transparent;\r\n  border: none;\r\n  cursor: pointer;\r\n  font-size: 0.875rem;\r\n  font-weight: 500;\r\n  color: #4b5563;\r\n  transition: all 0.3s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\n.TabComponent-module_tabButton__Mouzr:hover {\r\n  background-color: #f3f4f6;\r\n}\r\n\r\n.TabComponent-module_tabButton__Mouzr.TabComponent-module_active__efR1P {\r\n  color: #0a6847;\r\n  border-bottom: 2px solid #0a6847;\r\n}\r\n";
+	var styles$2 = {"tabContainer":"TabComponent-module_tabContainer__D3X1X","tabButton":"TabComponent-module_tabButton__Mouzr","active":"TabComponent-module_active__efR1P"};
+	styleInject(css_248z$2);
+
+	const TabComponent = ({ activeTab, setActiveTab, }) => {
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$2.tabContainer }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ className: `${styles$2.tabButton} ${activeTab === "changelogs" ? styles$2.active : ""}`, onClick: () => setActiveTab("changelogs") }, { children: "Changelogs" })), jsxRuntimeExports.jsx("button", Object.assign({ className: `${styles$2.tabButton} ${activeTab === "feedback" ? styles$2.active : ""}`, onClick: () => setActiveTab("feedback") }, { children: "Feedback" }))] })));
+	};
+
+	var css_248z$1 = ".ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  right: 0;\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 80vh;\r\n    border-radius: 0;\r\n    bottom: 0;\r\n  }\r\n}\r\n";
+	var styles$1 = {"container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
+	styleInject(css_248z$1);
+
+	var css_248z = ".FeedbackComponent-module_container__HbM-R {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n\r\n  padding: 16px;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u {\r\n  background-color: #f9fafb;\r\n  border: 1px solid #e5e7eb;\r\n  border-radius: 8px;\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u:hover {\r\n  background-color: #f3f4f6;\r\n  scale: 1.04;\r\n}\r\n\r\n.FeedbackComponent-module_buttonContent__QtP7t {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 4px;\r\n  padding: 16px;\r\n  cursor: pointer;\r\n}\r\n\r\n.FeedbackComponent-module_boardTitle__1fm3l {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin: 0;\r\n}\r\n\r\n.FeedbackComponent-module_boardDescription__N9A8U {\r\n  font-size: 12px;\r\n  color: #808388;\r\n  margin: 0;\r\n  font-weight: 400;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw {\r\n  margin-top: 16px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a {\r\n  color: #3b82f6;\r\n  text-decoration: none;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n/* Skeleton styles */\r\n.FeedbackComponent-module_skeleton__HdbU6 {\r\n  height: 64px;\r\n  background-color: #e5e7eb;\r\n  border-radius: 8px;\r\n  animation: FeedbackComponent-module_shimmer__TLNer 1.5s infinite ease-in-out;\r\n}\r\n\r\n@keyframes FeedbackComponent-module_shimmer__TLNer {\r\n  0% {\r\n    background-position: -200px 0;\r\n  }\r\n  100% {\r\n    background-position: 200px 0;\r\n  }\r\n}\r\n";
+	var styles = {"container":"FeedbackComponent-module_container__HbM-R","feedbackButton":"FeedbackComponent-module_feedbackButton__au0-u","buttonContent":"FeedbackComponent-module_buttonContent__QtP7t","boardTitle":"FeedbackComponent-module_boardTitle__1fm3l","boardDescription":"FeedbackComponent-module_boardDescription__N9A8U","footer":"FeedbackComponent-module_footer__UDVBw","skeleton":"FeedbackComponent-module_skeleton__HdbU6","shimmer":"FeedbackComponent-module_shimmer__TLNer"};
+	styleInject(css_248z);
+
+	const FeedbackComponent = ({ workspaceId }) => {
+	    const [boards, setBoards] = reactExports.useState(null);
+	    const [loading, setLoading] = reactExports.useState(true);
+	    reactExports.useEffect(() => {
+	        const fetchBoards = () => __awaiter(void 0, void 0, void 0, function* () {
+	            try {
+	                const { data } = yield axios$1.post(`${BASE_URL}/sdk/fetch-boards`, {
+	                    workspaceId,
+	                });
+	                setBoards(data.boards);
+	            }
+	            catch (error) {
+	                console.error("Error fetching boards:", error);
+	            }
+	            finally {
+	                setLoading(false);
+	            }
+	        });
+	        fetchBoards();
+	    }, [workspaceId]);
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles.container} animateFadeUp` }, { children: [boards &&
+	                (boards === null || boards === void 0 ? void 0 : boards.length) > 0 &&
+	                (boards === null || boards === void 0 ? void 0 : boards.map((board) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles.feedbackButton }, { children: jsxRuntimeExports.jsxs("div", Object.assign({ className: styles.buttonContent }, { children: [jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardTitle}` }, { children: board.name })), jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardDescription}` }, { children: board.description || "What request you got ?" }))] })) }), board.boardId)))), !loading && (boards === null || boards === void 0 ? void 0 : boards.length) === 0 && jsxRuntimeExports.jsx("h3", { children: "No feedback boards found" })] })));
+	};
+
+	// THIS FILE IS AUTO GENERATED
+	function MdClose (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24"},"child":[{"tag":"path","attr":{"fill":"none","d":"M0 0h24v24H0z"},"child":[]},{"tag":"path","attr":{"d":"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"},"child":[]}]})(props);
+	}
+
+	const ChangelogWidgetPopUp = ({ workspaceId, workspaceSubdomain, theme = "light", color = "#0A6847", }) => {
+	    const [showWidget, setShowWidget] = reactExports.useState(false);
+	    const [activeTab, setActiveTab] = reactExports.useState("changelogs");
+	    const widgetRef = reactExports.useRef(null);
+	    const initializerRef = reactExports.useRef(null);
+	    reactExports.useEffect(() => {
+	        const handleClickOutside = (event) => {
+	            var _a;
+	            if (widgetRef.current &&
+	                !widgetRef.current.contains(event.target) &&
+	                !((_a = initializerRef.current) === null || _a === void 0 ? void 0 : _a.contains(event.target))) {
+	                setShowWidget(false);
+	            }
+	        };
+	        if (showWidget) {
+	            document.addEventListener("mousedown", handleClickOutside);
+	        }
+	        else {
+	            document.removeEventListener("mousedown", handleClickOutside);
+	        }
+	        return () => {
+	            document.removeEventListener("mousedown", handleClickOutside);
+	        };
+	    }, [showWidget]);
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: ` ${styles$1.button} animateFadeIn`, style: {
+	                    backgroundColor: color,
+	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.widgetContainer, ref: widgetRef }, { children: [jsxRuntimeExports.jsx(TabComponent, { activeTab: activeTab, setActiveTab: setActiveTab }), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} thin-scrollbar ` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId })) }))] })))] })));
 	};
 
 	const renderChangelogWidget = (container, props) => {
@@ -16800,13 +16911,16 @@
 	        }, 0);
 	    }
 	};
+	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, }) => {
+	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme }), document.body);
+	};
 
 	const generateIframeComponent = (options) => {
 	    let { workspaceSubdomain, boardUrls = [] } = options;
 	    // if boardUrls element is empty string remove that element
 	    boardUrls = boardUrls.filter((url) => url !== "");
 	    let boardUrlParam = boardUrls.length > 0 ? `?b=${boardUrls[0]}` : "";
-	    let iframeSrc = `${"https:"}//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
+	    let iframeSrc = `${"http:" }//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
 	    /* <iframe src="${iframeSrc}" style="width: 100%; height: 100%; border: none;"></iframe> */
 	    let iframe = document.createElement("iframe");
 	    iframe.src = iframeSrc;
@@ -16864,6 +16978,10 @@
 	        button.addEventListener("click", createClickHandler(options));
 	    });
 	};
+	const initializeChangelogPopup = (options) => {
+	    console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
+	    renderChangelogWidgetPopup(options);
+	};
 	const initializePublicBoard = (options) => {
 	    console.log("====INITIALIZE PUBLIC BOARD====");
 	    renderPublicBoard(options);
@@ -16894,9 +17012,10 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.0.3 ************
+	// VERSION ************ 2.0.4 ************
 	window.Feerio = {
 	    initializeChangelog,
+	    initializeChangelogPopup,
 	    initializePublicBoard,
 	    fq: ((_a = window.Feerio) === null || _a === void 0 ? void 0 : _a.fq) || [],
 	};

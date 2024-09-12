@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { BASE_URL, PLAIN_DOMAIN_URL } from "../constants";
@@ -7,12 +7,15 @@ import { ChangelogType } from "../types";
 import { formatDate } from "../utils";
 import styles from "./ChangelogWidget.module.css";
 import ChangelogDetailsCard from "./ChangelogWidgetDetails";
+import { RiMapLine } from "react-icons/ri";
+import "../index.css";
 
 type ChangelogWidgetProps = {
   title: string;
   workspaceId: string;
   workspaceSubdomain: string;
   theme?: "light" | "dark";
+  isPopUp?: boolean;
 };
 
 const ChangelogWidget = ({
@@ -20,11 +23,25 @@ const ChangelogWidget = ({
   workspaceId,
   workspaceSubdomain,
   theme = "light",
+  isPopUp = false,
 }: ChangelogWidgetProps) => {
   const [changelogLists, setChangelogLists] = useState<ChangelogType[]>([]);
   const [fetching, setFetching] = useState(false);
 
   const [showingDetails, setShowingDetails] = useState(false);
+
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  // use effect to scroll to top of the card when the card is opened
+  // useEffect(() => {
+  //   if (detailsRef.current && showingDetails) {
+  //     const element = detailsRef.current;
+
+  //     element.scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [showingDetails]);
 
   const [selectedChangeLog, setSelectedChangeLog] =
     useState<ChangelogType | null>(null);
@@ -61,50 +78,65 @@ const ChangelogWidget = ({
       className={`${styles.changelogWidget} ${
         theme === "light" ? styles.light : ""
       }`}
+      style={{
+        border: isPopUp
+          ? "none"
+          : theme === "light"
+          ? "1px solid #e0e0e0"
+          : "1px solid #333",
+      }}
     >
-      <div className={styles.title}>
-        <div
-          className={`${styles.backButton} ${
-            showingDetails ? styles.visible : ""
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setShowingDetails(false);
-            setTimeout(() => setSelectedChangeLog(null), 300); // Wait for animation to finish
-          }}
-        >
-          <HiOutlineArrowNarrowLeft size={18} />
+      {!isPopUp && (
+        <div className={styles.title}>
+          <div
+            className={`${styles.backButton} ${
+              showingDetails ? styles.visible : ""
+            }`}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setShowingDetails(false);
+              setTimeout(() => setSelectedChangeLog(null), 300); // Wait for animation to finish
+            }}
+          >
+            <HiOutlineArrowNarrowLeft size={18} />
+          </div>
+          {!showingDetails
+            ? `${title.length > 28 ? `${title.slice(0, 28)}...` : title} `
+            : selectedChangeLog && selectedChangeLog?.title.length > 28
+            ? `${selectedChangeLog?.title.slice(0, 28)}...`
+            : selectedChangeLog?.title}
+          <div
+            className={`${styles.closeButton}`}
+            id="fcb-sdk"
+            // onClick={(e) => {
+            //   const elementId = "changelog-root";
+            //   let container = document.getElementById(elementId);
+            //   if (container) {
+            //     ReactDOM.unmountComponentAtNode(container);
+            //     container.remove();
+            //     // document.removeEventListener(
+            //     //   "click",
+            //     //   (e) => container && handleOutsideClick(e, container)
+            //     // );
+            //   }
+            // }}
+          >
+            <RxCross2 size={22} />
+          </div>
         </div>
-        {!showingDetails
-          ? `${title.length > 28 ? `${title.slice(0, 28)}...` : title} `
-          : selectedChangeLog && selectedChangeLog?.title.length > 28
-          ? `${selectedChangeLog?.title.slice(0, 28)}...`
-          : selectedChangeLog?.title}
-        <div
-          className={`${styles.closeButton}`}
-          id="fcb-sdk"
-          // onClick={(e) => {
-          //   const elementId = "changelog-root";
-          //   let container = document.getElementById(elementId);
-          //   if (container) {
-          //     ReactDOM.unmountComponentAtNode(container);
-          //     container.remove();
-          //     // document.removeEventListener(
-          //     //   "click",
-          //     //   (e) => container && handleOutsideClick(e, container)
-          //     // );
-          //   }
-          // }}
-        >
-          <RxCross2 size={22} />
-        </div>
-      </div>
+      )}
 
-      <div className={`${styles.detailsContainer} ${styles.thinScrollbar}`}>
+      <div className={`${styles.detailsContainer} thin-scrollbar`}>
         {fetching && <div className={styles.noData}>Loading...</div>}
         {changelogLists.length === 0 && !fetching && (
-          <div className={styles.noData}>
+          <div
+            className={styles.noData}
+            style={{
+              paddingTop: "20px",
+            }}
+          >
+            <RiMapLine size={18} className="" />
             No data found. Please check back later.
           </div>
         )}
@@ -113,9 +145,9 @@ const ChangelogWidget = ({
           <div
             className={`${styles.changelogList} ${
               showingDetails ? styles.slideOut : ""
-            }`}
+            } thin-scrollbar`}
           >
-            <div className={styles.changelogList}>
+            <div className={`${styles.changelogList} thin-scrollbar`}>
               {changelogLists &&
                 changelogLists.map((changelog, index) => (
                   <div
@@ -175,11 +207,15 @@ const ChangelogWidget = ({
         <div
           className={`${styles.changelogDetails}  ${
             showingDetails ? styles.slideIn : ""
-          }`}
+          } thin-scrollbar`}
+          ref={detailsRef}
         >
           {selectedChangeLog && (
             <ChangelogDetailsCard
               initialValue_={selectedChangeLog.slateJsDescendantContent}
+              showBackButton={isPopUp}
+              setShowingDetails={setShowingDetails}
+              setSelectedChangeLog={setSelectedChangeLog}
             />
           )}
         </div>
@@ -191,14 +227,14 @@ const ChangelogWidget = ({
             Powered by Feerio
           </a>
         </span>
-        <a
+        {/* <a
           href="https://feedback.feerio.io/dashboard/changelog"
           target="_blank"
           rel="noreferrer"
           className={styles.link}
         >
           Help
-        </a>
+        </a> */}
         <a
           href={`https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelogs`}
           target="_blank"

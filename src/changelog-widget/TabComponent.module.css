@@ -1,18 +1,30 @@
-.tabContainer {
-  display: flex;
-  width: 100%;
-  /* border-bottom: 1px solid #e5e5e5; */
-  font-family: "Poppins", sans-serif;
-}
-.tabs{
+.tabs {
+  --bg-color: #191919;
+  --text-color: #ffffff;
+  --border-color: #333;
+  --hover-bg: rgba(192, 192, 192, 0.068);
+  --active-color: #10b981;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.1s ease;
 }
 
-.closeButton{
-  display: none;
+.tabs.light {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --hover-bg: rgba(27, 24, 24, 0.068);
+  --active-color: #0a6847;
+}
+
+.tabContainer {
+  display: flex;
+  width: 100%;
 }
 
 .tabButton {
@@ -23,25 +35,36 @@
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #4b5563;
-  transition: all 0.3s ease;
+  color: var(--text-color);
+  transition: all 0.1s ease;
   font-family: "Poppins", sans-serif;
 }
 
 .tabButton:hover {
-  background-color: #f3f4f6;
+  background-color: var(--hover-bg);
 }
 
 .tabButton.active {
-  color: #0a6847;
-  border-bottom: 2px solid #0a6847;
+  color: var(--active-color);
+  border-bottom: 2px solid var(--active-color);
+}
+
+.closeButton {
+  display: none;
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  transition: color 0.1s ease;
+}
+
+.closeButton:hover {
+  color: var(--active-color);
 }
 
 @media (max-width: 480px) {
-  .closeButton{
-    color: #4b5563;
+  .closeButton {
     display: block;
-    padding-right: 14px;
-    padding-left: 14px;
   }
 }

@@ -1,8 +1,17 @@
-.container {
+:root {
+  --bg-color-light: #ffffff;
+
+  --bg-color-dark: #191919;
+}
+
+#changelog-widget-portal-fc {
   position: fixed !important;
   bottom: 1rem !important;
   right: 1rem !important;
   z-index: 9999 !important;
+}
+.container {
+  position: relative;
 }
 
 .button {
@@ -32,14 +41,18 @@
   min-width: 300px;
   width: 330px;
   /* this is 420 - 48px for the title div of the changelog widget */
-  background-color: white;
-  border-radius: 8px;
+  background-color: var(--bg-color-light);
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   animation: fadeUp 0.3s ease;
   transition: all 0.1s ease;
+}
+
+.dark.widgetContainer {
+  background-color: var(--bg-color-dark);
 }
 
 .contentContainer {
@@ -54,7 +67,6 @@
   text-align: center;
   color: #666;
 }
-
 
 /* ----animation */
 @keyframes fadeUp {

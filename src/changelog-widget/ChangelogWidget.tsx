@@ -84,6 +84,8 @@ const ChangelogWidget = ({
           : theme === "light"
           ? "1px solid #e0e0e0"
           : "1px solid #333",
+
+        borderRadius: !isPopUp ? "4px" : "0",
       }}
     >
       {!isPopUp && (
@@ -127,7 +129,11 @@ const ChangelogWidget = ({
         </div>
       )}
 
-      <div className={`${styles.detailsContainer} thin-scrollbar`}>
+      <div
+        className={`${styles.detailsContainer} ${
+          theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"
+        }`}
+      >
         {fetching && <div className={styles.noData}>Loading...</div>}
         {changelogLists.length === 0 && !fetching && (
           <div
@@ -145,9 +151,13 @@ const ChangelogWidget = ({
           <div
             className={`${styles.changelogList} ${
               showingDetails ? styles.slideOut : ""
-            } thin-scrollbar`}
+            } ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"}`}
           >
-            <div className={`${styles.changelogList} thin-scrollbar`}>
+            <div
+              className={`${styles.changelogList} ${
+                theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"
+              }`}
+            >
               {changelogLists &&
                 changelogLists.map((changelog, index) => (
                   <div
@@ -207,7 +217,7 @@ const ChangelogWidget = ({
         <div
           className={`${styles.changelogDetails}  ${
             showingDetails ? styles.slideIn : ""
-          } thin-scrollbar`}
+          } ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"}`}
           ref={detailsRef}
         >
           {selectedChangeLog && (

@@ -1,21 +1,50 @@
+/* Light & Dark Theme Variables */
+:root {
+  --bg-color-light: #ffffff;
+  --text-color-light: #333333;
+  --border-color-light: #e5e7eb;
+  --button-bg-light: #f9fafb;
+  --button-hover-bg-light: #f3f4f6;
+  --success-bg-light: #d1fae5;
+  --success-color-light: #065f46;
+  --error-bg-light: #fee2e2;
+  --error-color-light: #991b1b;
+  --info-bg-light: #e0f2fe;
+  --info-color-light: #075985;
+
+  --bg-color-dark: #191919;
+  --text-color-dark: #e5e7eb;
+  --border-color-dark: #333;
+  --button-bg-dark: #333333;
+  --button-hover-bg-dark: #444444;
+  --success-bg-dark: #14532d;
+  --success-color-dark: #a7f3d0;
+  --error-bg-dark: #7f1d1d;
+  --error-color-dark: #fecaca;
+  --info-bg-dark: #164e63;
+  --info-color-dark: #7dd3fc;
+}
+
+/* Default (Light Mode) */
 .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   padding: 16px;
   font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
 }
 
 .feedbackButton {
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background-color: var(--button-bg-light);
+  border: 1px solid var(--border-color-light);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .feedbackButton:hover {
-  background-color: #f3f4f6;
+  background-color: var(--button-hover-bg-light);
   scale: 1.04;
 }
 
@@ -58,7 +87,7 @@
 /* Skeleton styles */
 .skeleton {
   height: 64px;
-  background-color: #e5e7eb;
+  background-color: var(--border-color-light);
   border-radius: 8px;
   animation: shimmer 1.5s infinite ease-in-out;
 }
@@ -72,7 +101,26 @@
   }
 }
 
-/* New styles for createPostComponent */
+/* Dark Mode */
+.dark.container {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark .feedbackButton {
+  background-color: var(--button-bg-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+.dark .feedbackButton:hover {
+  background-color: var(--button-hover-bg-dark);
+}
+
+.dark .skeleton {
+  background-color: var(--border-color-dark);
+}
+
+/* Post Component */
 .postContainer {
   display: flex;
   flex-direction: column;
@@ -119,18 +167,13 @@
 .postTextArea {
   padding: 8px;
   font-size: 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-color-light);
   border-radius: 6px;
   outline: none;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #111827;
 }
-
-/* .postInput:focus,
-.postTextArea:focus {
-  border-color: #535353;
-} */
 
 .postTextArea {
   height: 100px;
@@ -148,16 +191,25 @@
   transition: background-color 0.2s ease;
   font-family: "Poppins", sans-serif;
 }
-.postButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
 .postButton:hover {
   background-color: #6d28d9;
 }
 
-/* New styles for message div */
+.postButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark Mode for Post Components */
+.dark .postInput,
+.dark .postTextArea {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+/* Message Div */
 .message {
   display: flex;
   align-items: center;
@@ -179,32 +231,44 @@
 }
 
 .success {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: var(--success-bg-light);
+  color: var(--success-color-light);
 }
 
 .success .messageIcon {
-  color: #059669;
+  color: var(--success-color-light);
 }
 
 .error {
-  background-color: #fee2e2;
-  color: #991b1b;
+  background-color: var(--error-bg-light);
+  color: var(--error-color-light);
 }
 
 .error .messageIcon {
-  color: #dc2626;
+  color: var(--error-color-light);
 }
 
 .info {
-  background-color: #e0f2fe;
-  color: #075985;
+  background-color: var(--info-bg-light);
+  color: var(--info-color-light);
 }
 
 .info .messageIcon {
-  color: #0284c7;
+  color: var(--info-color-light);
 }
 
-.viewPost {
-  text-decoration: underline;
+/* Dark Mode for Message Div */
+.dark .success {
+  background-color: var(--success-bg-dark);
+  color: var(--success-color-dark);
+}
+
+.dark .error {
+  background-color: var(--error-bg-dark);
+  color: var(--error-color-dark);
+}
+
+.dark .info {
+  background-color: var(--info-bg-dark);
+  color: var(--info-color-dark);
 }

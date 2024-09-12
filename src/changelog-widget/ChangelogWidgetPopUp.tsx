@@ -69,15 +69,24 @@ const ChangelogWidgetPopUp = ({
         )}
       </button>
       {showWidget && (
-        <div className={styles.widgetContainer} ref={widgetRef}>
+        <div
+          className={`${styles[theme]}  ${styles.widgetContainer}`}
+          ref={widgetRef}
+        >
           <TabComponent
             onClose={() => {
               setShowWidget(false);
             }}
             activeTab={activeTab}
             setActiveTab={setActiveTab}
+            color={color}
+            theme={theme}
           />
-          <div className={`${styles.contentContainer} thin-scrollbar `}>
+          <div
+            className={`${styles.contentContainer} ${
+              theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"
+            } `}
+          >
             {activeTab === "changelogs" ? (
               <ChangelogWidget
                 title={"Changelog"}
@@ -87,7 +96,11 @@ const ChangelogWidgetPopUp = ({
                 isPopUp={true}
               />
             ) : (
-              <FeedbackComponent workspaceId={workspaceId} color={color} />
+              <FeedbackComponent
+                workspaceId={workspaceId}
+                color={color}
+                theme={theme}
+              />
             )}
           </div>
         </div>

@@ -1,24 +1,30 @@
-import React from "react";
-import styles from "./TabComponent.module.css";
-import { MdClose } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import styles from "./TabComponent.module.css";
 
 const TabComponent = ({
   activeTab,
   setActiveTab,
   onClose,
+  color,
+  theme = "light",
 }: {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onClose: () => void;
+  color?: string;
+  theme?: "light" | "dark";
 }) => {
   return (
-    <div className={styles.tabs}>
+    <div className={`${styles.tabs} ${styles[theme]}`}>
       <div className={styles.tabContainer}>
         <button
           className={`${styles.tabButton} ${
             activeTab === "changelogs" ? styles.active : ""
           }`}
+          style={{
+            color: activeTab === "changelogs" ? color : "",
+            borderColor: activeTab === "changelogs" ? color : "",
+          }}
           onClick={() => setActiveTab("changelogs")}
         >
           Changelogs
@@ -27,6 +33,10 @@ const TabComponent = ({
           className={`${styles.tabButton} ${
             activeTab === "feedback" ? styles.active : ""
           }`}
+          style={{
+            color: activeTab === "feedback" ? color : "",
+            borderColor: activeTab === "feedback" ? color : "",
+          }}
           onClick={() => setActiveTab("feedback")}
         >
           Feedback

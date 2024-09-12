@@ -30,7 +30,8 @@ declare global {
       initializeChangelogPopup: (options: {
         workspaceId: string;
         workspaceSubdomain: string;
-        theme: "light" | "dark";
+        theme?: "light" | "dark";
+        color?: string;
       }) => void;
 
       // fq is the queue of functions that will be called when the script is loaded
@@ -85,7 +86,8 @@ const initializeChangelog = (options: {
 const initializeChangelogPopup = (options: {
   workspaceId: string;
   workspaceSubdomain: string;
-  theme: "light" | "dark";
+  theme?: "light" | "dark";
+  color?: string;
 }) => {
   console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
 

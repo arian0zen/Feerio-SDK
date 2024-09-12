@@ -11,6 +11,7 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 type FeedbackComponentProps = {
   workspaceId: string;
   color: string;
+  theme?: "light" | "dark";
 };
 
 type Board = {
@@ -27,7 +28,11 @@ type Board = {
   postCount: number;
 };
 
-const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
+const FeedbackComponent = ({
+  workspaceId,
+  color,
+  theme = "light",
+}: FeedbackComponentProps) => {
   const [boards, setBoards] = useState<Board[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -152,7 +157,7 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
 
   const createPostComponent = () => {
     return (
-      <div className={styles.postContainer}>
+      <div className={`${styles[theme]} ${styles.postContainer} `}>
         <div className={styles.header}>
           <div
             className={styles.backButton}
@@ -177,7 +182,7 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
         </div>
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Your post title.."
           className={styles.postInput}
           value={title}
           // autoFocus
@@ -186,10 +191,13 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
             e.target.style.borderColor = color;
             setMessage({ type: "", content: "" });
           }}
-          onBlur={(e) => (e.target.style.borderColor = "#d1d5db")}
+          onBlur={(e) =>
+            (e.target.style.borderColor =
+              theme === "light" ? "#d1d5db" : "#1f2937")
+          }
         />
         <textarea
-          placeholder="Description"
+          placeholder="Add a brief description.."
           className={styles.postTextArea}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -197,7 +205,10 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
             e.target.style.borderColor = color;
             setMessage({ type: "", content: "" });
           }}
-          onBlur={(e) => (e.target.style.borderColor = "#d1d5db")}
+          onBlur={(e) =>
+            (e.target.style.borderColor =
+              theme === "light" ? "#d1d5db" : "#1f2937")
+          }
         ></textarea>
         <button
           className={styles.postButton}
@@ -245,7 +256,7 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
     );
   };
   return (
-    <div className={`${styles.container} animateFadeUp`}>
+    <div className={`${styles[theme]} ${styles.container} animateFadeUp `}>
       {!showInputDetails.show &&
         boards &&
         boards?.length > 0 &&
@@ -273,7 +284,17 @@ const FeedbackComponent = ({ workspaceId, color }: FeedbackComponentProps) => {
 
       {showInputDetails.show && createPostComponent()}
 
-      {!loading && boards?.length === 0 && <h3>No feedback boards found</h3>}
+      {!loading && !boards?.length && (
+        <h3
+          style={{
+            textAlign: "center",
+            fontSize: "14px",
+            fontWeight: 400,
+          }}
+        >
+          No feedback boards found!
+        </h3>
+      )}
     </div>
   );
 };

@@ -7,14 +7,14 @@
   --description-color: #a0a0a0;
   --meta-color: #666;
   --link-color: #108f62;
-  --scrollbar-bg: #f1f1f1;
-  --scrollbar-thumb: #888;
+  /* --scrollbar-bg: #f1f1f1;
+  --scrollbar-thumb: #888; */
   --hover-bg: rgba(192, 192, 192, 0.068);
 
   position: absolute;
   width: 330px;
   height: 420px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -32,8 +32,8 @@
   --description-color: #666666;
   --meta-color: #888888;
   --link-color: #0077b6;
-  --scrollbar-bg: #f1f1f1;
-  --scrollbar-thumb: #c1c1c1;
+  /* --scrollbar-bg: #f1f1f1;
+  --scrollbar-thumb: #c1c1c1; */
   --hover-bg: rgba(27, 24, 24, 0.068);
 }
 
@@ -179,7 +179,6 @@ a,
 }
 
 .noData {
-  padding: 4px;
   text-align: center;
   font-size: 12px;
   display: flex;
@@ -187,23 +186,7 @@ a,
   align-items: center;
   gap: 4px;
   flex-direction: column;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.thinScrollbar::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.thinScrollbar::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-bg);
-}
-
-.thinScrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
+  height: 317px;
 }
 
 /* -----change log details----- */
@@ -290,5 +273,11 @@ a,
   .detailsContainer {
     /*min height should be 100vh - 83px (title + footer height)  */
     height: calc(100vh - 84px) !important;
+  }
+  .changelogList {
+    height: 100%;
+  }
+  .changelogDetails {
+    height: 100%;
   }
 }

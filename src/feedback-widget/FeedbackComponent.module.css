@@ -71,3 +71,140 @@
     background-position: 200px 0;
   }
 }
+
+/* New styles for createPostComponent */
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  position: relative;
+}
+
+.header h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.backButton {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  color: #808080;
+}
+
+.backButton:hover {
+  color: rgb(73, 73, 73);
+}
+
+.postTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.postInput,
+.postTextArea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #111827;
+}
+
+/* .postInput:focus,
+.postTextArea:focus {
+  border-color: #535353;
+} */
+
+.postTextArea {
+  height: 100px;
+  resize: vertical;
+}
+
+.postButton {
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: "Poppins", sans-serif;
+}
+.postButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.postButton:hover {
+  background-color: #6d28d9;
+}
+
+/* New styles for message div */
+.message {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: 450;
+}
+
+.message p {
+  margin: 0;
+  margin-left: 12px;
+}
+
+.messageIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.success .messageIcon {
+  color: #059669;
+}
+
+.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.error .messageIcon {
+  color: #dc2626;
+}
+
+.info {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+.info .messageIcon {
+  color: #0284c7;
+}
+
+.viewPost {
+  text-decoration: underline;
+}

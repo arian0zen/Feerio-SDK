@@ -81,7 +81,7 @@ const ChangelogWidgetPopUp = ({
                 isPopUp={true}
               />
             ) : (
-              <FeedbackComponent workspaceId={workspaceId} />
+              <FeedbackComponent workspaceId={workspaceId} color={color} />
             )}
           </div>
         </div>

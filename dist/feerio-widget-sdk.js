@@ -16745,13 +16745,29 @@
 	var styles$1 = {"container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
 	styleInject(css_248z$1);
 
-	var css_248z = ".FeedbackComponent-module_container__HbM-R {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n\r\n  padding: 16px;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u {\r\n  background-color: #f9fafb;\r\n  border: 1px solid #e5e7eb;\r\n  border-radius: 8px;\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u:hover {\r\n  background-color: #f3f4f6;\r\n  scale: 1.04;\r\n}\r\n\r\n.FeedbackComponent-module_buttonContent__QtP7t {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 4px;\r\n  padding: 16px;\r\n  cursor: pointer;\r\n}\r\n\r\n.FeedbackComponent-module_boardTitle__1fm3l {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin: 0;\r\n}\r\n\r\n.FeedbackComponent-module_boardDescription__N9A8U {\r\n  font-size: 12px;\r\n  color: #808388;\r\n  margin: 0;\r\n  font-weight: 400;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw {\r\n  margin-top: 16px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a {\r\n  color: #3b82f6;\r\n  text-decoration: none;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n/* Skeleton styles */\r\n.FeedbackComponent-module_skeleton__HdbU6 {\r\n  height: 64px;\r\n  background-color: #e5e7eb;\r\n  border-radius: 8px;\r\n  animation: FeedbackComponent-module_shimmer__TLNer 1.5s infinite ease-in-out;\r\n}\r\n\r\n@keyframes FeedbackComponent-module_shimmer__TLNer {\r\n  0% {\r\n    background-position: -200px 0;\r\n  }\r\n  100% {\r\n    background-position: 200px 0;\r\n  }\r\n}\r\n";
-	var styles = {"container":"FeedbackComponent-module_container__HbM-R","feedbackButton":"FeedbackComponent-module_feedbackButton__au0-u","buttonContent":"FeedbackComponent-module_buttonContent__QtP7t","boardTitle":"FeedbackComponent-module_boardTitle__1fm3l","boardDescription":"FeedbackComponent-module_boardDescription__N9A8U","footer":"FeedbackComponent-module_footer__UDVBw","skeleton":"FeedbackComponent-module_skeleton__HdbU6","shimmer":"FeedbackComponent-module_shimmer__TLNer"};
+	// THIS FILE IS AUTO GENERATED
+	function FaCheck (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 448 512"},"child":[{"tag":"path","attr":{"d":"M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"},"child":[]}]})(props);
+	}
+
+	// THIS FILE IS AUTO GENERATED
+	function IoWarningOutline (props) {
+	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 512 512"},"child":[{"tag":"path","attr":{"fill":"none","strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":"32","d":"M85.57 446.25h340.86a32 32 0 0 0 28.17-47.17L284.18 82.58c-12.09-22.44-44.27-22.44-56.36 0L57.4 399.08a32 32 0 0 0 28.17 47.17z"},"child":[]},{"tag":"path","attr":{"fill":"none","strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":"32","d":"m250.26 195.39 5.74 122 5.73-121.95a5.74 5.74 0 0 0-5.79-6h0a5.74 5.74 0 0 0-5.68 5.95z"},"child":[]},{"tag":"path","attr":{"d":"M256 397.25a20 20 0 1 1 20-20 20 20 0 0 1-20 20z"},"child":[]}]})(props);
+	}
+
+	var css_248z = ".FeedbackComponent-module_container__HbM-R {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n\r\n  padding: 16px;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u {\r\n  background-color: #f9fafb;\r\n  border: 1px solid #e5e7eb;\r\n  border-radius: 8px;\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.FeedbackComponent-module_feedbackButton__au0-u:hover {\r\n  background-color: #f3f4f6;\r\n  scale: 1.04;\r\n}\r\n\r\n.FeedbackComponent-module_buttonContent__QtP7t {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 4px;\r\n  padding: 16px;\r\n  cursor: pointer;\r\n}\r\n\r\n.FeedbackComponent-module_boardTitle__1fm3l {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin: 0;\r\n}\r\n\r\n.FeedbackComponent-module_boardDescription__N9A8U {\r\n  font-size: 12px;\r\n  color: #808388;\r\n  margin: 0;\r\n  font-weight: 400;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw {\r\n  margin-top: 16px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a {\r\n  color: #3b82f6;\r\n  text-decoration: none;\r\n}\r\n\r\n.FeedbackComponent-module_footer__UDVBw a:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n/* Skeleton styles */\r\n.FeedbackComponent-module_skeleton__HdbU6 {\r\n  height: 64px;\r\n  background-color: #e5e7eb;\r\n  border-radius: 8px;\r\n  animation: FeedbackComponent-module_shimmer__TLNer 1.5s infinite ease-in-out;\r\n}\r\n\r\n@keyframes FeedbackComponent-module_shimmer__TLNer {\r\n  0% {\r\n    background-position: -200px 0;\r\n  }\r\n  100% {\r\n    background-position: 200px 0;\r\n  }\r\n}\r\n\r\n/* New styles for createPostComponent */\r\n.FeedbackComponent-module_postContainer__ZSecN {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n}\r\n\r\n.FeedbackComponent-module_header__XmMkY {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-size: medium;\r\n  position: relative;\r\n}\r\n\r\n.FeedbackComponent-module_header__XmMkY h3 {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  margin: 0;\r\n}\r\n\r\n.FeedbackComponent-module_backButton__IBeJP {\r\n  cursor: pointer;\r\n  transition: all 0.3s ease-in-out;\r\n  position: absolute;\r\n  left: 0;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-items: center;\r\n  color: #808080;\r\n}\r\n\r\n.FeedbackComponent-module_backButton__IBeJP:hover {\r\n  color: rgb(73, 73, 73);\r\n}\r\n\r\n.FeedbackComponent-module_postTitle__y4LHX {\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  color: #111827;\r\n  margin: 0;\r\n}\r\n\r\n.FeedbackComponent-module_postInput__cNaDp,\r\n.FeedbackComponent-module_postTextArea__FksLO {\r\n  padding: 8px;\r\n  font-size: 14px;\r\n  border: 1px solid #d1d5db;\r\n  border-radius: 6px;\r\n  outline: none;\r\n  font-family: \"Poppins\", sans-serif;\r\n  font-weight: 400;\r\n  color: #111827;\r\n}\r\n\r\n/* .postInput:focus,\r\n.postTextArea:focus {\r\n  border-color: #535353;\r\n} */\r\n\r\n.FeedbackComponent-module_postTextArea__FksLO {\r\n  height: 100px;\r\n  resize: vertical;\r\n}\r\n\r\n.FeedbackComponent-module_postButton__UztcM {\r\n  padding: 8px;\r\n  font-size: 14px;\r\n  font-weight: 400;\r\n  color: #ffffff;\r\n  border: none;\r\n  border-radius: 6px;\r\n  cursor: pointer;\r\n  transition: background-color 0.2s ease;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n.FeedbackComponent-module_postButton__UztcM:disabled {\r\n  opacity: 0.6;\r\n  cursor: not-allowed;\r\n}\r\n\r\n.FeedbackComponent-module_postButton__UztcM:hover {\r\n  background-color: #6d28d9;\r\n}\r\n\r\n/* New styles for message div */\r\n.FeedbackComponent-module_message__QFzPh {\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 12px;\r\n  border-radius: 6px;\r\n  font-size: 14px;\r\n  margin-top: 8px;\r\n  font-weight: 450;\r\n}\r\n\r\n.FeedbackComponent-module_message__QFzPh p {\r\n  margin: 0;\r\n  margin-left: 12px;\r\n}\r\n\r\n.FeedbackComponent-module_messageIcon__c3h5s {\r\n  font-size: 20px;\r\n  flex-shrink: 0;\r\n}\r\n\r\n.FeedbackComponent-module_success__V3G83 {\r\n  background-color: #d1fae5;\r\n  color: #065f46;\r\n}\r\n\r\n.FeedbackComponent-module_success__V3G83 .FeedbackComponent-module_messageIcon__c3h5s {\r\n  color: #059669;\r\n}\r\n\r\n.FeedbackComponent-module_error__gdMcZ {\r\n  background-color: #fee2e2;\r\n  color: #991b1b;\r\n}\r\n\r\n.FeedbackComponent-module_error__gdMcZ .FeedbackComponent-module_messageIcon__c3h5s {\r\n  color: #dc2626;\r\n}\r\n\r\n.FeedbackComponent-module_info__u2zP2 {\r\n  background-color: #e0f2fe;\r\n  color: #075985;\r\n}\r\n\r\n.FeedbackComponent-module_info__u2zP2 .FeedbackComponent-module_messageIcon__c3h5s {\r\n  color: #0284c7;\r\n}\r\n\r\n.FeedbackComponent-module_viewPost__uxW-y {\r\n  text-decoration: underline;\r\n}\r\n";
+	var styles = {"container":"FeedbackComponent-module_container__HbM-R","feedbackButton":"FeedbackComponent-module_feedbackButton__au0-u","buttonContent":"FeedbackComponent-module_buttonContent__QtP7t","boardTitle":"FeedbackComponent-module_boardTitle__1fm3l","boardDescription":"FeedbackComponent-module_boardDescription__N9A8U","footer":"FeedbackComponent-module_footer__UDVBw","skeleton":"FeedbackComponent-module_skeleton__HdbU6","shimmer":"FeedbackComponent-module_shimmer__TLNer","postContainer":"FeedbackComponent-module_postContainer__ZSecN","header":"FeedbackComponent-module_header__XmMkY","backButton":"FeedbackComponent-module_backButton__IBeJP","postTitle":"FeedbackComponent-module_postTitle__y4LHX","postInput":"FeedbackComponent-module_postInput__cNaDp","postTextArea":"FeedbackComponent-module_postTextArea__FksLO","postButton":"FeedbackComponent-module_postButton__UztcM","message":"FeedbackComponent-module_message__QFzPh","messageIcon":"FeedbackComponent-module_messageIcon__c3h5s","success":"FeedbackComponent-module_success__V3G83","error":"FeedbackComponent-module_error__gdMcZ","info":"FeedbackComponent-module_info__u2zP2","viewPost":"FeedbackComponent-module_viewPost__uxW-y"};
 	styleInject(css_248z);
 
-	const FeedbackComponent = ({ workspaceId }) => {
+	const FeedbackComponent = ({ workspaceId, color }) => {
 	    const [boards, setBoards] = reactExports.useState(null);
 	    const [loading, setLoading] = reactExports.useState(true);
+	    const [showInputDetails, setShowInputDetails] = reactExports.useState({
+	        show: false,
+	        boardId: "",
+	        boardTitle: "",
+	        boardDescription: "",
+	    });
 	    reactExports.useEffect(() => {
 	        const fetchBoards = () => __awaiter(void 0, void 0, void 0, function* () {
 	            try {
@@ -16769,9 +16785,103 @@
 	        });
 	        fetchBoards();
 	    }, [workspaceId]);
-	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles.container} animateFadeUp` }, { children: [boards &&
+	    const [title, setTitle] = reactExports.useState("");
+	    const [description, setDescription] = reactExports.useState("");
+	    const [addingPost, setAddingPost] = reactExports.useState(false);
+	    const [message, setMessage] = reactExports.useState({
+	        type: "",
+	        content: "",
+	    });
+	    const addPost = reactExports.useCallback(({ title, description, showInputDetails, workspaceId, }) => __awaiter(void 0, void 0, void 0, function* () {
+	        var _a, _b;
+	        try {
+	            if (!title) {
+	                setMessage({
+	                    type: "error",
+	                    content: "Title is required",
+	                });
+	                return;
+	            }
+	            if (!showInputDetails.boardId) {
+	                setMessage({
+	                    type: "error",
+	                    content: "Board Id is required",
+	                });
+	                return;
+	            }
+	            const postData = {
+	                title: title,
+	                content: description,
+	                boardId: showInputDetails.boardId,
+	                boardName: showInputDetails.boardTitle,
+	                workspaceId: workspaceId,
+	            };
+	            setAddingPost(true);
+	            const { data } = yield axios$1.post(`${BASE_URL}/sdk/add-post-sdk`, postData);
+	            if (!data.success) {
+	                throw new Error(data.message);
+	            }
+	            setTitle("");
+	            setDescription("");
+	            setAddingPost(false);
+	            setMessage({
+	                type: "success",
+	                content: "Post added successfully",
+	                postUrl: data === null || data === void 0 ? void 0 : data.postUrl,
+	            });
+	        }
+	        catch (error) {
+	            setAddingPost(false);
+	            console.error("Error adding post:", error);
+	            setMessage({
+	                type: "error",
+	                content: ((_b = (_a = error === null || error === void 0 ? void 0 : error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) ||
+	                    (error === null || error === void 0 ? void 0 : error.message) ||
+	                    "Error adding post, please try again",
+	            });
+	        }
+	    }), []);
+	    const createPostComponent = () => {
+	        return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles.postContainer }, { children: [jsxRuntimeExports.jsxs("div", Object.assign({ className: styles.header }, { children: [jsxRuntimeExports.jsx("div", Object.assign({ className: styles.backButton, onClick: (e) => {
+	                                e.preventDefault();
+	                                e.stopPropagation();
+	                                setShowInputDetails({
+	                                    show: false,
+	                                    boardId: "",
+	                                    boardTitle: "",
+	                                    boardDescription: "",
+	                                });
+	                                setTitle("");
+	                                setDescription("");
+	                                setMessage({ type: "", content: "" });
+	                            } }, { children: jsxRuntimeExports.jsx(HiOutlineArrowNarrowLeft, { size: 20 }) })), jsxRuntimeExports.jsx("h3", { children: showInputDetails.boardTitle || "Request a feature" })] })), jsxRuntimeExports.jsx("input", { type: "text", placeholder: "Title", className: styles.postInput, value: title, 
+	                    // autoFocus
+	                    onChange: (e) => setTitle(e.target.value), onFocus: (e) => {
+	                        e.target.style.borderColor = color;
+	                        setMessage({ type: "", content: "" });
+	                    }, onBlur: (e) => (e.target.style.borderColor = "#d1d5db") }), jsxRuntimeExports.jsx("textarea", { placeholder: "Description", className: styles.postTextArea, value: description, onChange: (e) => setDescription(e.target.value), onFocus: (e) => {
+	                        e.target.style.borderColor = color;
+	                        setMessage({ type: "", content: "" });
+	                    }, onBlur: (e) => (e.target.style.borderColor = "#d1d5db") }), jsxRuntimeExports.jsx("button", Object.assign({ className: styles.postButton, style: {
+	                        backgroundColor: color,
+	                    }, disabled: addingPost, onClick: () => addPost({
+	                        title,
+	                        description,
+	                        showInputDetails,
+	                        workspaceId,
+	                    }) }, { children: addingPost ? "Saving..." : "Submit Feedback" })), message.content && message.type && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles.message} ${styles[message.type]}` }, { children: [message.type === "success" ? (jsxRuntimeExports.jsx(FaCheck, { className: styles.messageIcon })) : (jsxRuntimeExports.jsx(IoWarningOutline, { className: styles.messageIcon })), jsxRuntimeExports.jsxs("p", { children: [message.content, " ", message.postUrl && (jsxRuntimeExports.jsx("a", Object.assign({ href: `https://${message.postUrl}`, className: styles.viewPost, target: "_blank", rel: "noreferrer" }, { children: "View Post" }))), " "] })] })))] })));
+	    };
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles.container} animateFadeUp` }, { children: [!showInputDetails.show &&
+	                boards &&
 	                (boards === null || boards === void 0 ? void 0 : boards.length) > 0 &&
-	                (boards === null || boards === void 0 ? void 0 : boards.map((board) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles.feedbackButton }, { children: jsxRuntimeExports.jsxs("div", Object.assign({ className: styles.buttonContent }, { children: [jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardTitle}` }, { children: board.name })), jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardDescription}` }, { children: board.description || "What request you got ?" }))] })) }), board.boardId)))), !loading && (boards === null || boards === void 0 ? void 0 : boards.length) === 0 && jsxRuntimeExports.jsx("h3", { children: "No feedback boards found" })] })));
+	                (boards === null || boards === void 0 ? void 0 : boards.map((board) => (jsxRuntimeExports.jsx("div", Object.assign({ className: styles.feedbackButton, onClick: () => {
+	                        setShowInputDetails({
+	                            show: true,
+	                            boardId: board.boardId,
+	                            boardTitle: board.name,
+	                            boardDescription: board.description || "",
+	                        });
+	                    } }, { children: jsxRuntimeExports.jsxs("div", Object.assign({ className: styles.buttonContent }, { children: [jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardTitle}` }, { children: board.name })), jsxRuntimeExports.jsx("p", Object.assign({ className: `${styles.boardDescription}` }, { children: board.description || "What request you got ?" }))] })) }), board.boardId)))), showInputDetails.show && createPostComponent(), !loading && (boards === null || boards === void 0 ? void 0 : boards.length) === 0 && jsxRuntimeExports.jsx("h3", { children: "No feedback boards found" })] })));
 	};
 
 	// THIS FILE IS AUTO GENERATED
@@ -16805,7 +16915,7 @@
 	    }, [showWidget]);
 	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: ` ${styles$1.button} animateFadeIn`, style: {
 	                    backgroundColor: color,
-	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.widgetContainer, ref: widgetRef }, { children: [jsxRuntimeExports.jsx(TabComponent, { activeTab: activeTab, setActiveTab: setActiveTab }), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} thin-scrollbar ` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId })) }))] })))] })));
+	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.widgetContainer, ref: widgetRef }, { children: [jsxRuntimeExports.jsx(TabComponent, { activeTab: activeTab, setActiveTab: setActiveTab }), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} thin-scrollbar ` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId, color: color })) }))] })))] })));
 	};
 
 	const renderChangelogWidget = (container, props) => {

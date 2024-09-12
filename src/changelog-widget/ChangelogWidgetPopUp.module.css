@@ -1,7 +1,8 @@
 :root {
   --bg-color-light: #ffffff;
-
+  --border-color-light: #e0e0e0;
   --bg-color-dark: #191919;
+  --border-color-dark: #333;
 }
 
 #changelog-widget-portal-fc {
@@ -49,10 +50,12 @@
   flex-direction: column;
   animation: fadeUp 0.3s ease;
   transition: all 0.1s ease;
+  border: 1px solid var(--border-color-light);
 }
 
 .dark.widgetContainer {
   background-color: var(--bg-color-dark);
+  border: 1px solid var(--border-color-dark);
 }
 
 .contentContainer {

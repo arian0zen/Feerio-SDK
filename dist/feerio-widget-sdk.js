@@ -50,17 +50,12 @@
 		return react_production_min;
 	}
 
-	var hasRequiredReact;
-
-	function requireReact () {
-		if (hasRequiredReact) return react.exports;
-		hasRequiredReact = 1;
-
-		{
-		  react.exports = requireReact_production_min();
-		}
-		return react.exports;
+	{
+	  react.exports = requireReact_production_min();
 	}
+
+	var reactExports = react.exports;
+	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 	/**
 	 * @license React
@@ -77,7 +72,7 @@
 	function requireReactJsxRuntime_production_min () {
 		if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 		hasRequiredReactJsxRuntime_production_min = 1;
-	var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+	var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 		function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 		return reactJsxRuntime_production_min;
 	}
@@ -153,7 +148,7 @@
 	function requireReactDom_production_min () {
 		if (hasRequiredReactDom_production_min) return reactDom_production_min;
 		hasRequiredReactDom_production_min = 1;
-	var aa=requireReact(),ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
+	var aa=reactExports,ca=requireScheduler();function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return "Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b);}
 		function ha(a,b){ea[a]=b;for(a=0;a<b.length;a++)da.add(b[a]);}
 		var ia=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ja=Object.prototype.hasOwnProperty,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,la=
 		{},ma={};function oa(a){if(ja.call(ma,a))return !0;if(ja.call(la,a))return !1;if(ka.test(a))return ma[a]=!0;la[a]=!0;return !1}function pa(a,b,c,d){if(null!==c&&0===c.type)return !1;switch(typeof b){case "function":case "symbol":return !0;case "boolean":if(d)return !1;if(null!==c)return !c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return "data-"!==a&&"aria-"!==a;default:return !1}}
@@ -4234,9 +4229,6 @@
 
 	// this module should only have a default export
 	var axios$1 = axios;
-
-	var reactExports = requireReact();
-	var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 	var DefaultContext = {
 	  color: undefined,
@@ -16756,7 +16748,7 @@
 	                        }, onClick: () => setActiveTab("feedback") }, { children: "Feedback" }))] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$2.closeButton, onClick: onClose }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })));
 	};
 
-	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n\r\n  --bg-color-dark: #191919;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  right: 0;\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
+	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n  --border-color-light: #e0e0e0;\r\n  --bg-color-dark: #191919;\r\n  --border-color-dark: #333;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  right: 0;\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n  border: 1px solid var(--border-color-light);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n  border: 1px solid var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
 	var styles$1 = {"changelog-widget-portal-fc":"ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj","container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","dark":"ChangelogWidgetPopUp-module_dark__jpGyd","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
 	styleInject(css_248z$1);
 

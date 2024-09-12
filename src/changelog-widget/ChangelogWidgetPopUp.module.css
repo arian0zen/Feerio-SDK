@@ -55,6 +55,7 @@
   color: #666;
 }
 
+
 /* ----animation */
 @keyframes fadeUp {
   from {
@@ -72,8 +73,9 @@
 @media (max-width: 480px) {
   .widgetContainer {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     border-radius: 0;
-    bottom: 0;
+    bottom: -16px !important;
+    right: -16px !important;
   }
 }

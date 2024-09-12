@@ -1,7 +1,18 @@
 .tabContainer {
   display: flex;
-  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  /* border-bottom: 1px solid #e5e5e5; */
   font-family: "Poppins", sans-serif;
+}
+.tabs{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.closeButton{
+  display: none;
 }
 
 .tabButton {
@@ -24,4 +35,13 @@
 .tabButton.active {
   color: #0a6847;
   border-bottom: 2px solid #0a6847;
+}
+
+@media (max-width: 480px) {
+  .closeButton{
+    color: #4b5563;
+    display: block;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
 }

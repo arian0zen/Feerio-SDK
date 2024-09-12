@@ -70,7 +70,13 @@ const ChangelogWidgetPopUp = ({
       </button>
       {showWidget && (
         <div className={styles.widgetContainer} ref={widgetRef}>
-          <TabComponent activeTab={activeTab} setActiveTab={setActiveTab} />
+          <TabComponent
+            onClose={() => {
+              setShowWidget(false);
+            }}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
           <div className={`${styles.contentContainer} thin-scrollbar `}>
             {activeTab === "changelogs" ? (
               <ChangelogWidget

@@ -82,7 +82,7 @@
 .changelogList {
   display: flex;
   flex-direction: column;
-  max-height: 337px;
+  height: 337px;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;

@@ -1,0 +1,70 @@
+.tabs {
+  --bg-color: #191919;
+  --text-color: #ffffff;
+  --border-color: #333;
+  --hover-bg: rgba(192, 192, 192, 0.068);
+  --active-color: #10b981;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.1s ease;
+}
+
+.tabs.light {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --hover-bg: rgba(27, 24, 24, 0.068);
+  --active-color: #0a6847;
+}
+
+.tabContainer {
+  display: flex;
+  width: 100%;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: all 0.1s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.tabButton:hover {
+  background-color: var(--hover-bg);
+}
+
+.tabButton.active {
+  color: var(--active-color);
+  border-bottom: 2px solid var(--active-color);
+}
+
+.closeButton {
+  display: none;
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  transition: color 0.1s ease;
+}
+
+.closeButton:hover {
+  color: var(--active-color);
+}
+
+@media (max-width: 480px) {
+  .closeButton {
+    display: block;
+  }
+}

@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import ChangelogWidget from "../changelog-widget/ChangelogWidget";
+import ChangelogWidgetPopUp from "../changelog-widget/ChangelogWidgetPopUp";
 
 const renderChangelogWidget = (
   container: HTMLElement,
@@ -157,4 +158,47 @@ const handleButtonClickForChangelogTrigger = (
   }
 };
 
-export { handleButtonClickForChangelogTrigger, renderChangelogWidget };
+const renderChangelogWidgetPopup = ({
+  theme,
+  workspaceId,
+  workspaceSubdomain,
+  color,
+}: {
+  theme?: "light" | "dark";
+  workspaceId: string;
+  workspaceSubdomain: string;
+  color?: string;
+}) => {
+  // Check if the widget already exists
+  const existingPortal = document.getElementById("changelog-widget-portal-fc");
+  if (existingPortal) return;
+
+  // Create a new div element for the portal
+  const portalContainer = document.createElement("div");
+  portalContainer.id = "changelog-widget-portal-fc";
+
+  portalContainer.style.position = "fixed";
+  portalContainer.style.bottom = "1rem";
+  portalContainer.style.right = "1rem";
+  portalContainer.style.zIndex = "9999";
+
+  // Append the div to the body
+  document.body.appendChild(portalContainer);
+
+  // Use ReactDOM.render instead of createPortal
+  ReactDOM.render(
+    <ChangelogWidgetPopUp
+      workspaceId={workspaceId}
+      workspaceSubdomain={workspaceSubdomain}
+      theme={theme}
+      color={color}
+    />,
+    portalContainer
+  );
+};
+
+export {
+  handleButtonClickForChangelogTrigger,
+  renderChangelogWidget,
+  renderChangelogWidgetPopup,
+};

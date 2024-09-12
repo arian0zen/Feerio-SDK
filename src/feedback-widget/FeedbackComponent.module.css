@@ -1,0 +1,274 @@
+/* Light & Dark Theme Variables */
+:root {
+  --bg-color-light: #ffffff;
+  --text-color-light: #333333;
+  --border-color-light: #e5e7eb;
+  --button-bg-light: #f9fafb;
+  --button-hover-bg-light: #f3f4f6;
+  --success-bg-light: #d1fae5;
+  --success-color-light: #065f46;
+  --error-bg-light: #fee2e2;
+  --error-color-light: #991b1b;
+  --info-bg-light: #e0f2fe;
+  --info-color-light: #075985;
+
+  --bg-color-dark: #191919;
+  --text-color-dark: #e5e7eb;
+  --border-color-dark: #333;
+  --button-bg-dark: #333333;
+  --button-hover-bg-dark: #444444;
+  --success-bg-dark: #14532d;
+  --success-color-dark: #a7f3d0;
+  --error-bg-dark: #7f1d1d;
+  --error-color-dark: #fecaca;
+  --info-bg-dark: #164e63;
+  --info-color-dark: #7dd3fc;
+}
+
+/* Default (Light Mode) */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.feedbackButton {
+  background-color: var(--button-bg-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feedbackButton:hover {
+  background-color: var(--button-hover-bg-light);
+  scale: 1.04;
+}
+
+.buttonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.boardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.boardDescription {
+  font-size: 12px;
+  color: #808388;
+  margin: 0;
+  font-weight: 400;
+}
+
+.footer {
+  margin-top: 16px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Skeleton styles */
+.skeleton {
+  height: 64px;
+  background-color: var(--border-color-light);
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+/* Dark Mode */
+.dark.container {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark .feedbackButton {
+  background-color: var(--button-bg-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+.dark .feedbackButton:hover {
+  background-color: var(--button-hover-bg-dark);
+}
+
+.dark .skeleton {
+  background-color: var(--border-color-dark);
+}
+
+/* Post Component */
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  position: relative;
+}
+
+.header h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.backButton {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  color: #808080;
+}
+
+.backButton:hover {
+  color: rgb(73, 73, 73);
+}
+
+.postTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.postInput,
+.postTextArea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 6px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #111827;
+}
+
+.postTextArea {
+  height: 100px;
+  resize: vertical;
+}
+
+.postButton {
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.postButton:hover {
+  background-color: #6d28d9;
+}
+
+.postButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark Mode for Post Components */
+.dark .postInput,
+.dark .postTextArea {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+/* Message Div */
+.message {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: 450;
+}
+
+.message p {
+  margin: 0;
+  margin-left: 12px;
+}
+
+.messageIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.success {
+  background-color: var(--success-bg-light);
+  color: var(--success-color-light);
+}
+
+.success .messageIcon {
+  color: var(--success-color-light);
+}
+
+.error {
+  background-color: var(--error-bg-light);
+  color: var(--error-color-light);
+}
+
+.error .messageIcon {
+  color: var(--error-color-light);
+}
+
+.info {
+  background-color: var(--info-bg-light);
+  color: var(--info-color-light);
+}
+
+.info .messageIcon {
+  color: var(--info-color-light);
+}
+
+/* Dark Mode for Message Div */
+.dark .success {
+  background-color: var(--success-bg-dark);
+  color: var(--success-color-dark);
+}
+
+.dark .error {
+  background-color: var(--error-bg-dark);
+  color: var(--error-color-dark);
+}
+
+.dark .info {
+  background-color: var(--info-bg-dark);
+  color: var(--info-color-dark);
+}

@@ -13,11 +13,13 @@ const ChangelogWidgetPopUp = ({
   workspaceSubdomain,
   theme = "light",
   color = "#0A6847",
+  position = "right",
 }: {
   workspaceId: string;
   workspaceSubdomain: string;
   theme?: "light" | "dark";
   color?: string;
+  position?: "left" | "right";
 }) => {
   const [showWidget, setShowWidget] = useState(false);
   const [activeTab, setActiveTab] = useState("changelogs");
@@ -71,6 +73,10 @@ const ChangelogWidgetPopUp = ({
       {showWidget && (
         <div
           className={`${styles[theme]}  ${styles.widgetContainer}`}
+          style={{
+            right: position === "right" ? "0" : "auto",
+            left: position === "left" ? "0" : "auto",
+          }}
           ref={widgetRef}
         >
           <TabComponent

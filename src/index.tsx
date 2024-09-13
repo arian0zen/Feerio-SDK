@@ -32,6 +32,7 @@ declare global {
         workspaceSubdomain: string;
         theme?: "light" | "dark";
         color?: string;
+        position?: "left" | "right";
       }) => void;
 
       // fq is the queue of functions that will be called when the script is loaded
@@ -88,6 +89,7 @@ const initializeChangelogPopup = (options: {
   workspaceSubdomain: string;
   theme?: "light" | "dark";
   color?: string;
+  position?: "left" | "right";
 }) => {
   console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
 
@@ -131,7 +133,7 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.1.2 ************
+// VERSION ************ 2.1.3 ************
 
 window.Feerio = {
   initializeChangelog,

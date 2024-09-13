@@ -163,11 +163,13 @@ const renderChangelogWidgetPopup = ({
   workspaceId,
   workspaceSubdomain,
   color,
+  position,
 }: {
   theme?: "light" | "dark";
   workspaceId: string;
   workspaceSubdomain: string;
   color?: string;
+  position?: "left" | "right";
 }) => {
   // Check if the widget already exists
   const existingPortal = document.getElementById("changelog-widget-portal-fc");
@@ -179,7 +181,14 @@ const renderChangelogWidgetPopup = ({
 
   portalContainer.style.position = "fixed";
   portalContainer.style.bottom = "1rem";
-  portalContainer.style.right = "1rem";
+  // portalContainer.style.right = "1rem";
+
+  if (position === "left") {
+    portalContainer.style.left = "1rem";
+  } else {
+    portalContainer.style.right = "1rem";
+  }
+
   portalContainer.style.zIndex = "9999";
 
   // Append the div to the body
@@ -192,6 +201,7 @@ const renderChangelogWidgetPopup = ({
       workspaceSubdomain={workspaceSubdomain}
       theme={theme}
       color={color}
+      position={position}
     />,
     portalContainer
   );

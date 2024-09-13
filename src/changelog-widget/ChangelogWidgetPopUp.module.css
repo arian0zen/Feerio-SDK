@@ -38,7 +38,8 @@
 .widgetContainer {
   position: absolute;
   bottom: 4.5rem;
-  right: 0;
+  /* right: 0; */
+  /* left: 0; */
   min-width: 300px;
   width: 330px;
   /* this is 420 - 48px for the title div of the changelog widget */

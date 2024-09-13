@@ -16748,7 +16748,7 @@
 	                        }, onClick: () => setActiveTab("feedback") }, { children: "Feedback" }))] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$2.closeButton, onClick: onClose }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })));
 	};
 
-	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n  --border-color-light: #e0e0e0;\r\n  --bg-color-dark: #191919;\r\n  --border-color-dark: #333;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  right: 0;\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n  border: 1px solid var(--border-color-light);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n  border: 1px solid var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
+	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n  --border-color-light: #e0e0e0;\r\n  --bg-color-dark: #191919;\r\n  --border-color-dark: #333;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  /* right: 0; */\r\n  /* left: 0; */\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n  border: 1px solid var(--border-color-light);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n  border: 1px solid var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
 	var styles$1 = {"changelog-widget-portal-fc":"ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj","container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","dark":"ChangelogWidgetPopUp-module_dark__jpGyd","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
 	styleInject(css_248z$1);
 
@@ -16906,7 +16906,7 @@
 	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24"},"child":[{"tag":"path","attr":{"fill":"none","d":"M0 0h24v24H0z"},"child":[]},{"tag":"path","attr":{"d":"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"},"child":[]}]})(props);
 	}
 
-	const ChangelogWidgetPopUp = ({ workspaceId, workspaceSubdomain, theme = "light", color = "#0A6847", }) => {
+	const ChangelogWidgetPopUp = ({ workspaceId, workspaceSubdomain, theme = "light", color = "#0A6847", position = "right", }) => {
 	    const [showWidget, setShowWidget] = reactExports.useState(false);
 	    const [activeTab, setActiveTab] = reactExports.useState("changelogs");
 	    const widgetRef = reactExports.useRef(null);
@@ -16932,7 +16932,10 @@
 	    }, [showWidget]);
 	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: ` ${styles$1.button} animateFadeIn`, style: {
 	                    backgroundColor: color,
-	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1[theme]}  ${styles$1.widgetContainer}`, ref: widgetRef }, { children: [jsxRuntimeExports.jsx(TabComponent, { onClose: () => {
+	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1[theme]}  ${styles$1.widgetContainer}`, style: {
+	                    right: position === "right" ? "0" : "auto",
+	                    left: position === "left" ? "0" : "auto",
+	                }, ref: widgetRef }, { children: [jsxRuntimeExports.jsx(TabComponent, { onClose: () => {
 	                            setShowWidget(false);
 	                        }, activeTab: activeTab, setActiveTab: setActiveTab, color: color, theme: theme }), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"} ` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId, color: color, theme: theme })) }))] })))] })));
 	};
@@ -17040,7 +17043,7 @@
 	        }, 0);
 	    }
 	};
-	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, color, }) => {
+	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, color, position, }) => {
 	    // Check if the widget already exists
 	    const existingPortal = document.getElementById("changelog-widget-portal-fc");
 	    if (existingPortal)
@@ -17050,12 +17053,18 @@
 	    portalContainer.id = "changelog-widget-portal-fc";
 	    portalContainer.style.position = "fixed";
 	    portalContainer.style.bottom = "1rem";
-	    portalContainer.style.right = "1rem";
+	    // portalContainer.style.right = "1rem";
+	    if (position === "left") {
+	        portalContainer.style.left = "1rem";
+	    }
+	    else {
+	        portalContainer.style.right = "1rem";
+	    }
 	    portalContainer.style.zIndex = "9999";
 	    // Append the div to the body
 	    document.body.appendChild(portalContainer);
 	    // Use ReactDOM.render instead of createPortal
-	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, color: color }), portalContainer);
+	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, color: color, position: position }), portalContainer);
 	};
 
 	const generateIframeComponent = (options) => {
@@ -17155,7 +17164,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.1.2 ************
+	// VERSION ************ 2.1.3 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

@@ -16931,7 +16931,7 @@
 	        };
 	    }, [showWidget]);
 	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: ` ${styles$1.button} animateFadeIn`, style: {
-	                    backgroundColor: color,
+	                    backgroundColor: color || "#0A6847",
 	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1[theme]}  ${styles$1.widgetContainer}`, style: {
 	                    right: position === "right" ? "0" : "auto",
 	                    left: position === "left" ? "0" : "auto",
@@ -17164,7 +17164,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.1.3 ************
+	// VERSION ************ 2.1.4 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

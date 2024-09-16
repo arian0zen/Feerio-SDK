@@ -55,7 +55,7 @@ const ChangelogWidgetPopUp = ({
         ref={initializerRef}
         className={` ${styles.button} animateFadeIn`}
         style={{
-          backgroundColor: color,
+          backgroundColor: color || "#0A6847",
         }}
         aria-label={showWidget ? "Close Widget" : "Open Widget"}
       >

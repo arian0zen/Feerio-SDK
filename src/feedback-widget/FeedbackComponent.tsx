@@ -213,7 +213,7 @@ const FeedbackComponent = ({
         <button
           className={styles.postButton}
           style={{
-            backgroundColor: color,
+            backgroundColor: color || "#0A6847",
           }}
           disabled={addingPost}
           onClick={() =>

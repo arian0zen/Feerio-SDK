@@ -16872,7 +16872,7 @@
 	                        setMessage({ type: "", content: "" });
 	                    }, onBlur: (e) => (e.target.style.borderColor =
 	                        theme === "light" ? "#d1d5db" : "#1f2937") }), jsxRuntimeExports.jsx("button", Object.assign({ className: styles.postButton, style: {
-	                        backgroundColor: color,
+	                        backgroundColor: color || "#0A6847",
 	                    }, disabled: addingPost, onClick: () => addPost({
 	                        title,
 	                        description,
@@ -17132,6 +17132,10 @@
 	};
 	const initializeChangelogPopup = (options) => {
 	    console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
+	    // if color is empty string make it #0A6847
+	    if (!options.color) {
+	        options.color = "#0A6847";
+	    }
 	    renderChangelogWidgetPopup(options);
 	};
 	const initializePublicBoard = (options) => {
@@ -17164,7 +17168,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.1.4 ************
+	// VERSION ************ 2.1.5 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

@@ -93,6 +93,11 @@ const initializeChangelogPopup = (options: {
 }) => {
   console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
 
+  // if color is empty string make it #0A6847
+  if (!options.color) {
+    options.color = "#0A6847";
+  }
+
   renderChangelogWidgetPopup(options);
 };
 
@@ -133,7 +138,7 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.1.4 ************
+// VERSION ************ 2.1.5 ************
 
 window.Feerio = {
   initializeChangelog,

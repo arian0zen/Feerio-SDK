@@ -33,6 +33,16 @@ declare global {
         theme?: "light" | "dark";
         color?: string;
         position?: "left" | "right";
+        showChangelog?: boolean;
+        absolutePosition?: {
+          bottom?: string;
+          right?: string;
+          left?: string;
+        };
+        user?: {
+          email?: string;
+          name?: string;
+        };
       }) => void;
 
       // fq is the queue of functions that will be called when the script is loaded
@@ -90,6 +100,16 @@ const initializeChangelogPopup = (options: {
   theme?: "light" | "dark";
   color?: string;
   position?: "left" | "right";
+  showChangeLog?: boolean;
+  absolutePosition?: {
+    bottom?: string;
+    right?: string;
+    left?: string;
+  };
+  user?: {
+    email?: string;
+    name?: string;
+  };
 }) => {
   console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
 
@@ -138,7 +158,7 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.1.5 ************
+// VERSION ************ 2.1.6 ************
 
 window.Feerio = {
   initializeChangelog,

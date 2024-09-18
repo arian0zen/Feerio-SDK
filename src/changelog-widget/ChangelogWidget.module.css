@@ -19,7 +19,7 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   animation: fadeUp 0.3s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   transition: all 0.1s ease;
   overflow: hidden;
   /* border: 1px solid var(--border-color); */
@@ -31,7 +31,7 @@
   --border-color: #e0e0e0;
   --description-color: #666666;
   --meta-color: #888888;
-  --link-color: #0077b6;
+  --link-color: #0077b6 !important;
   /* --scrollbar-bg: #f1f1f1;
   --scrollbar-thumb: #c1c1c1; */
   --hover-bg: rgba(27, 24, 24, 0.068);
@@ -194,7 +194,7 @@ a,
 .changelogDetails {
   border-radius: 8px;
   animation: slideLeft 0.5s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   transition: all 0.1s ease;
   height: 337px;
   overflow-y: auto;

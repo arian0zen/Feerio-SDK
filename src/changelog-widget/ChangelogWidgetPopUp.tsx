@@ -14,15 +14,25 @@ const ChangelogWidgetPopUp = ({
   theme = "light",
   color = "#0A6847",
   position = "right",
+  showChangelog = true,
+  user,
 }: {
   workspaceId: string;
   workspaceSubdomain: string;
   theme?: "light" | "dark";
   color?: string;
   position?: "left" | "right";
+  showChangelog?: boolean;
+  user?: {
+    email?: string;
+    name?: string;
+  };
 }) => {
   const [showWidget, setShowWidget] = useState(false);
-  const [activeTab, setActiveTab] = useState("changelogs");
+  // const [activeTab, setActiveTab] = useState("changelogs");
+  const [activeTab, setActiveTab] = useState(
+    showChangelog ? "changelogs" : "feedback"
+  );
   const widgetRef = useRef<HTMLDivElement>(null);
   const initializerRef = useRef<HTMLButtonElement>(null);
 
@@ -79,15 +89,17 @@ const ChangelogWidgetPopUp = ({
           }}
           ref={widgetRef}
         >
-          <TabComponent
-            onClose={() => {
-              setShowWidget(false);
-            }}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            color={color}
-            theme={theme}
-          />
+          {showChangelog && (
+            <TabComponent
+              onClose={() => {
+                setShowWidget(false);
+              }}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              color={color}
+              theme={theme}
+            />
+          )}
           <div
             className={`${styles.contentContainer} ${
               theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"
@@ -106,6 +118,7 @@ const ChangelogWidgetPopUp = ({
                 workspaceId={workspaceId}
                 color={color}
                 theme={theme}
+                user={user}
               />
             )}
           </div>

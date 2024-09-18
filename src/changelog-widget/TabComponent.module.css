@@ -10,7 +10,7 @@
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-color);
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   transition: all 0.1s ease;
 }
 
@@ -37,7 +37,7 @@
   font-weight: 500;
   color: var(--text-color);
   transition: all 0.1s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .tabButton:hover {

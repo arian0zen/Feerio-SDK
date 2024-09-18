@@ -12,6 +12,10 @@ type FeedbackComponentProps = {
   workspaceId: string;
   color: string;
   theme?: "light" | "dark";
+  user?: {
+    email?: string;
+    name?: string;
+  };
 };
 
 type Board = {
@@ -32,6 +36,7 @@ const FeedbackComponent = ({
   workspaceId,
   color,
   theme = "light",
+  user,
 }: FeedbackComponentProps) => {
   const [boards, setBoards] = useState<Board[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -119,6 +124,10 @@ const FeedbackComponent = ({
           boardId: showInputDetails.boardId,
           boardName: showInputDetails.boardTitle,
           workspaceId: workspaceId,
+          user: {
+            email: user?.email || "",
+            name: user?.name || "",
+          },
         };
 
         setAddingPost(true);
@@ -152,7 +161,7 @@ const FeedbackComponent = ({
         });
       }
     },
-    []
+    [user?.email, user?.name]
   );
 
   const createPostComponent = () => {
@@ -257,30 +266,52 @@ const FeedbackComponent = ({
   };
   return (
     <div className={`${styles[theme]} ${styles.container} animateFadeUp `}>
-      {!showInputDetails.show &&
-        boards &&
-        boards?.length > 0 &&
-        boards?.map((board) => (
-          <div
-            key={board.boardId}
-            className={styles.feedbackButton}
-            onClick={() => {
-              setShowInputDetails({
-                show: true,
-                boardId: board.boardId,
-                boardTitle: board.name,
-                boardDescription: board.description || "",
-              });
+      {!showInputDetails.show && boards && boards?.length > 0 && (
+        <>
+          {boards?.map((board) => (
+            <div
+              key={board.boardId}
+              className={styles.feedbackButton}
+              onClick={() => {
+                setShowInputDetails({
+                  show: true,
+                  boardId: board.boardId,
+                  boardTitle: board.name,
+                  boardDescription: board.description || "",
+                });
+              }}
+            >
+              <div className={styles.buttonContent}>
+                <p className={`${styles.boardTitle}`}>{board.name}</p>
+                <p className={`${styles.boardDescription}`}>
+                  {board.description || "What request you got ?"}
+                </p>
+              </div>
+            </div>
+          ))}
+          <p
+            style={{
+              fontSize: "11px",
+              textAlign: "center",
+              fontWeight: 500,
             }}
           >
-            <div className={styles.buttonContent}>
-              <p className={`${styles.boardTitle}`}>{board.name}</p>
-              <p className={`${styles.boardDescription}`}>
-                {board.description || "What request you got ?"}
-              </p>
-            </div>
-          </div>
-        ))}
+            Collect Feedback with{" "}
+            <a
+              href="https://feerio.com"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                color: "#0A6847",
+                textDecoration: "none",
+                fontWeight: 500,
+              }}
+            >
+              Feerio
+            </a>
+          </p>
+        </>
+      )}
 
       {showInputDetails.show && createPostComponent()}
 

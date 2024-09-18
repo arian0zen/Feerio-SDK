@@ -30,9 +30,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  font-family: "Poppins", sans-serif;
+  gap: 16px !important;
+  padding: 16px !important;
+  font-family: "Poppins", sans-serif !important;
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
 }
@@ -171,7 +171,7 @@
   border: 1px solid var(--border-color-light);
   border-radius: 6px;
   outline: none;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   font-weight: 400;
   color: #111827;
 }
@@ -190,7 +190,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .postButton:hover {

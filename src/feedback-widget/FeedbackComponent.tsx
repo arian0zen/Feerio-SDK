@@ -289,7 +289,7 @@ const FeedbackComponent = ({
               </div>
             </div>
           ))}
-          <p
+          {/* <p
             style={{
               fontSize: "11px",
               textAlign: "center",
@@ -309,7 +309,7 @@ const FeedbackComponent = ({
             >
               Feerio
             </a>
-          </p>
+          </p> */}
         </>
       )}
 

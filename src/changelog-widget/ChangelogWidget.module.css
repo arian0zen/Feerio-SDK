@@ -162,6 +162,7 @@
   align-items: center;
   position: sticky;
   bottom: 0;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .poweredBy {
@@ -170,7 +171,7 @@
 
 a,
 .link {
-  color: var(--link-color);
+  color: var(--link-color) !important;
   text-decoration: none;
 }
 

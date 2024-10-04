@@ -2,12 +2,11 @@
 <html lang="en">
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
 
     html,
     body {
-        /* font-family: 'Oswald', sans-serif; */
+        font-family: 'Sofadi One', cursive !important;
         margin: 0px;
         padding: 0px;
         width: 100vw;
@@ -82,7 +81,7 @@
 
     <script>
         Feerio('initializeChangelog', {
-            workspaceId: '665ae023-277e-4b15-bf0d-55351cxxxxxx',
+            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
             workspaceSubdomain: 'crisp',
             position: 'bottom-right',
             theme: 'dark',
@@ -94,10 +93,21 @@
 
     <script>
         Feerio('initializeChangelogPopup', {
-            workspaceId: '665ae023-277e-4b15-bf0d-55351cxxxxxx',
+            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
             workspaceSubdomain: 'crisp',
             theme: 'light',
             color: "#603F26",
+            position: 'right',
+            // showChangelog: false,
+            absolutePosition: {
+                bottom: "",
+                right: "",
+                left: ""
+            },
+            user: {
+                email: "princeask90@gmail.com",
+                name: "Prince",
+            }
         });
 
 
@@ -114,6 +124,7 @@
 
 <body>
 
+    <h1>Hello world</h1>
 
     <button class="changelog-btn" data-feerio-changelog>
         View Changelog 1
@@ -130,17 +141,17 @@
 
 
 
-    <div data-feerio-all-boards class="feerio-boards">
+    <!-- <div data-feerio-all-boards class="feerio-boards">
         Bug reports
-    </div>
+    </div> -->
 
 
-    <script>
+    <!-- <script>
         Feerio('initializePublicBoard', {
             workspaceSubdomain: 'crisp',
             boardUrls: [],
         });
-    </script>
+    </script> -->
 
 
 </body>

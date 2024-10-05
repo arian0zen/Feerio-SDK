@@ -177,7 +177,7 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.1.7 ************
+// VERSION ************ 2.2.0 ************
 
 window.Feerio = {
   initializeChangelog,

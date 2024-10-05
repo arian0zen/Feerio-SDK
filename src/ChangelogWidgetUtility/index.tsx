@@ -167,12 +167,22 @@ const renderChangelogWidgetPopup = ({
   showChangelog,
   absolutePosition,
   user,
+  initializerStyle = "popup",
+  attachedButtonStyles,
 }: {
   theme?: "light" | "dark";
   workspaceId: string;
   workspaceSubdomain: string;
   color?: string;
   position?: "left" | "right";
+  initializerStyle?: "popup" | "attached";
+  attachedButtonStyles?: {
+    label?: string;
+
+    backgroundColor?: string;
+    color?: string;
+    border?: string;
+  };
   showChangelog?: boolean;
   absolutePosition?: {
     bottom?: string;
@@ -192,14 +202,27 @@ const renderChangelogWidgetPopup = ({
   const portalContainer = document.createElement("div");
   portalContainer.id = "changelog-widget-portal-fc";
 
-  portalContainer.style.position = "fixed";
-  portalContainer.style.bottom = absolutePosition?.bottom || "1rem";
-  // portalContainer.style.right = "1rem";
+  // Set position styles based on initializerStyle
+  if (initializerStyle === "popup") {
+    portalContainer.style.position = "fixed";
+    portalContainer.style.bottom = absolutePosition?.bottom || "1rem";
 
-  if (position === "left") {
-    portalContainer.style.left = absolutePosition?.left || "1rem";
-  } else {
-    portalContainer.style.right = absolutePosition?.right || "1rem";
+    if (position === "left") {
+      portalContainer.style.left = absolutePosition?.left || "1rem";
+    } else {
+      portalContainer.style.right = absolutePosition?.right || "1rem";
+    }
+  } else if (initializerStyle === "attached") {
+    portalContainer.style.position = "fixed";
+    portalContainer.style.top = `90%`;
+    portalContainer.style.transform = `
+    translateY(-50%)`;
+
+    if (position === "left") {
+      portalContainer.style.left = "0";
+    } else {
+      portalContainer.style.right = "0";
+    }
   }
 
   portalContainer.style.zIndex = "9999";
@@ -217,6 +240,8 @@ const renderChangelogWidgetPopup = ({
       position={position}
       showChangelog={showChangelog}
       user={user}
+      initializerStyle={initializerStyle}
+      attachedButtonStyles={attachedButtonStyles}
     />,
     portalContainer
   );

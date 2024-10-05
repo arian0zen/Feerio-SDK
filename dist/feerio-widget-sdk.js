@@ -4336,6 +4336,14 @@
 	    console.log(`${dayMonth}, ${year}`);
 	    return `${dayMonth}, ${year}`;
 	};
+	function isElementOutsideTopViewport(element) {
+	    const rect = element.getBoundingClientRect();
+	    // Check if the viewport width is less than or equal to 480px (mobile)
+	    const isMobile = window.innerWidth <= 480;
+	    const outsideTop = rect.top - 430 < 0;
+	    console.log(`outsideTop: ${outsideTop}, isMobile: ${isMobile}`);
+	    return { outsideTop, isMobile };
+	}
 
 	function styleInject(css, ref) {
 	  if ( ref === void 0 ) ref = {};
@@ -16748,8 +16756,8 @@
 	                        }, onClick: () => setActiveTab("feedback") }, { children: "Feedback" }))] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$2.closeButton, onClick: onClose }, { children: jsxRuntimeExports.jsx(RxCross2, { size: 22 }) }))] })));
 	};
 
-	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n  --border-color-light: #e0e0e0;\r\n  --bg-color-dark: #191919;\r\n  --border-color-dark: #333;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  bottom: 4.5rem;\r\n  /* right: 0; */\r\n  /* left: 0; */\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n  border: 1px solid var(--border-color-light);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n  border: 1px solid var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
-	var styles$1 = {"changelog-widget-portal-fc":"ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj","container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","dark":"ChangelogWidgetPopUp-module_dark__jpGyd","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
+	var css_248z$1 = ":root {\r\n  --bg-color-light: #ffffff;\r\n  --border-color-light: #e0e0e0;\r\n  --bg-color-dark: #191919;\r\n  --border-color-dark: #333;\r\n}\r\n\r\n#ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj {\r\n  position: fixed !important;\r\n  bottom: 1rem !important;\r\n  right: 1rem !important;\r\n  z-index: 9999 !important;\r\n}\r\n.ChangelogWidgetPopUp-module_container__VdtES {\r\n  position: relative;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_button__i8O2R {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 3.5rem;\r\n  height: 3.5rem;\r\n  border-radius: 9999px;\r\n  cursor: pointer;\r\n  outline: none;\r\n  border: none;\r\n  transition: all 0.3s ease-in-out;\r\n}\r\n.ChangelogWidgetPopUp-module_button__i8O2R:hover {\r\n  opacity: 0.8;\r\n}\r\n.ChangelogWidgetPopUp-module_attachedButton__huR4w {\r\n  font-family: \"Poppins\", sans-serif !important;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 0.5rem;\r\n  width: 2.2rem;\r\n  /* cursor: pointer; */\r\n  outline: none;\r\n  transition: all 0.3s ease-in-out;\r\n  writing-mode: vertical-rl;\r\n  text-orientation: mixed;\r\n  border: var(--border-color-light);\r\n  transform: rotate(180deg);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_attachedButton__huR4w {\r\n  border: var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_icon__VM24a {\r\n  color: white;\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  position: absolute;\r\n  /* bottom: 4.5rem; */\r\n  /* right: 0; */\r\n  /* left: 0; */\r\n  min-width: 300px;\r\n  width: 330px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n  background-color: var(--bg-color-light);\r\n  border-radius: 4px;\r\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: column;\r\n  animation: ChangelogWidgetPopUp-module_fadeUp__TnpEx 0.3s ease;\r\n  transition: all 0.1s ease;\r\n  border: 1px solid var(--border-color-light);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_dark__jpGyd.ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n  background-color: var(--bg-color-dark);\r\n  border: 1px solid var(--border-color-dark);\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_contentContainer__lwav8 {\r\n  flex-grow: 1;\r\n  overflow-y: auto;\r\n  height: 372px;\r\n  /* this is 420 - 48px for the title div of the changelog widget */\r\n}\r\n\r\n.ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL {\r\n  padding: 1rem;\r\n  text-align: center;\r\n  color: #666;\r\n}\r\n\r\n/* ----animation */\r\n@keyframes ChangelogWidgetPopUp-module_fadeUp__TnpEx {\r\n  from {\r\n    opacity: 0;\r\n    transform: translateY(20px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n  }\r\n}\r\n\r\n/* add media query for mobile to take the full width  and height of the screen */\r\n\r\n@media (max-width: 480px) {\r\n  .ChangelogWidgetPopUp-module_widgetContainer__rtwtZ {\r\n    width: 100vw !important;\r\n    height: 100vh !important;\r\n    border-radius: 0;\r\n    bottom: -16px !important;\r\n    right: -16px !important;\r\n  }\r\n}\r\n";
+	var styles$1 = {"changelog-widget-portal-fc":"ChangelogWidgetPopUp-module_changelog-widget-portal-fc__056dj","container":"ChangelogWidgetPopUp-module_container__VdtES","button":"ChangelogWidgetPopUp-module_button__i8O2R","attachedButton":"ChangelogWidgetPopUp-module_attachedButton__huR4w","dark":"ChangelogWidgetPopUp-module_dark__jpGyd","icon":"ChangelogWidgetPopUp-module_icon__VM24a","widgetContainer":"ChangelogWidgetPopUp-module_widgetContainer__rtwtZ","fadeUp":"ChangelogWidgetPopUp-module_fadeUp__TnpEx","contentContainer":"ChangelogWidgetPopUp-module_contentContainer__lwav8","feedbackPlaceholder":"ChangelogWidgetPopUp-module_feedbackPlaceholder__i1nLL"};
 	styleInject(css_248z$1);
 
 	// THIS FILE IS AUTO GENERATED
@@ -16907,12 +16915,100 @@
 	  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24"},"child":[{"tag":"path","attr":{"fill":"none","d":"M0 0h24v24H0z"},"child":[]},{"tag":"path","attr":{"d":"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"},"child":[]}]})(props);
 	}
 
-	const ChangelogWidgetPopUp = ({ workspaceId, workspaceSubdomain, theme = "light", color = "#0A6847", position = "right", showChangelog = true, user, }) => {
+	const ChangelogWidgetPopUp = ({ workspaceId, workspaceSubdomain, theme = "light", color = "#0A6847", position = "right", showChangelog = true, user, initializerStyle = "popup", attachedButtonStyles, }) => {
 	    const [showWidget, setShowWidget] = reactExports.useState(false);
-	    // const [activeTab, setActiveTab] = useState("changelogs");
 	    const [activeTab, setActiveTab] = reactExports.useState(showChangelog ? "changelogs" : "feedback");
+	    const [isDragging, setIsDragging] = reactExports.useState(false);
 	    const widgetRef = reactExports.useRef(null);
 	    const initializerRef = reactExports.useRef(null);
+	    const dragStartY = reactExports.useRef(0);
+	    const startPositionY = reactExports.useRef(0);
+	    attachedButtonStyles = Object.assign(Object.assign({}, attachedButtonStyles), { backgroundColor: (attachedButtonStyles === null || attachedButtonStyles === void 0 ? void 0 : attachedButtonStyles.backgroundColor) ||
+	            (theme === "dark" ? "#333" : "#fffaf3"), color: (attachedButtonStyles === null || attachedButtonStyles === void 0 ? void 0 : attachedButtonStyles.color) || (theme === "dark" ? "#fff" : "#0A6847"), label: (attachedButtonStyles === null || attachedButtonStyles === void 0 ? void 0 : attachedButtonStyles.label) || "Feedback" });
+	    const updatePosition = reactExports.useCallback((clientY) => {
+	        const portal = document.getElementById("changelog-widget-portal-fc");
+	        if (!portal || !isDragging)
+	            return;
+	        const windowHeight = window.innerHeight;
+	        const delta = clientY - dragStartY.current;
+	        const deltaPercent = (delta / windowHeight) * 100;
+	        const newPosition = Math.max(7, Math.min(93, startPositionY.current + deltaPercent));
+	        portal.style.top = `${newPosition}%`;
+	        portal.style.transform = "translateY(-50%)";
+	    }, [isDragging]);
+	    // Handle drag start for mouse events
+	    const handleMouseStart = reactExports.useCallback((e) => {
+	        if (initializerStyle !== "attached")
+	            return;
+	        e.preventDefault();
+	        e.stopPropagation();
+	        const portal = document.getElementById("changelog-widget-portal-fc");
+	        if (!portal)
+	            return;
+	        setIsDragging(true);
+	        dragStartY.current = e.clientY;
+	        const transform = portal.style.top;
+	        startPositionY.current = transform ? parseInt(transform) : 50;
+	        document.body.style.userSelect = "none";
+	    }, [initializerStyle]);
+	    // Separate handler for touch events
+	    const handleTouchStart = reactExports.useCallback((e) => {
+	        if (initializerStyle !== "attached")
+	            return;
+	        const portal = document.getElementById("changelog-widget-portal-fc");
+	        if (!portal)
+	            return;
+	        setIsDragging(true);
+	        dragStartY.current = e.touches[0].clientY;
+	        const transform = portal.style.top;
+	        startPositionY.current = transform ? parseInt(transform) : 50;
+	        document.body.style.userSelect = "none";
+	    }, [initializerStyle]);
+	    // Handle mouse movement
+	    const handleMouseMove = reactExports.useCallback((e) => {
+	        if (!isDragging)
+	            return;
+	        e.preventDefault();
+	        updatePosition(e.clientY);
+	    }, [isDragging, updatePosition]);
+	    // Handle touch movement
+	    const handleTouchMove = reactExports.useCallback((e) => {
+	        if (!isDragging)
+	            return;
+	        e.preventDefault();
+	        updatePosition(e.touches[0].clientY);
+	    }, [isDragging, updatePosition]);
+	    // Handle drag end
+	    const handleDragEnd = reactExports.useCallback((e) => {
+	        if (!isDragging)
+	            return;
+	        setIsDragging(false);
+	        document.body.style.userSelect = "";
+	    }, [isDragging]);
+	    // Set up event listeners
+	    reactExports.useEffect(() => {
+	        if (!isDragging)
+	            return;
+	        // Add non-passive touch move listener
+	        const preventDefault = (e) => e.preventDefault();
+	        document.addEventListener("touchmove", preventDefault, { passive: false });
+	        // Add event listeners
+	        document.addEventListener("mousemove", handleMouseMove);
+	        document.addEventListener("touchmove", handleTouchMove, { passive: false });
+	        document.addEventListener("mouseup", handleDragEnd);
+	        document.addEventListener("touchend", handleDragEnd);
+	        document.addEventListener("touchcancel", handleDragEnd);
+	        return () => {
+	            // Clean up listeners
+	            document.removeEventListener("touchmove", preventDefault);
+	            document.removeEventListener("mousemove", handleMouseMove);
+	            document.removeEventListener("touchmove", handleTouchMove);
+	            document.removeEventListener("mouseup", handleDragEnd);
+	            document.removeEventListener("touchend", handleDragEnd);
+	            document.removeEventListener("touchcancel", handleDragEnd);
+	        };
+	    }, [isDragging, handleMouseMove, handleTouchMove, handleDragEnd]);
+	    // Handle clicks outside widget
 	    reactExports.useEffect(() => {
 	        const handleClickOutside = (event) => {
 	            var _a;
@@ -16924,22 +17020,64 @@
 	        };
 	        if (showWidget) {
 	            document.addEventListener("mousedown", handleClickOutside);
-	        }
-	        else {
-	            document.removeEventListener("mousedown", handleClickOutside);
+	            document.addEventListener("touchstart", handleClickOutside);
 	        }
 	        return () => {
 	            document.removeEventListener("mousedown", handleClickOutside);
+	            document.removeEventListener("touchstart", handleClickOutside);
 	        };
 	    }, [showWidget]);
-	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: ` ${styles$1.button} animateFadeIn`, style: {
+	    const getWidgetPosition = reactExports.useCallback(() => {
+	        if (initializerStyle === "popup") {
+	            return {
+	                right: position === "right" ? "0" : "auto",
+	                left: position === "left" ? "0" : "auto",
+	                bottom: "4.5rem",
+	            };
+	        }
+	        const initializerElement = initializerRef.current;
+	        if (!initializerElement)
+	            return {};
+	        const { outsideTop, isMobile } = isElementOutsideTopViewport(initializerElement);
+	        if (isMobile) {
+	            console.log("THIS IS MOBILE ==> ");
+	            const portal = document.getElementById("changelog-widget-portal-fc");
+	            if (!portal)
+	                return {};
+	            portal.style.top = "93%";
+	            const transform = portal.style.top;
+	            startPositionY.current = transform ? parseInt(transform) : 50;
+	            return position === "right"
+	                ? { marginRight: "16px" }
+	                : {
+	                    marginLeft: "16px",
+	                };
+	        }
+	        return {
+	            left: position === "left" ? "2.5rem" : "auto",
+	            right: position === "right" ? "2.5rem" : "auto",
+	            bottom: !outsideTop ? 0 : "auto",
+	            top: outsideTop ? 0 : "auto",
+	        };
+	    }, [initializerStyle, position]);
+	    return (jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$1.container }, { children: [initializerStyle === "popup" ? (jsxRuntimeExports.jsx("button", Object.assign({ onClick: () => setShowWidget(!showWidget), ref: initializerRef, className: `${styles$1.button} animateFadeIn`, style: {
 	                    backgroundColor: color || "#0A6847",
-	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) })), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1[theme]}  ${styles$1.widgetContainer}`, style: {
-	                    right: position === "right" ? "0" : "auto",
-	                    left: position === "left" ? "0" : "auto",
-	                }, ref: widgetRef }, { children: [showChangelog && (jsxRuntimeExports.jsx(TabComponent, { onClose: () => {
-	                            setShowWidget(false);
-	                        }, activeTab: activeTab, setActiveTab: setActiveTab, color: color, theme: theme })), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"} ` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId, color: color, theme: theme, user: user })) }))] })))] })));
+	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: showWidget ? (jsxRuntimeExports.jsx(MdClose, { size: 24, className: `${styles$1.icon} animateFadeIn` })) : (jsxRuntimeExports.jsx(FaRegLightbulb, { size: 24, className: `${styles$1.icon} animateFadeIn` })) }))) : (jsxRuntimeExports.jsx("button", Object.assign({ onClick: (e) => {
+	                    e.stopPropagation();
+	                    e.preventDefault();
+	                    setShowWidget(!showWidget);
+	                }, onMouseDown: handleMouseStart, onTouchStart: handleTouchStart, ref: initializerRef, className: ` ${styles$1.attachedButton} animateFadeIn`, style: {
+	                    backgroundColor: attachedButtonStyles.backgroundColor,
+	                    color: attachedButtonStyles.color,
+	                    border: `1px solid ${theme === "dark" ? "#333" : "#dadada"}`,
+	                    borderRightWidth: position === "left" ? "0" : "1px",
+	                    borderLeftWidth: position === "right" ? "0" : "1px",
+	                    borderRadius: position === "right" ? "0 4px 4px 0" : "4px 0 0 4px",
+	                    transform: "rotate(180deg)",
+	                    padding: "0.5rem 0",
+	                    cursor: "pointer",
+	                    touchAction: isDragging ? "none" : "auto",
+	                }, "aria-label": showWidget ? "Close Widget" : "Open Widget" }, { children: jsxRuntimeExports.jsx("p", { children: attachedButtonStyles.label }) }))), showWidget && (jsxRuntimeExports.jsxs("div", Object.assign({ className: `${styles$1[theme]} ${styles$1.widgetContainer}`, style: getWidgetPosition(), ref: widgetRef }, { children: [showChangelog && (jsxRuntimeExports.jsx(TabComponent, { onClose: () => setShowWidget(false), activeTab: activeTab, setActiveTab: setActiveTab, color: color, theme: theme })), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$1.contentContainer} ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"}` }, { children: activeTab === "changelogs" ? (jsxRuntimeExports.jsx(ChangelogWidget, { title: "Changelog", workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, isPopUp: true })) : (jsxRuntimeExports.jsx(FeedbackComponent, { workspaceId: workspaceId, color: color, theme: theme, user: user })) }))] })))] })));
 	};
 
 	const renderChangelogWidget = (container, props) => {
@@ -17045,7 +17183,7 @@
 	        }, 0);
 	    }
 	};
-	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, color, position, showChangelog, absolutePosition, user, }) => {
+	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, color, position, showChangelog, absolutePosition, user, initializerStyle = "popup", attachedButtonStyles, }) => {
 	    // Check if the widget already exists
 	    const existingPortal = document.getElementById("changelog-widget-portal-fc");
 	    if (existingPortal)
@@ -17053,20 +17191,34 @@
 	    // Create a new div element for the portal
 	    const portalContainer = document.createElement("div");
 	    portalContainer.id = "changelog-widget-portal-fc";
-	    portalContainer.style.position = "fixed";
-	    portalContainer.style.bottom = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.bottom) || "1rem";
-	    // portalContainer.style.right = "1rem";
-	    if (position === "left") {
-	        portalContainer.style.left = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.left) || "1rem";
+	    // Set position styles based on initializerStyle
+	    if (initializerStyle === "popup") {
+	        portalContainer.style.position = "fixed";
+	        portalContainer.style.bottom = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.bottom) || "1rem";
+	        if (position === "left") {
+	            portalContainer.style.left = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.left) || "1rem";
+	        }
+	        else {
+	            portalContainer.style.right = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.right) || "1rem";
+	        }
 	    }
-	    else {
-	        portalContainer.style.right = (absolutePosition === null || absolutePosition === void 0 ? void 0 : absolutePosition.right) || "1rem";
+	    else if (initializerStyle === "attached") {
+	        portalContainer.style.position = "fixed";
+	        portalContainer.style.top = `90%`;
+	        portalContainer.style.transform = `
+    translateY(-50%)`;
+	        if (position === "left") {
+	            portalContainer.style.left = "0";
+	        }
+	        else {
+	            portalContainer.style.right = "0";
+	        }
 	    }
 	    portalContainer.style.zIndex = "9999";
 	    // Append the div to the body
 	    document.body.appendChild(portalContainer);
 	    // Use ReactDOM.render instead of createPortal
-	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, color: color, position: position, showChangelog: showChangelog, user: user }), portalContainer);
+	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, color: color, position: position, showChangelog: showChangelog, user: user, initializerStyle: initializerStyle, attachedButtonStyles: attachedButtonStyles }), portalContainer);
 	};
 
 	const generateIframeComponent = (options) => {
@@ -17138,6 +17290,9 @@
 	    if (!options.color) {
 	        options.color = "#0A6847";
 	    }
+	    if (!options.initializerStyle) {
+	        options.initializerStyle = "popup";
+	    }
 	    renderChangelogWidgetPopup(options);
 	};
 	const initializePublicBoard = (options) => {
@@ -17170,7 +17325,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.1.7 ************
+	// VERSION ************ 2.2.0 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

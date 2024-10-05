@@ -10,6 +10,7 @@
         margin: 0px;
         padding: 0px;
         width: 100vw;
+        background-color: bisque;
     }
 
 
@@ -26,6 +27,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script>!function (t, e, a, n) { function o() { if (!e.getElementById(a)) { var t = e.getElementsByTagName(n)[0], o = e.createElement(n); o.type = "text/javascript", o.async = !0, o.src = "https://cdn.prodcamp.com/js/prdcmp-sdk.js", t.parentNode.insertBefore(o, t) } } if ("function" != typeof t.ProdCamp) { var c = function () { c.args.push(arguments) }; c.p = "PXEBNASRV", c.args = [], c.t = t.ProdCampSettings && t.ProdCampSettings.token, c.f = true, t.ProdCamp = c, "complete" === e.readyState ? o() : t.attachEvent ? t.attachEvent("onload", o) : t.addEventListener("load", o, !1) } }(window, document, "prodcamp-js", "script");</script>
+    <script>
+        ProdCamp('initFeedbackWidget', {
+            email: 'johndoe@foo.com',
+        });
+    </script>
 
 
     <!-- Feerio's SDK Loader -->
@@ -96,8 +104,8 @@
             workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
             workspaceSubdomain: 'crisp',
             theme: 'light',
-            color: "#603F26",
-            position: 'right',
+            // color: "#603F26",
+            position: 'left',
             // showChangelog: false,
             absolutePosition: {
                 bottom: "",
@@ -107,7 +115,13 @@
             user: {
                 email: "princeask90@gmail.com",
                 name: "Prince",
-            }
+            },
+            initializerStyle: "attached",
+            attachedButtonStyles: {
+                color: "white",
+                backgroundColor: "red",
+
+            },
         });
 
 

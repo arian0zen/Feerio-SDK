@@ -33,6 +33,14 @@ declare global {
         theme?: "light" | "dark";
         color?: string;
         position?: "left" | "right";
+        initializerStyle?: "popup" | "attached";
+        attachedButtonStyles?: {
+          label?: string;
+
+          backgroundColor?: string;
+          color?: string;
+          border?: string;
+        };
         showChangelog?: boolean;
         absolutePosition?: {
           bottom?: string;
@@ -100,6 +108,14 @@ const initializeChangelogPopup = (options: {
   theme?: "light" | "dark";
   color?: string;
   position?: "left" | "right";
+  initializerStyle?: "popup" | "attached";
+  attachedButtonStyles?: {
+    label?: string;
+
+    backgroundColor?: string;
+    color?: string;
+    border?: string;
+  };
   showChangeLog?: boolean;
   absolutePosition?: {
     bottom?: string;
@@ -116,6 +132,9 @@ const initializeChangelogPopup = (options: {
   // if color is empty string make it #0A6847
   if (!options.color) {
     options.color = "#0A6847";
+  }
+  if (!options.initializerStyle) {
+    options.initializerStyle = "popup";
   }
 
   renderChangelogWidgetPopup(options);

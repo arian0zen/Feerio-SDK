@@ -30,6 +30,25 @@
 .button:hover {
   opacity: 0.8;
 }
+.attachedButton {
+  font-family: "Poppins", sans-serif !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 2.2rem;
+  /* cursor: pointer; */
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border: var(--border-color-light);
+  transform: rotate(180deg);
+}
+
+.dark.attachedButton {
+  border: var(--border-color-dark);
+}
 
 .icon {
   color: white;
@@ -37,7 +56,7 @@
 
 .widgetContainer {
   position: absolute;
-  bottom: 4.5rem;
+  /* bottom: 4.5rem; */
   /* right: 0; */
   /* left: 0; */
   min-width: 300px;
@@ -88,8 +107,8 @@
 
 @media (max-width: 480px) {
   .widgetContainer {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw !important;
+    height: 100vh !important;
     border-radius: 0;
     bottom: -16px !important;
     right: -16px !important;

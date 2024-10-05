@@ -281,7 +281,7 @@ const ChangelogWidgetPopUp = ({
           }}
           aria-label={showWidget ? "Close Widget" : "Open Widget"}
         >
-          <p>{attachedButtonStyles.label}</p>
+          {attachedButtonStyles.label}
         </button>
       )}
       {showWidget && (

@@ -17325,7 +17325,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.2.2 ************
+	// VERSION ************ 2.2.3 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

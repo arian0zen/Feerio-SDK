@@ -6,22 +6,35 @@ const generateIframeComponent = (options: {
 }) => {
   let { workspaceSubdomain, boardUrls = [] } = options;
 
-  // if boardUrls element is empty string remove that element
+  // Filter out empty strings from boardUrls
+  boardUrls = boardUrls.filter((url) => url.trim() !== "");
 
-  boardUrls = boardUrls.filter((url) => url !== "");
+  // Build URL parameters
+  const params = new URLSearchParams();
 
-  let boardUrlParam = boardUrls.length > 0 ? `?b=${boardUrls[0]}` : "";
+  // Add board URLs if they exist
+  if (boardUrls.length > 0) {
+    // Encode each board URL and add them as 'b' parameters
+    boardUrls.forEach((url) => {
+      params.append("b", encodeURIComponent(url));
+    });
+  }
 
-  let iframeSrc = `${
-    ENV === "DEV" ? "http:" : "https:"
-  }//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
+  // Construct the base URL
+  const baseUrl = `${ENV === "DEV" ? "http:" : "https:"}//${encodeURIComponent(
+    workspaceSubdomain
+  )}${PLAIN_DOMAIN_URL}/widgets/public-board`;
 
-  /* <iframe src="${iframeSrc}" style="width: 100%; height: 100%; border: none;"></iframe> */
+  // Combine base URL with parameters
+  const iframeSrc = params.toString()
+    ? `${baseUrl}?${params.toString()}`
+    : baseUrl;
 
-  let iframe = document.createElement("iframe");
+  // Create and configure iframe element
+  const iframe = document.createElement("iframe");
   iframe.src = iframeSrc;
   iframe.style.width = "100%";
-  iframe.style.height = "1000px";
+  iframe.style.height = "100%";
   iframe.style.overflow = "scroll";
   iframe.style.border = "none";
 
@@ -60,6 +73,10 @@ const renderPublicBoard = (options: {
   let htmlElementForAllBoards = document.querySelector(
     "[data-feerio-all-boards]"
   );
+
+  if (htmlElementForAllBoards) {
+    boardUrls = [];
+  }
 
   if (htmlElementForAllBoards) {
     let iframeComponent = generateIframeComponent({

@@ -17223,15 +17223,28 @@
 
 	const generateIframeComponent = (options) => {
 	    let { workspaceSubdomain, boardUrls = [] } = options;
-	    // if boardUrls element is empty string remove that element
-	    boardUrls = boardUrls.filter((url) => url !== "");
-	    let boardUrlParam = boardUrls.length > 0 ? `?b=${boardUrls[0]}` : "";
-	    let iframeSrc = `${"https:"}//${workspaceSubdomain}${PLAIN_DOMAIN_URL}/widgets/public-board${boardUrlParam}`;
-	    /* <iframe src="${iframeSrc}" style="width: 100%; height: 100%; border: none;"></iframe> */
-	    let iframe = document.createElement("iframe");
+	    // Filter out empty strings from boardUrls
+	    boardUrls = boardUrls.filter((url) => url.trim() !== "");
+	    // Build URL parameters
+	    const params = new URLSearchParams();
+	    // Add board URLs if they exist
+	    if (boardUrls.length > 0) {
+	        // Encode each board URL and add them as 'b' parameters
+	        boardUrls.forEach((url) => {
+	            params.append("b", encodeURIComponent(url));
+	        });
+	    }
+	    // Construct the base URL
+	    const baseUrl = `${"https:"}//${encodeURIComponent(workspaceSubdomain)}${PLAIN_DOMAIN_URL}/widgets/public-board`;
+	    // Combine base URL with parameters
+	    const iframeSrc = params.toString()
+	        ? `${baseUrl}?${params.toString()}`
+	        : baseUrl;
+	    // Create and configure iframe element
+	    const iframe = document.createElement("iframe");
 	    iframe.src = iframeSrc;
 	    iframe.style.width = "100%";
-	    iframe.style.height = "1000px";
+	    iframe.style.height = "100%";
 	    iframe.style.overflow = "scroll";
 	    iframe.style.border = "none";
 	    return iframe;
@@ -17255,6 +17268,9 @@
 	        element.appendChild(iframeComponent);
 	    });
 	    let htmlElementForAllBoards = document.querySelector("[data-feerio-all-boards]");
+	    if (htmlElementForAllBoards) {
+	        boardUrls = [];
+	    }
 	    if (htmlElementForAllBoards) {
 	        let iframeComponent = generateIframeComponent({
 	            workspaceSubdomain,
@@ -17325,7 +17341,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.2.3 ************
+	// VERSION ************ 2.3.0 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

@@ -6,12 +6,13 @@
 
     html,
     body {
-        font-family: 'Sofadi One', cursive !important;
+        font-family: 'Arial', sans-serif;
         margin: 0px;
         padding: 0px;
         width: 100vw;
-        background-color: bisque;
+        background-color: #f5f5f5;
         font-size: 20px;
+        color: #0f0f0f;
     }
 
 
@@ -29,12 +30,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script>!function (t, e, a, n) { function o() { if (!e.getElementById(a)) { var t = e.getElementsByTagName(n)[0], o = e.createElement(n); o.type = "text/javascript", o.async = !0, o.src = "https://cdn.prodcamp.com/js/prdcmp-sdk.js", t.parentNode.insertBefore(o, t) } } if ("function" != typeof t.ProdCamp) { var c = function () { c.args.push(arguments) }; c.p = "PXEBNASRV", c.args = [], c.t = t.ProdCampSettings && t.ProdCampSettings.token, c.f = true, t.ProdCamp = c, "complete" === e.readyState ? o() : t.attachEvent ? t.attachEvent("onload", o) : t.addEventListener("load", o, !1) } }(window, document, "prodcamp-js", "script");</script>
+    <!-- <script>!function (t, e, a, n) { function o() { if (!e.getElementById(a)) { var t = e.getElementsByTagName(n)[0], o = e.createElement(n); o.type = "text/javascript", o.async = !0, o.src = "https://cdn.prodcamp.com/js/prdcmp-sdk.js", t.parentNode.insertBefore(o, t) } } if ("function" != typeof t.ProdCamp) { var c = function () { c.args.push(arguments) }; c.p = "PXEBNASRV", c.args = [], c.t = t.ProdCampSettings && t.ProdCampSettings.token, c.f = true, t.ProdCamp = c, "complete" === e.readyState ? o() : t.attachEvent ? t.attachEvent("onload", o) : t.addEventListener("load", o, !1) } }(window, document, "prodcamp-js", "script");</script>
     <script>
         ProdCamp('initFeedbackWidget', {
             email: 'johndoe@foo.com',
         });
-    </script>
+    </script> -->
 
 
     <!-- Feerio's SDK Loader -->
@@ -45,26 +46,26 @@
                     var f = d.getElementsByTagName(s)[0],
                         e = d.createElement(s);
                     e.type = "text/javascript", e.async = !0,
-                        // e.src = "https://raw.githubusercontent.com/arian0zen/feerio-sdk/main/dist/feerio-widget-sdk.js",
-                        e.src = './dist/feerio-widget-sdk.js'
-                    e.onload = function () {
-                        console.log("=== Feerio SDK loaded successfully ===");
+                        e.src = "https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@latest/dist/feerio-widget-sdk.js",
+                        // e.src = './dist/feerio-widget-sdk.js'
+                        e.onload = function () {
+                            console.log("=== Feerio SDK loaded successfully ===");
 
-                        if (w.Feerio.fq) {
-                            while (w.Feerio.fq.length) {
-                                var args = w.Feerio.fq.shift();
-                                var method = args[0];
-                                var params = args[1];
+                            if (w.Feerio.fq) {
+                                while (w.Feerio.fq.length) {
+                                    var args = w.Feerio.fq.shift();
+                                    var method = args[0];
+                                    var params = args[1];
 
-                                if (w.Feerio[method]) {
-                                    w.Feerio[method](params);
-                                } else {
-                                    console.warn("Feerio method does not exist.");
+                                    if (w.Feerio[method]) {
+                                        w.Feerio[method](params);
+                                    } else {
+                                        console.warn("Feerio method does not exist.");
+                                    }
                                 }
                             }
-                        }
 
-                    };
+                        };
                     f.parentNode.insertBefore(e, f);
                 }
             }
@@ -88,24 +89,24 @@
     <!-- <script>!function(w,d,i,s){functionl(){if(!d.getElementById(i)){varf=d.getElementsByTagName(s)[0],e=d.createElement(s);e.type="text/javascript",e.async=!0,e.src="https://cdn.jsdelivr.net/gh/arian0zen/feerio-sdk@beta/dist/feerio-widget-sdk.js",e.onload=function(){console.log("===FeerioSDKloadedsuccessfully===");if(w.Feerio.fq){while(w.Feerio.fq.length){varargs=w.Feerio.fq.shift();varmethod=args[0];varparams=args[1];if(w.Feerio[method]){w.Feerio[method](params);}else{console.warn("Feeriomethoddoesnotexist.");}}}};f.parentNode.insertBefore(e,f);}}if("function"!=typeofw.Feerio){console.log("===loadingFeerioSDK===");varc=function(){c.fq.push(arguments);};c.fq=[];w.Feerio=c;"complete"===d.readyState?l():w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1);}}(window,document,"feerio-widget-sdk","script");</script> -->
 
 
-    <script>
+    <!-- <script>
         Feerio('initializeChangelog', {
             workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
-            workspaceSubdomain: 'crisp',
+            workspaceSubdomain: 'tapreferrrrr',
             position: 'bottom-right',
             theme: 'dark',
             title: 'very very very very Changelog',
         });
 
 
-    </script>
+    </script> -->
 
     <script>
         Feerio('initializeChangelogPopup', {
-            workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
-            workspaceSubdomain: 'crisp',
+            workspaceId: 'f9aab407-0b6b-4565-aed0-fcf28c635188',
+            workspaceSubdomain: 'syncupp-demo',
             theme: 'light',
-            color: "#603F26",
+            color: "#8673f7",
             position: 'right',
             // showChangelog: false,
             absolutePosition: {
@@ -120,9 +121,8 @@
             initializerStyle: "attached",
             attachedButtonStyles: {
                 color: "white",
-                backgroundColor: "red",
-                label: "View Changelog",
-
+                backgroundColor: "#8673f7",
+                label: "Feedback",
             },
         });
 
@@ -140,9 +140,11 @@
 
 <body>
 
-    <h1>Hello world</h1>
+    <h1 style="">
+        This is demo for <span style="color: #8673f7;">Syncupp</span>
+    </h1>
 
-    <button class="changelog-btn" data-feerio-changelog>
+    <!-- <button class="changelog-btn" data-feerio-changelog>
         View Changelog 1
     </button>
     <button class="changelog-btn" data-feerio-changelog>
@@ -153,7 +155,7 @@
     </button>
     <button class="changelog-btn" data-feerio-changelog>
         View Changelog 4
-    </button>
+    </button> -->
 
 
 

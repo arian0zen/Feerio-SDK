@@ -1,5 +1,6 @@
 /* Light & Dark Theme Variables */
-:root {
+
+.feedbackWrapper {
   --bg-color-light: #ffffff;
   --text-color-light: #333333;
   --border-color-light: #e5e7eb;

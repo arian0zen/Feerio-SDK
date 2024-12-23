@@ -236,7 +236,7 @@ const ChangelogWidgetPopUp = ({
   }, [initializerStyle, position]);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.changelogWrapper} `}>
       {initializerStyle === "popup" ? (
         <button
           onClick={() => setShowWidget(!showWidget)}

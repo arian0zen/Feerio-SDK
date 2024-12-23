@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 4px;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image {
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.removeButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  border-radius: 100%;
+  background-color: var(--bg-color-light);
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  color: #860000;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeIcon {
+  fill: currentColor;
+}

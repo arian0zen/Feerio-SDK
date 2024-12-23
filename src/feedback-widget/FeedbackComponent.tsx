@@ -7,6 +7,8 @@ import { IoWarningOutline } from "react-icons/io5";
 import styles from "./FeedbackComponent.module.css";
 import "../index.css";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import FileUploadButton from "./utility/FileUploadButton";
+import { ImagePreviewGrid } from "./utility/ImagePreviewGrid";
 
 type FeedbackComponentProps = {
   workspaceId: string;
@@ -73,6 +75,8 @@ const FeedbackComponent = ({
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  const [attachedImages, setAttachedImages] = useState<File[]>([]);
+
   const [addingPost, setAddingPost] = useState(false);
 
   const [message, setMessage] = useState<{
@@ -90,6 +94,7 @@ const FeedbackComponent = ({
       description,
       showInputDetails,
       workspaceId,
+      attachedImages,
     }: {
       title: string;
       description: string;
@@ -100,30 +105,25 @@ const FeedbackComponent = ({
         boardDescription: string;
       };
       workspaceId: string;
+      attachedImages?: File[];
     }) => {
       try {
         if (!title) {
-          setMessage({
-            type: "error",
-            content: "Title is required",
-          });
+          setMessage({ type: "error", content: "Title is required" });
           return;
         }
 
         if (!showInputDetails.boardId) {
-          setMessage({
-            type: "error",
-            content: "Board Id is required",
-          });
+          setMessage({ type: "error", content: "Board Id is required" });
           return;
         }
 
         const postData = {
-          title: title,
+          title,
           content: description,
           boardId: showInputDetails.boardId,
           boardName: showInputDetails.boardTitle,
-          workspaceId: workspaceId,
+          workspaceId,
           user: {
             email: user?.email || "",
             name: user?.name || "",
@@ -132,14 +132,31 @@ const FeedbackComponent = ({
 
         setAddingPost(true);
 
-        const { data } = await axios.post(
-          `${BASE_URL}/sdk/add-post-sdk`,
-          postData
-        );
-
-        if (!data.success) {
-          throw new Error(data.message);
+        let response;
+        if (attachedImages?.length) {
+          const formData = new FormData();
+          Object.entries(postData).forEach(([key, value]) => {
+            formData.append(
+              key,
+              typeof value === "object" ? JSON.stringify(value) : value
+            );
+          });
+          attachedImages.forEach((image, index) => {
+            formData.append(`attachedImagesSdk`, image);
+          });
+          response = await axios.post(
+            `${BASE_URL}/sdk/add-post-sdk`,
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        } else {
+          response = await axios.post(`${BASE_URL}/sdk/add-post-sdk`, postData);
         }
+
+        const { data } = response;
+        if (!data.success) throw new Error(data.message);
 
         setTitle("");
         setDescription("");
@@ -149,6 +166,9 @@ const FeedbackComponent = ({
           content: "Post added successfully",
           postUrl: data?.postUrl,
         });
+
+        // Reset attached images
+        setAttachedImages([]);
       } catch (error: any) {
         setAddingPost(false);
         console.error("Error adding post:", error);
@@ -219,23 +239,53 @@ const FeedbackComponent = ({
               theme === "light" ? "#d1d5db" : "#1f2937")
           }
         ></textarea>
-        <button
-          className={styles.postButton}
+
+        <ImagePreviewGrid
+          attachedImages={attachedImages}
+          setAttachedImages={setAttachedImages}
+        />
+
+        <div
           style={{
-            backgroundColor: color || "#0A6847",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "6px",
           }}
-          disabled={addingPost}
-          onClick={() =>
-            addPost({
-              title,
-              description,
-              showInputDetails,
-              workspaceId,
-            })
-          }
         >
-          {addingPost ? "Saving..." : "Submit Feedback"}
-        </button>
+          <FileUploadButton
+            onFileSelect={(file) => {
+              setAttachedImages((prev) => [...prev, file]);
+            }}
+            disabled={addingPost}
+            currentFileSize={
+              attachedImages.reduce((acc, file) => acc + file.size, 0) /
+              (1024 * 1024)
+            }
+            maxFileSize={3}
+            showSizeInfo={false}
+          />
+
+          <button
+            className={styles.postButton}
+            style={{
+              backgroundColor: color || "#0A6847",
+              width: "100%",
+            }}
+            disabled={addingPost}
+            onClick={() =>
+              addPost({
+                title,
+                description,
+                showInputDetails,
+                workspaceId,
+                attachedImages,
+              })
+            }
+          >
+            {addingPost ? "Saving..." : "Submit Feedback"}
+          </button>
+        </div>
 
         {/* //div for showing message */}
 
@@ -265,7 +315,9 @@ const FeedbackComponent = ({
     );
   };
   return (
-    <div className={`${styles[theme]} ${styles.container} animateFadeUp `}>
+    <div
+      className={`${styles[theme]} ${styles.feedbackWrapper} ${styles.container} animateFadeUp `}
+    >
       {!showInputDetails.show && boards && boards?.length > 0 && (
         <>
           {boards?.map((board) => (

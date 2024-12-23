@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+.button {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #838383;
+  cursor: pointer;
+  color: #838383;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.button:hover:not(.disabled) {
+  color: #e0e0e0;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  transform: rotate(45deg);
+  fill: currentColor;
+}
+
+.input {
+  display: none;
+}
+
+.sizeInfo {
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+}

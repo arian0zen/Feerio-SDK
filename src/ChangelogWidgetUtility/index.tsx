@@ -196,7 +196,15 @@ const renderChangelogWidgetPopup = ({
 }) => {
   // Check if the widget already exists
   const existingPortal = document.getElementById("changelog-widget-portal-fc");
-  if (existingPortal) return;
+
+  if (existingPortal) {
+    console.log("Changelog widget already exists. Removing existing widget.");
+    // Unmount React component to clean up event listeners and state
+    ReactDOM.unmountComponentAtNode(existingPortal);
+
+    // Remove the portal from DOM
+    existingPortal.remove();
+  }
 
   // Create a new div element for the portal
   const portalContainer = document.createElement("div");
@@ -247,8 +255,61 @@ const renderChangelogWidgetPopup = ({
   );
 };
 
+const removeChangelogWidgetPopup = (options?: {
+  workspaceId?: string;
+  workspaceSubdomain?: string;
+  theme?: "light" | "dark";
+  color?: string;
+  position?: "left" | "right";
+  initializerStyle?: "popup" | "attached";
+  attachedButtonStyles?: {
+    label?: string;
+    backgroundColor?: string;
+    color?: string;
+    border?: string;
+  };
+  showChangelog?: boolean;
+  absolutePosition?: {
+    bottom?: string;
+    right?: string;
+    left?: string;
+  };
+  user?: {
+    email?: string;
+    name?: string;
+  };
+}) => {
+  // Find the existing portal
+  const existingPortal = document.getElementById("changelog-widget-portal-fc");
+
+  if (existingPortal) {
+    // Unmount React component to clean up event listeners and state
+    ReactDOM.unmountComponentAtNode(existingPortal);
+
+    // Remove the portal from DOM
+    existingPortal.remove();
+
+    // If options are provided, re-initialize the widget
+    // if (options?.workspaceId && options?.workspaceSubdomain) {
+    //   renderChangelogWidgetPopup({
+    //     workspaceId: options.workspaceId,
+    //     workspaceSubdomain: options.workspaceSubdomain,
+    //     theme: options.theme || "light",
+    //     color: options.color,
+    //     position: options.position,
+    //     initializerStyle: options.initializerStyle,
+    //     attachedButtonStyles: options.attachedButtonStyles,
+    //     showChangelog: options.showChangelog,
+    //     absolutePosition: options.absolutePosition,
+    //     user: options.user,
+    //   });
+    // }
+  }
+};
+
 export {
   handleButtonClickForChangelogTrigger,
   renderChangelogWidget,
   renderChangelogWidgetPopup,
+  removeChangelogWidgetPopup,
 };

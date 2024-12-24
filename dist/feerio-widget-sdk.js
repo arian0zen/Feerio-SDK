@@ -17268,8 +17268,13 @@
 	const renderChangelogWidgetPopup = ({ theme, workspaceId, workspaceSubdomain, color, position, showChangelog, absolutePosition, user, initializerStyle = "popup", attachedButtonStyles, }) => {
 	    // Check if the widget already exists
 	    const existingPortal = document.getElementById("changelog-widget-portal-fc");
-	    if (existingPortal)
-	        return;
+	    if (existingPortal) {
+	        console.log("Changelog widget already exists. Removing existing widget.");
+	        // Unmount React component to clean up event listeners and state
+	        ReactDOM.unmountComponentAtNode(existingPortal);
+	        // Remove the portal from DOM
+	        existingPortal.remove();
+	    }
 	    // Create a new div element for the portal
 	    const portalContainer = document.createElement("div");
 	    portalContainer.id = "changelog-widget-portal-fc";
@@ -17301,6 +17306,31 @@
 	    document.body.appendChild(portalContainer);
 	    // Use ReactDOM.render instead of createPortal
 	    ReactDOM.render(jsxRuntimeExports.jsx(ChangelogWidgetPopUp, { workspaceId: workspaceId, workspaceSubdomain: workspaceSubdomain, theme: theme, color: color, position: position, showChangelog: showChangelog, user: user, initializerStyle: initializerStyle, attachedButtonStyles: attachedButtonStyles }), portalContainer);
+	};
+	const removeChangelogWidgetPopup = (options) => {
+	    // Find the existing portal
+	    const existingPortal = document.getElementById("changelog-widget-portal-fc");
+	    if (existingPortal) {
+	        // Unmount React component to clean up event listeners and state
+	        ReactDOM.unmountComponentAtNode(existingPortal);
+	        // Remove the portal from DOM
+	        existingPortal.remove();
+	        // If options are provided, re-initialize the widget
+	        // if (options?.workspaceId && options?.workspaceSubdomain) {
+	        //   renderChangelogWidgetPopup({
+	        //     workspaceId: options.workspaceId,
+	        //     workspaceSubdomain: options.workspaceSubdomain,
+	        //     theme: options.theme || "light",
+	        //     color: options.color,
+	        //     position: options.position,
+	        //     initializerStyle: options.initializerStyle,
+	        //     attachedButtonStyles: options.attachedButtonStyles,
+	        //     showChangelog: options.showChangelog,
+	        //     absolutePosition: options.absolutePosition,
+	        //     user: options.user,
+	        //   });
+	        // }
+	    }
 	};
 
 	const generateIframeComponent = (options) => {
@@ -17423,11 +17453,12 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.3.1 ************
+	// VERSION ************ 2.3.2 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,
 	    initializePublicBoard,
+	    removeChangelogWidgetPopup,
 	    fq: ((_a = window.Feerio) === null || _a === void 0 ? void 0 : _a.fq) || [],
 	};
 

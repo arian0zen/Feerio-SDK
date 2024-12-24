@@ -1,6 +1,7 @@
 import {
   handleButtonClickForChangelogTrigger,
   renderChangelogWidgetPopup,
+  removeChangelogWidgetPopup,
 } from "./ChangelogWidgetUtility";
 import { renderPublicBoard } from "./PublicBoardUtility";
 
@@ -37,6 +38,31 @@ declare global {
         attachedButtonStyles?: {
           label?: string;
 
+          backgroundColor?: string;
+          color?: string;
+          border?: string;
+        };
+        showChangelog?: boolean;
+        absolutePosition?: {
+          bottom?: string;
+          right?: string;
+          left?: string;
+        };
+        user?: {
+          email?: string;
+          name?: string;
+        };
+      }) => void;
+
+      removeChangelogWidgetPopup: (options?: {
+        workspaceId?: string;
+        workspaceSubdomain?: string;
+        theme?: "light" | "dark";
+        color?: string;
+        position?: "left" | "right";
+        initializerStyle?: "popup" | "attached";
+        attachedButtonStyles?: {
+          label?: string;
           backgroundColor?: string;
           color?: string;
           border?: string;
@@ -177,12 +203,12 @@ if (w.Feerio.q) {
 
 // for now we are approaching the 1st way
 
-// VERSION ************ 2.3.1 ************
+// VERSION ************ 2.3.2 ************
 
 window.Feerio = {
   initializeChangelog,
   initializeChangelogPopup,
   initializePublicBoard,
-
+  removeChangelogWidgetPopup,
   fq: window.Feerio?.fq || [],
 };

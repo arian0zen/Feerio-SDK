@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import ChangelogWidget from "../changelog-widget/ChangelogWidget";
 import ChangelogWidgetPopUp from "../changelog-widget/ChangelogWidgetPopUp";
+import { WidgetManager } from "../WidgetManager";
 
 const renderChangelogWidget = (
   container: HTMLElement,
@@ -194,6 +195,7 @@ const renderChangelogWidgetPopup = ({
     name?: string;
   };
 }) => {
+  const manager = WidgetManager.getInstance();
   // Check if the widget already exists
   const existingPortal = document.getElementById("changelog-widget-portal-fc");
   if (existingPortal) return;
@@ -242,6 +244,7 @@ const renderChangelogWidgetPopup = ({
       user={user}
       initializerStyle={initializerStyle}
       attachedButtonStyles={attachedButtonStyles}
+      onUnmount={() => manager.trackUnmount("changelog-widget-portal-fc")}
     />,
     portalContainer
   );

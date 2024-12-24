@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feerio SDK Test</title>
+</head>
+
+<body>
+    <h1>Feerio SDK Test</h1>
+    <label for="user-select">Select User:</label>
+    <select id="user-select">
+        <option value="">-- Select a User --</option>
+        <option value='{"email": "user1@example.com", "first_name": "Alice", "last_name": "Smith"}'>Alice Smith</option>
+        <option value='{"email": "user2@example.com", "first_name": "Bob", "last_name": "Johnson"}'>Bob Johnson</option>
+        <option value='{"email": "user3@example.com", "first_name": "Charlie", "last_name": "Brown"}'>Charlie Brown
+        </option>
+    </select>
+    <button id="login-btn">Login</button>
+    <button id="logout-btn">Logout</button>
+
+    <script>
+        let signIn = {
+            loginUserStatus: 'loggedOut',
+            isLoggedOut: true,
+            userProfile: null,
+        };
+
+        const initializeFeerio = () => {
+            if (
+                window.Feerio?.initializeChangelogPopup &&
+                signIn?.userProfile?.email &&
+                signIn?.userProfile?.first_name
+            ) {
+                console.log('Initializing Feerio');
+
+                window.Feerio.initializeChangelogPopup({
+                    workspaceId: '665ae023-277e-4b15-bf0d-55351c7cbf96',
+                    workspaceSubdomain: 'crisp',
+                    theme: 'light',
+                    position: 'right',
+                    initializerStyle: 'popup',
+                    attachedButtonStyles: {
+                        color: 'white',
+                        backgroundColor: 'red',
+                        label: 'View Changelog',
+                    },
+                    user: {
+                        email: signIn?.userProfile?.email,
+                        name: `${signIn?.userProfile?.first_name} ${signIn?.userProfile?.last_name}`,
+                    },
+                })
+
+                const changelogButton = document.querySelector(
+                    '.ChangelogWidgetPopUp-module_button__i8O2R'
+                );
+                if (changelogButton) {
+                    changelogButton.style.display = 'flex';
+                    console.log('Feerio button made visible after initialization');
+                }
+            }
+        };
+
+        const loadFeerioScript = () => {
+            if (!document.getElementById('feerio-sdk-script')) {
+                const script = document.createElement('script');
+                script.id = 'feerio-sdk-script';
+                script.src = './dist/feerio-widget-sdk.js';
+                script.async = true;
+                script.onload = () => {
+                    console.log('Feerio SDK loaded successfully');
+                    initializeFeerio();
+                };
+                document.body.appendChild(script);
+            } else {
+                initializeFeerio();
+
+
+
+
+            }
+        };
+
+        const unloadFeerioScript = () => {
+
+
+            const changelogButton = document.querySelector(
+                '.ChangelogWidgetPopUp-module_button__i8O2R'
+            );
+            if (changelogButton) {
+                changelogButton.style.display = 'none';
+                console.log('Feerio button hidden');
+            }
+
+            const script = document.getElementById('feerio-sdk-script');
+            if (script) {
+                script.remove();
+                console.log('Feerio SDK script removed');
+            }
+
+            const feerioElements = document.querySelectorAll(
+                '[data-feerio-widget], .feerio-widget, .feerio-popup'
+            );
+            feerioElements.forEach((el) => el.remove());
+            console.log('Feerio DOM elements removed');
+
+            if (window.Feerio) {
+
+                window.Feerio.resetUser();
+            }
+
+
+
+
+        };
+
+        const handleLogin = () => {
+            const selectedUser = document.getElementById('user-select').value;
+            if (!selectedUser) {
+                alert('Please select a user before logging in.');
+                return;
+            }
+
+            const userProfile = JSON.parse(selectedUser);
+            signIn = {
+                loginUserStatus: 'success',
+                isLoggedOut: false,
+                userProfile,
+            };
+            console.log('Logged in:', signIn);
+            unloadFeerioScript();
+            loadFeerioScript();
+        };
+
+        const handleLogout = () => {
+            signIn = {
+                loginUserStatus: 'loggedOut',
+                isLoggedOut: true,
+                userProfile: null,
+            };
+            console.log('Logged out:', signIn);
+            unloadFeerioScript();
+        };
+
+        document.getElementById('login-btn').addEventListener('click', handleLogin);
+        document.getElementById('logout-btn').addEventListener('click', handleLogout);
+    </script>
+</body>
+
+</html>

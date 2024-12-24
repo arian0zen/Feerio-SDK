@@ -3,6 +3,7 @@ import {
   renderChangelogWidgetPopup,
 } from "./ChangelogWidgetUtility";
 import { renderPublicBoard } from "./PublicBoardUtility";
+import { WidgetManager } from "./WidgetManager";
 
 declare global {
   interface Window {
@@ -36,7 +37,6 @@ declare global {
         initializerStyle?: "popup" | "attached";
         attachedButtonStyles?: {
           label?: string;
-
           backgroundColor?: string;
           color?: string;
           border?: string;
@@ -52,8 +52,7 @@ declare global {
           name?: string;
         };
       }) => void;
-
-      // fq is the queue of functions that will be called when the script is loaded
+      resetUser: (newUser?: { email?: string; name?: string }) => Promise<void>;
       fq: any[];
     };
   }
@@ -83,12 +82,6 @@ const initializeChangelog = (options: {
   console.log("====INITIALIZE CHANGELOG====");
 
   document.querySelectorAll("[data-feerio-changelog]").forEach((button) => {
-    // button.addEventListener("click", (event) =>
-    //   handleButtonClickForChangelogTrigger(event as MouseEvent, options)
-    // );
-
-    // we need to remove the previous event listener if it exists and add the new event listener with the updated options
-
     // Remove the previous event listener if it exists
     button.removeEventListener(
       "click",
@@ -102,6 +95,7 @@ const initializeChangelog = (options: {
     );
   });
 };
+
 const initializeChangelogPopup = (options: {
   workspaceId: string;
   workspaceSubdomain: string;
@@ -111,7 +105,6 @@ const initializeChangelogPopup = (options: {
   initializerStyle?: "popup" | "attached";
   attachedButtonStyles?: {
     label?: string;
-
     backgroundColor?: string;
     color?: string;
     border?: string;
@@ -129,7 +122,9 @@ const initializeChangelogPopup = (options: {
 }) => {
   console.log("====INITIALIZE CHANGELOG POPUP (ALWAYS)====");
 
-  // if color is empty string make it #0A6847
+  const manager = WidgetManager.getInstance();
+  manager.setOptions(options);
+
   if (!options.color) {
     options.color = "#0A6847";
   }
@@ -138,14 +133,6 @@ const initializeChangelogPopup = (options: {
   }
 
   renderChangelogWidgetPopup(options);
-};
-
-const initializePublicBoard = (options: {
-  workspaceSubdomain: string;
-  boardUrls: string[];
-}) => {
-  console.log("====INITIALIZE PUBLIC BOARD====");
-  renderPublicBoard(options);
 };
 
 // window.Feerio = { initializeChangelog };
@@ -175,14 +162,36 @@ if (w.Feerio.q) {
 
 */
 
-// for now we are approaching the 1st way
+const initializePublicBoard = (options: {
+  workspaceSubdomain: string;
+  boardUrls: string[];
+}) => {
+  console.log("====INITIALIZE PUBLIC BOARD====");
+  renderPublicBoard(options);
+};
+
+// New optimized resetUser implementation
+const resetUser = async (newUser?: {
+  email?: string;
+  name?: string;
+}): Promise<void> => {
+  console.log("====RESETTING USER IN CHANGELOG POPUP====");
+
+  const manager = WidgetManager.getInstance();
+  const success = await manager.resetUser(newUser);
+
+  if (success) {
+    console.log("====USER RESET COMPLETED====");
+  } else {
+    console.log("====USER RESET FAILED====");
+  }
+};
 
 // VERSION ************ 2.3.1 ************
-
 window.Feerio = {
   initializeChangelog,
   initializeChangelogPopup,
   initializePublicBoard,
-
+  resetUser,
   fq: window.Feerio?.fq || [],
 };

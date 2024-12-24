@@ -1,6 +1,6 @@
-export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
+// export const ENV = "PROD" as "PROD" | "DEV" | "STAGE";
 // export const ENV = "STAGE" as "PROD" | "DEV" | "STAGE";
-// export const ENV = "DEV" as "PROD" | "DEV" | "STAGE";
+export const ENV = "DEV" as "PROD" | "DEV" | "STAGE";
 
 const URLS = {
   DEV: {

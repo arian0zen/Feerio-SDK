@@ -20,6 +20,7 @@ const ChangelogWidgetPopUp = ({
   initializerStyle = "popup",
 
   attachedButtonStyles,
+  onUnmount,
 }: {
   workspaceId: string;
   workspaceSubdomain: string;
@@ -38,6 +39,7 @@ const ChangelogWidgetPopUp = ({
     label?: string;
     border?: string; // this is currently not used anywhere
   };
+  onUnmount: () => void;
 }) => {
   const [showWidget, setShowWidget] = useState(false);
   const [activeTab, setActiveTab] = useState(
@@ -49,6 +51,13 @@ const ChangelogWidgetPopUp = ({
   const initializerRef = useRef<HTMLButtonElement>(null);
   const dragStartY = useRef<number>(0);
   const startPositionY = useRef<number>(0);
+
+  // Set up cleanup function
+  // useEffect(() => {
+  //   return () => {
+  //     onUnmount();
+  //   };
+  // }, []);
 
   attachedButtonStyles = {
     ...attachedButtonStyles,

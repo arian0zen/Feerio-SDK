@@ -246,7 +246,7 @@ const ChangelogWidget = ({
           Help
         </a> */}
         <a
-          href={`https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelogs`}
+          href={`https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelog`}
           target="_blank"
           rel="noreferrer"
           className={styles.link}

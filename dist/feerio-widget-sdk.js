@@ -16734,7 +16734,7 @@
 	                                                                                : "#44403c", // stone-600
 	                                                            } }, { children: tag }), index))) }))), changelog.title] })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$6.changelogDescription }, { children: changelog.plainTextContent.length > 100
 	                                                    ? changelog.plainTextContent.slice(0, 100) + "..."
-	                                                    : changelog.plainTextContent })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$6.changelogMeta }, { children: formatDate(changelog.createdAt) }))] })) }), index))) })) }))), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$6.changelogDetails}  ${showingDetails ? styles$6.slideIn : ""} ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"}`, ref: detailsRef }, { children: selectedChangeLog && (jsxRuntimeExports.jsx(ChangelogDetailsCard, { initialValue_: selectedChangeLog.slateJsDescendantContent, showBackButton: isPopUp, setShowingDetails: setShowingDetails, setSelectedChangeLog: setSelectedChangeLog })) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$6.footer }, { children: [jsxRuntimeExports.jsx("span", Object.assign({ className: styles$6.poweredBy }, { children: jsxRuntimeExports.jsx("a", Object.assign({ href: "https://feerio.io", target: "_blank", rel: "noreferrer" }, { children: "Powered by Feerio" })) })), jsxRuntimeExports.jsx("a", Object.assign({ href: `https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelogs`, target: "_blank", rel: "noreferrer", className: styles$6.link }, { children: "See all changes" }))] }))] })));
+	                                                    : changelog.plainTextContent })), jsxRuntimeExports.jsx("div", Object.assign({ className: styles$6.changelogMeta }, { children: formatDate(changelog.createdAt) }))] })) }), index))) })) }))), jsxRuntimeExports.jsx("div", Object.assign({ className: `${styles$6.changelogDetails}  ${showingDetails ? styles$6.slideIn : ""} ${theme === "light" ? "thin-scrollbar" : "thin-scrollbar-dark"}`, ref: detailsRef }, { children: selectedChangeLog && (jsxRuntimeExports.jsx(ChangelogDetailsCard, { initialValue_: selectedChangeLog.slateJsDescendantContent, showBackButton: isPopUp, setShowingDetails: setShowingDetails, setSelectedChangeLog: setSelectedChangeLog })) }))] })), jsxRuntimeExports.jsxs("div", Object.assign({ className: styles$6.footer }, { children: [jsxRuntimeExports.jsx("span", Object.assign({ className: styles$6.poweredBy }, { children: jsxRuntimeExports.jsx("a", Object.assign({ href: "https://feerio.io", target: "_blank", rel: "noreferrer" }, { children: "Powered by Feerio" })) })), jsxRuntimeExports.jsx("a", Object.assign({ href: `https://${workspaceSubdomain}${PLAIN_DOMAIN_URL}/dashboard/changelog`, target: "_blank", rel: "noreferrer", className: styles$6.link }, { children: "See all changes" }))] }))] })));
 	};
 
 	// THIS FILE IS AUTO GENERATED
@@ -17453,7 +17453,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.3.2 ************
+	// VERSION ************ 2.3.3 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,

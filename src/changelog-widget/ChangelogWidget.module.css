@@ -169,7 +169,6 @@
   font-style: italic;
 }
 
-a,
 .link {
   color: var(--link-color) !important;
   text-decoration: none;

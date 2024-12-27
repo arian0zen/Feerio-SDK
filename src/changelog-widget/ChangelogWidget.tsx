@@ -233,7 +233,12 @@ const ChangelogWidget = ({
 
       <div className={styles.footer}>
         <span className={styles.poweredBy}>
-          <a href="https://feerio.io" target="_blank" rel="noreferrer">
+          <a
+            href="https://feerio.io"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.link}
+          >
             Powered by Feerio
           </a>
         </span>

@@ -17453,7 +17453,7 @@
 
 	*/
 	// for now we are approaching the 1st way
-	// VERSION ************ 2.3.4 ************
+	// VERSION ************ 2.3.5 ************
 	window.Feerio = {
 	    initializeChangelog,
 	    initializeChangelogPopup,
